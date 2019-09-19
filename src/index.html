@@ -2,17 +2,102 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="styles/main.css" />
-  <title>Document</title>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>Document</title>
 </head>
 
 <body>
-  <article id="container"></article>
+    <header>
+        <h1>Nutstalgia</h1>
+        <img src="styles/img/walnut.jpg">
+        <nav>
+            <button>Daily Tasks</button>
+            <button>Events</button>
+            <button>Friends</button>
+            <button>News</button>
+            <button>Sign Out</button>
+        </nav>
+    </header>
 
-  <!-- registration form -->
+    <article id="container"></article>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="closeBtn">&times;</span>
+            <h2 class="login-header">Welcome!</h2>
+            <h3 class="login-userLogin">User Login</h3>
+          </div>
+          <div class="modal-body ">
+            <div class="flex-container">
+             
+              <input class="flex-input" type="text" placeholder="Enter Username" id="userName" />
+            </div>
+      
+            <div class="flex-container">
+              <input class="flex-input" type="password" placeholder="Enter Password" id="password" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btn-submit">Login!</button>
+          </div>
+          <div>
+            <a href="#">Create An Account!</a>
+          </div>
+        </div>
+      </div>
+
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeBtn">&times;</span>
+                <h2>News Item</h2>
+            </div>
+            <div class="modal-body ">
+                <div class="flex-container">
+                    <input class="flex-input" type="text" placeholder="News Title">
+                    <input class="flex-input" type="text" placeholder="Synopsis">
+                    <input class="flex-input" type="text" placeholder="URL">
+                </div>
+                <button>Submit</button>
+            </div>
+        </div>
+    </div>
+    <div id="eventsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeBtn">&times;</span>
+                <h2>Events Item</h2>
+            </div>
+            <div class="modal-body ">
+                <div class="flex-container">
+                    <input class="flex-input" type="text" placeholder="Name of Event">
+                    <input class="flex-input" type="text" placeholder="Date of Event">
+                    <input class="flex-input" type="text" placeholder="Location of Event">
+                </div>
+                <button>Submit</button>
+            </div>
+        </div>
+    </div>
+    <div id="friendsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeBtn">&times;</span>
+                <h2>Friends Item</h2>
+            </div>
+            <div class="modal-body ">
+                <div class="flex-container">
+                    <input class="flex-input" type="text" placeholder="add friend">
+                    <button>Add</button>
+                </div>
+                <button>Submit</button>
+            </div>
+        </div>
+    </div>
+    <!-- registration form -->
   <button type="button" id="btn-add">Add</button>
   <div id="register-form" class="modal">
     <div class="modal-content">
@@ -33,6 +118,9 @@
       </div>
     </div>
   </div>
+
+
+
   <script src="scripts/main.js"></script>
 </body>
 
