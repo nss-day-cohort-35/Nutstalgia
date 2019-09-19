@@ -1,0 +1,29 @@
+h1 {
+    display: inline-block;
+    padding: 1em;
+}
+
+header {
+    background-color: blueviolet;
+    padding: 0.5em;
+}
+
+nav {
+    text-align: center;
+    display: inline;
+    margin: 3em;
+    padding: 2em;
+}
+
+nav button {
+    margin: 3em;
+    padding: 0.5em;
+    background-color: bisque;
+}
+
+img {
+    float: left;
+    border-radius: 25% 10%;
+    height: 90px;
+    width: 90px;
+}
