@@ -8,33 +8,7 @@
     <link rel="stylesheet" href="./styles/main.css">
     <title>Document</title>
 </head>
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="closeBtn">&times;</span>
-      <h2 class="login-header">Welcome!</h2>
-      <h3 class="login-userLogin">User Login</h3>
-    </div>
-    <div class="modal-body ">
-      <div class="flex-container">
-        <label class="flex-label" for="userName">Username:</label>
-        <input class="flex-input" type="text" id="userName" />
-      </div>
 
-      <div class="flex-container">
-        <label class="flex-label" for="password">
-          Password:</label>
-        <input class="flex-input" type="password" id="password" />
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" id="btn-submit">Submit</button>
-    </div>
-    <div>
-      <a href="#">Create An Account!</a>
-    </div>
-  </div>
-</div>
 <body>
     <header>
         <h1>Nutstalgia</h1>
@@ -49,6 +23,31 @@
     </header>
 
     <article id="container"></article>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="closeBtn">&times;</span>
+            <h2 class="login-header">Welcome!</h2>
+            <h3 class="login-userLogin">User Login</h3>
+          </div>
+          <div class="modal-body ">
+            <div class="flex-container">
+             
+              <input class="flex-input" type="text" placeholder="Enter Username" id="userName" />
+            </div>
+      
+            <div class="flex-container">
+              <input class="flex-input" type="password" placeholder="Enter Password" id="password" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btn-submit">Submit</button>
+          </div>
+          <div>
+            <a href="#">Create An Account!</a>
+          </div>
+        </div>
+      </div>
 
 </body>
 
