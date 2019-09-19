@@ -2,15 +2,38 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./styles/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="styles/main.css" />
   <title>Document</title>
 </head>
 
 <body>
   <article id="container"></article>
+
+  <!-- registration form -->
+  <button type="button" id="btn-add">Add</button>
+  <div id="register-form" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="closeBtn">&times;</span>
+        <h2>Register User</h2>
+      </div>
+      <div class="modal-body ">
+        <div class="flex-container">
+          <input class="flex-input" type="text" id="firstName" placeholder="First Name" />
+          <input class="flex-input" type="text" id="lastName" placeholder="Last Name" />
+          <input class="flex-input" type="text" id="emailAddress" placeholder="Email Address" />
+          <input class="flex-input" type="password" id="password" placeholder="Password" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-save">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>
