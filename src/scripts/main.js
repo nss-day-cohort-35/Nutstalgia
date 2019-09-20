@@ -11,6 +11,42 @@ import API from "./dataAPI.js";
 document.querySelector("#container").innerHTML = `<h1>${message}</h1>`
 
 console.log(message) */
+
+/* Login input start */
+const addLoginModal = document.querySelector("#loginModal")
+const addLoginModalBtn = document.querySelector("#btnSignIn")
+const closeLoginModalBtn = document.querySelector("#btnCloseLoginForm")
+
+const openLoginAddModal = () => {
+    addLoginModal.style.display = "block";
+
+}
+const closeLoginAddModal = () => {
+    addLoginModal.style.display = "none";
+}
+
+addLoginModalBtn.addEventListener("click", openLoginAddModal);
+closeLoginModalBtn.addEventListener("click", closeLoginAddModal);
+
+document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
+    const user = getLoginFormValue()
+    console.log(user)
+
+})
+
+const getLoginFormValue = () => {
+        const user = document.querySelector("#userName").value
+        const password = document.querySelector("#myPassword").value
+
+        const userLogin = {
+            user: user,
+            password: password,
+          
+        }
+        return userLogin
+
+    }
+    /* Login Form end */
 /* registration input value start */
 const addModal = document.querySelector("#register-form")
 const addModalBtn = document.querySelector("#btn-add")
