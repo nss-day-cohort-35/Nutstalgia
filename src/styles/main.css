@@ -71,15 +71,15 @@
     text-align: center;
   }
   
-  .btn-close-registration-form
+  #btnCloseRegistrationForm, #btnCloseNews
   {
     color: #ccc;
     float: right;
     font-size: 30px;
   }
   
-  .btn-close-registration-form:hover,
-  .btn-close-registration-form:focus
+  #btnCloseRegistrationForm:hover, #btnCloseNews:hover,
+  #btnCloseRegistrationForm:focus, #btnCloseNews:focus
    {
     color: black;
     text-decoration: none;
@@ -89,26 +89,27 @@
   .flex-container {
     display: flex;
     flex-flow: column wrap;
-  
     margin: auto;
-    padding: 10px;
+    padding: 15px;
     overflow: auto;
   }
   
   .flex-input {
-    padding: 5px 10px;
+    padding: 4px 5px;
     font-size: 20px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 10px;
     overflow: auto;
   }
-  #btn-save {
+
+  #btn-save, #btnNewsSave {
     background-color: rgb(1, 53, 82);
     color: antiquewhite;
     padding: 5px 10px;
     font-size: 20px;
   }
-  #btn-save:hover {
+  #btn-save:hover, #btnNewsSave:hover {
     background-color: green;
     border: 2px solid #4caf50;
   }
