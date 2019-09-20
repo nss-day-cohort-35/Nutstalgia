@@ -1,3 +1,6 @@
+import API from "./dataAPI.js";
+
+
 /*
     Import all the tools into main.js that are needed to display
     the initial UI to the user. Either the login form should appear
@@ -37,8 +40,13 @@ document.querySelector("#btn-save").addEventListener("click", event => {
         //if not null, register and store in session.
         closeAddModal()
     }
+    // Called the get registerForm value function which holds the registerd User object
+    // This creates the object that will be placed in the JSON
+    getRegisterFormValue(registeredUser)
 
-
+    //I called the save User method that is on the API
+    //This will now post the registered user to JSON
+    API.saveUser(registeredUser);
 })
 
 const getRegisterFormValue = () => {
@@ -66,39 +74,57 @@ const getRegisterFormValue = () => {
     }
     /* registration form value end */
 
-/* News form Input Value */
-const addNewsModal = document.querySelector("#newsModal")
-const addNewsModalBtn = document.querySelector("#btnNews")
-const closeAddNewsModalBtn = document.querySelector("#btnCloseNews")
 
-const openNewsAddModal = () => {
-    addNewsModal.style.display = "block";
+// Storage Session 
 
-}
-const closeNewsAddModal = () => {
-    addNewsModal.style.display = "none";
-}
 
-addNewsModalBtn.addEventListener("click", openNewsAddModal);
-closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
 
-document.querySelector("#btnNewsSave").addEventListener("click", event => {
-    const news = getNewsFormValue()
-    console.log(news)
+//Event listener button that changes innerHTML
+document.querySelector("#btnNews").addEventListener("click", () => {
+            // This makes sure we have news articles when the page loads!
 
-})
 
-const getNewsFormValue = () => {
-        const title = document.querySelector("#newsTitle").value
-        const synopsis = document.querySelector("#newsSynopsis").value
-        const url = document.querySelector("#newsURL").value
 
-        const news = {
-            title: title,
-            synopsis: synopsis,
-            url: url,
-        }
-        return news
 
-    }
-    /* Input form value end */
+
+
+
+
+            /* News form Input Value */
+            const addNewsModal = document.querySelector("#newsModal")
+            const addNewsModalBtn = document.querySelector("#btnNews")
+            const closeAddNewsModalBtn = document.querySelector("#btnCloseNews")
+
+            const openNewsAddModal = () => {
+                addNewsModal.style.display = "block";
+
+            }
+            const closeNewsAddModal = () => {
+                addNewsModal.style.display = "none";
+            }
+
+            addNewsModalBtn.addEventListener("click", openNewsAddModal);
+            closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
+
+
+            /*
+            document.querySelector("#btnNewsSave").addEventListener("click", event => {
+                    const news = getNewsFormValue()
+                    console.log(news)
+
+                })
+               
+                const getNewsFormValue = () => {
+                        const title = document.querySelector("#newsTitle").value
+                        const synopsis = document.querySelector("#newsSynopsis").value
+                        const url = document.querySelector("#newsURL").value
+
+                        const news = {
+                            title: title,
+                            synopsis: synopsis,
+                            url: url,
+                        }
+                        return news
+
+                    }
+                    /* Input form value end */

@@ -1,21 +1,18 @@
-/*
-// Fetch call
-const newsAPI = {
-    getNewsArticles: () => {
-        return fetch("http://localhost:8088/news")
-            .then(response => response.json())
-    }
-};
+import API from "./dataAPI.js/"
+
 
 //Event listener button that changes innerHTML
+document.querySelector("#btnNews").addEventListener("click", () => {
+    // This makes sure we have news articles when the page loads!
 
+    document.querySelector("#mainContainer").innerHTML =
+        newsAPI.getNewsArticles().then((allArticles) => {
+            allArticles.forEach(article => {
+                renderNewsArticle(article)
+            })
+        });
+})
 
-// This makes sure we have news articles when the page loads!
-newsAPI.getNewsArticles().then((allArticles) => {
-    allArticles.forEach(article => {
-        renderNewsArticle(article)
-    })
-});
 
 //Functions that builds news article
 const newNewsArticle = (title, synopsis, url, date) => {
@@ -28,6 +25,7 @@ const newNewsArticle = (title, synopsis, url, date) => {
     return newArticle
 };
 
+/*
 // Event Listener      
 document.querySelector("#btnNewsSubmit").addEventListener("click", () => {
 
@@ -75,4 +73,4 @@ const renderNewsArticle = (news) => {
     `
     }
 
-    */
+*/
