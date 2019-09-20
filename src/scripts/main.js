@@ -22,8 +22,3 @@ const closeAddModal = () => {
 
 addModalBtn.addEventListener("click", openAddModal);
 closeAddModalBtn.addEventListener("click", closeAddModal);
-
-
-
-
-

@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-
+    <!-- News form start-->
     <div id="newsModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -61,10 +61,13 @@
                     <input class="flex-input" type="text" placeholder="Synopsis">
                     <input class="flex-input" type="text" placeholder="URL">
                 </div>
-                <button>Submit</button>
+                <button id="btnNewsSubmit">Submit</button>
             </div>
+            <div id="NewsResultContainer"></div>
         </div>
     </div>
+    <!-- News form ends-->
+
     <div id="eventsModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -122,6 +125,7 @@
 
 
     <script src="scripts/main.js"></script>
+    <script src="scripts/news/eventListeners.js"></script>
 </body>
 
 </html>
