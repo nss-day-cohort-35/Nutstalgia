@@ -1,3 +1,4 @@
+/*
 // Fetch call
 const newsAPI = {
     getNewsArticles: () => {
@@ -5,6 +6,9 @@ const newsAPI = {
             .then(response => response.json())
     }
 };
+
+//Event listener button that changes innerHTML
+
 
 // This makes sure we have news articles when the page loads!
 newsAPI.getNewsArticles().then((allArticles) => {
@@ -70,3 +74,5 @@ const renderNewsArticle = (news) => {
     </div>
     `
     }
+
+    */
