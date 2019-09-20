@@ -41,8 +41,6 @@ document.querySelector("#btn-save").addEventListener("click", event => {
    
 })
 
-
-
 const getRegisterFormValue = () => {
     const firstName = document.querySelector("#firstName").value 
     const lastName = document.querySelector("#lastName").value
