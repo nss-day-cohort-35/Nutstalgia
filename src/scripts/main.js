@@ -109,15 +109,6 @@ const getRegisterFormValue = () => {
         }
         return registeredUser
 
-    const registeredUser = {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
-        confirmPassword: confirmPassword
-    }
-    return registeredUser
-
 }
 /* registration form value end */
 
@@ -158,17 +149,19 @@ const getNewsFormValue = () => {
 }
 /* Input form value end */
 
-document.querySelector("#btn-submit").addEventListener("click", event => {
-    const loginUser = document.querySelector("#userName").value
-    const loginPW = document.querySelector("#password").value
+document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
+    const loginUser = document.querySelector("#loginUserName").value
+    const loginPW = document.querySelector("#myPassword").value
     API.getAnything("users")
         .then(response => {
             response.forEach(user => {
                 console.log(response)
-                if (user.id === loginUser && user.password === loginPW) {
+                if (user.userName === loginUser && user.password === loginPW) {
                     sessionStorage.setItem("activeUser", user.id)
-                }  {
-                    // alert("Get off my lawn.")
+                    console.log(sessionStorage)
+                    alert("It's a Match!")
+                } else {
+                     alert("Get off my lawn.")
                 }
             });
         });
