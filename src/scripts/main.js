@@ -73,6 +73,17 @@ const getRegisterFormValue = () => {
     }
     /* registration form value end */
 
+
+    // Storage Session 
+    
+
+
+
+
+
+
+
+
 /* News form Input Value */
 const addNewsModal = document.querySelector("#newsModal")
 const addNewsModalBtn = document.querySelector("#btnNews")
