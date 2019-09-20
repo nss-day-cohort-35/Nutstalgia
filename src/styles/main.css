@@ -58,7 +58,7 @@
 
   .modal-header {
     padding: 2px 16px;
-    background-color: var(--pastel-brown);
+    background-color: rgba(5, 114, 168);
     color: white;
   }
   
