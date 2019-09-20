@@ -12,7 +12,7 @@ console.log(message) */
 
 const addModal = document.querySelector("#register-form")
 const addModalBtn = document.querySelector("#btn-add")
-const closeAddModalBtn = document.querySelector(".closeBtn")
+const closeAddModalBtn = document.querySelector(".btn-close-registration-form")
 const openAddModal = () => {
     addModal.style.display = "block";
 }
