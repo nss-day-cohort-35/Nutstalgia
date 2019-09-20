@@ -1,4 +1,3 @@
-import taskAPI from "../scripts/taskData.js" 
 
 /*
     Import all the tools into main.js that are needed to display
