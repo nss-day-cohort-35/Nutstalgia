@@ -1,3 +1,14 @@
+:root {
+    --button-font-color: rgb(255, 255, 255);
+    --button-bg: rgb(#383838);
+    --moss-green: rgb(#AFD5AA);
+    --flash-white: rgb(#F0F2EF);
+    --onyx: rgb(#383838);
+    --pastel-brown: rgb(#876E56);
+    --rhythm: rgb(#8E719E);
+    
+}
+
 h1 {
     display: inline-block;
     padding: 1em;
