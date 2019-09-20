@@ -34,7 +34,7 @@ closeAddModalBtn.addEventListener("click", closeAddModal);
 document.querySelector("#btn-save").addEventListener("click", event => {
     const registeredUser = getRegisterFormValue()
     console.log(registeredUser)
-        // check if registredUser variable is null,
+    // check if registredUser variable is null,
     if (registeredUser != null) {
         //if not null, register and store in session.
         closeAddModal()
@@ -49,29 +49,29 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 })
 
 const getRegisterFormValue = () => {
-        const firstName = document.querySelector("#firstName").value
-        const lastName = document.querySelector("#lastName").value
-        const email = document.querySelector("#emailAddress").value
-        const password = document.querySelector("#userPassword").value
-        const confirmPassword = document.querySelector("#confirmPassword").value
+    const firstName = document.querySelector("#firstName").value
+    const lastName = document.querySelector("#lastName").value
+    const email = document.querySelector("#emailAddress").value
+    const password = document.querySelector("#userPassword").value
+    const confirmPassword = document.querySelector("#confirmPassword").value
 
-        //validate password
-        if (password != confirmPassword) {
-            alert("Password doesn't match")
-            return null;
-        }
-
-        const registeredUser = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password,
-            confirmPassword: confirmPassword
-        }
-        return registeredUser
-
+    //validate password
+    if (password != confirmPassword) {
+        alert("Password doesn't match")
+        return null;
     }
-    /* registration form value end */
+
+    const registeredUser = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword
+    }
+    return registeredUser
+
+}
+/* registration form value end */
 
 /* News form Input Value */
 const addNewsModal = document.querySelector("#newsModal")
@@ -96,16 +96,32 @@ document.querySelector("#btnNewsSave").addEventListener("click", event => {
 })
 
 const getNewsFormValue = () => {
-        const title = document.querySelector("#newsTitle").value
-        const synopsis = document.querySelector("#newsSynopsis").value
-        const url = document.querySelector("#newsURL").value
+    const title = document.querySelector("#newsTitle").value
+    const synopsis = document.querySelector("#newsSynopsis").value
+    const url = document.querySelector("#newsURL").value
 
-        const news = {
-            title: title,
-            synopsis: synopsis,
-            url: url,
-        }
-        return news
-
+    const news = {
+        title: title,
+        synopsis: synopsis,
+        url: url,
     }
-    /* Input form value end */
+    return news
+
+}
+/* Input form value end */
+
+document.querySelector("#btn-submit").addEventListener("click", event => {
+    const loginUser = document.querySelector("#userName").value
+    const loginPW = document.querySelector("#password").value
+    API.getAnything("users")
+        .then(response => {
+            response.forEach(user => {
+                console.log(response)
+                if (user.id === loginUser && user.password === loginPW) {
+                    sessionStorage.setItem("activeUser", user.id)
+                }  {
+                    // alert("Get off my lawn.")
+                }
+            });
+        });
+});
