@@ -60,15 +60,15 @@
     text-align: center;
   }
   
-  .closeBtn
+  .btn-close-registration-form
   {
     color: #ccc;
     float: right;
     font-size: 30px;
   }
   
-  .closeBtn:hover,
-  .closeBtn:focus
+  .btn-close-registration-form:hover,
+  .btn-close-registration-form:focus
    {
     color: black;
     text-decoration: none;
@@ -142,4 +142,3 @@ img {
     height: 90px;
     width: 90px;
 }
-
