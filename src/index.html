@@ -98,10 +98,10 @@
     </div>
     <!-- registration form start-->
   <button type="button" id="btn-add">Add</button>
-  <div id="register-form" class="modal">
+   <div id="register-form" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <span class="btn-close-registration-form">&times;</span>
+        <span id="btn-close-registration-form">&times;</span>
         <h2>Register User</h2>
       </div>
       <div class="modal-body ">
@@ -109,17 +109,18 @@
           <input class="flex-input" type="text" id="firstName" placeholder="First Name" />
           <input class="flex-input" type="text" id="lastName" placeholder="Last Name" />
           <input class="flex-input" type="text" id="emailAddress" placeholder="Email Address" />
-          <input class="flex-input" type="password" id="password" placeholder="Password" />
+          <input class="flex-input" type="password" id="userPassword" placeholder="Password"  />
+          <input class="flex-input" type="password" id="confirmPassword" placeholder="Confirm Password" />
         </div>
         <div class="modal-footer">
           <button type="button" id="btn-save">Save</button>
         </div>
       </div>
     </div>
-  </div>
+  </div> 
   <!-- registration form end -->
 
-
+ <div id="registerContainer"></div>
 
   <script src="scripts/main.js"></script>
 </body>
