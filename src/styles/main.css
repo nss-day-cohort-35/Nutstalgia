@@ -1,3 +1,14 @@
+/* CSS Variables */
+:root {
+    --button-font-color: rgb(255, 255, 255);
+    --button-bg: #383838;
+    --moss-green: #AFD5AA;
+    --flash-white: #F0F2EF;
+    --onyx: #383838;
+    --pastel-brown: #876E56;
+    --rhythm: #8E719E;
+    
+}
 /* modal popup start */
 .modal {
     display: none; /* Hidden by default */
@@ -60,15 +71,15 @@
     text-align: center;
   }
   
-  .btn-close-registration-form
+  #btnCloseRegistrationForm, #btnCloseNews
   {
     color: #ccc;
     float: right;
     font-size: 30px;
   }
   
-  .btn-close-registration-form:hover,
-  .btn-close-registration-form:focus
+  #btnCloseRegistrationForm:hover, #btnCloseNews:hover,
+  #btnCloseRegistrationForm:focus, #btnCloseNews:focus
    {
     color: black;
     text-decoration: none;
@@ -78,26 +89,27 @@
   .flex-container {
     display: flex;
     flex-flow: column wrap;
-  
     margin: auto;
-    padding: 10px;
+    padding: 15px;
     overflow: auto;
   }
   
   .flex-input {
-    padding: 5px 10px;
+    padding: 4px 5px;
     font-size: 20px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 10px;
     overflow: auto;
   }
-  #btn-save {
+
+  #btn-save, #btnNewsSave {
     background-color: rgb(1, 53, 82);
     color: antiquewhite;
     padding: 5px 10px;
     font-size: 20px;
   }
-  #btn-save:hover {
+  #btn-save:hover, #btnNewsSave:hover {
     background-color: green;
     border: 2px solid #4caf50;
   }

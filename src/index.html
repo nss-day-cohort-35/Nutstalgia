@@ -23,19 +23,18 @@
     </header>
 
     <article id="container"></article>
+    <!-- Login form start -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="closeBtn">&times;</span>
+                <span class="btnCloseLoginForm">&times;</span>
                 <h2 class="login-header">Welcome!</h2>
                 <h3 class="login-userLogin">User Login</h3>
             </div>
             <div class="modal-body ">
                 <div class="flex-container">
-
                     <input class="flex-input" type="text" placeholder="Enter Username" id="userName" />
                 </div>
-
                 <div class="flex-container">
                     <input class="flex-input" type="password" placeholder="Enter Password" id="password" />
                 </div>
@@ -48,25 +47,28 @@
             </div>
         </div>
     </div>
-    <!-- News form start-->
+    <!-- Login form end -->
+    <!-- News Form start -->
+    <section id="newsContainer"></section>
     <div id="newsModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="closeBtn">&times;</span>
+                <span id="btnCloseNews">&times;</span>
                 <h2>News Item</h2>
             </div>
             <div class="modal-body ">
                 <div class="flex-container">
-                    <input class="flex-input" type="text" placeholder="News Title">
-                    <input class="flex-input" type="text" placeholder="Synopsis">
-                    <input class="flex-input" type="text" placeholder="URL">
+                    <input class="flex-input" type="text" placeholder="News Title" id="newsTitle">
+                    <input class="flex-input" type="text" placeholder="Synopsis" id="newsSynopsis">
+                    <input class="flex-input" type="text" placeholder="URL" id="newsURL">
                 </div>
                 <button id="btnNewsSubmit">Submit</button>
+                <button id="btnNewsSave">Submit</button>
             </div>
             <div id="NewsResultContainer"></div>
         </div>
     </div>
-    <!-- News form ends-->
+    <!-- News Form end -->
 
     <div id="eventsModal" class="modal">
         <div class="modal-content">
@@ -104,7 +106,7 @@
     <div id="register-form" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="btn-close-registration-form">&times;</span>
+                <span id="btnCloseRegistrationForm">&times;</span>
                 <h2>Register User</h2>
             </div>
             <div class="modal-body ">
@@ -112,20 +114,20 @@
                     <input class="flex-input" type="text" id="firstName" placeholder="First Name" />
                     <input class="flex-input" type="text" id="lastName" placeholder="Last Name" />
                     <input class="flex-input" type="text" id="emailAddress" placeholder="Email Address" />
-                    <input class="flex-input" type="password" id="password" placeholder="Password" />
+                    <input class="flex-input" type="password" id="userPassword" placeholder="Password" />
+                    <input class="flex-input" type="password" id="confirmPassword" placeholder="Confirm Password" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btn-save">Save</button>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- registration form end -->
+        <!-- registration form end -->
 
+        <div id="registerContainer"></div>
 
-
-    <script src="scripts/main.js"></script>
-    <script src="scripts/news/eventListeners.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/news/eventListeners.js"></script>
 </body>
 
 </html>
