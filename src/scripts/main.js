@@ -35,7 +35,7 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
 })
 
 const getLoginFormValue = () => {
-        const user = document.querySelector("#userName").value
+        const user = document.querySelector("#loginUserName").value
         const password = document.querySelector("#myPassword").value
 
         const userLogin = {
@@ -57,6 +57,7 @@ const openAddModal = () => {
     document.querySelector("#firstName").value = ""
     document.querySelector("#lastName").value = ""
     document.querySelector("#emailAddress").value = ""
+    document.querySelector("#userName").value = ""
     document.querySelector("#userPassword").value = ""
     document.querySelector("#confirmPassword").value = ""
 }
@@ -85,17 +86,28 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 })
 
 const getRegisterFormValue = () => {
-    const firstName = document.querySelector("#firstName").value
-    const lastName = document.querySelector("#lastName").value
-    const email = document.querySelector("#emailAddress").value
-    const password = document.querySelector("#userPassword").value
-    const confirmPassword = document.querySelector("#confirmPassword").value
+        const firstName = document.querySelector("#firstName").value
+        const lastName = document.querySelector("#lastName").value
+        const email = document.querySelector("#emailAddress").value
+        const userName = document.querySelector("#userName").value
+        const password = document.querySelector("#userPassword").value
+        const confirmPassword = document.querySelector("#confirmPassword").value
 
-    //validate password
-    if (password != confirmPassword) {
-        alert("Password doesn't match")
-        return null;
-    }
+        //validate password
+        if (password != confirmPassword) {
+            alert("Password doesn't match")
+            return null;
+        }
+
+        const registeredUser = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            userName: userName,
+            password: password,
+            confirmPassword: confirmPassword
+        }
+        return registeredUser
 
     const registeredUser = {
         firstName: firstName,
