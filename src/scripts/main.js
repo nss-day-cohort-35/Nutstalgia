@@ -1,3 +1,5 @@
+import taskAPI from "../scripts/taskData.js" 
+
 /*
     Import all the tools into main.js that are needed to display
     the initial UI to the user. Either the login form should appear
@@ -9,6 +11,8 @@
 document.querySelector("#container").innerHTML = `<h1>${message}</h1>`
 
 console.log(message) */
+
+
 
 const addModal = document.querySelector("#register-form")
 const addModalBtn = document.querySelector("#btn-add")
