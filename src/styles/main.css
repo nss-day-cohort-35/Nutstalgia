@@ -1,3 +1,8 @@
+/* Page Presets */
+body {
+    margin:0
+}
+
 /* modal popup start */
 .modal {
     display: none; /* Hidden by default */
@@ -121,19 +126,30 @@ h1 {
 header {
     background-color: blueviolet;
     padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    display: inline-block;
+    padding: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: 14px;
+    font-family: sans-serif;
 }
 
 nav {
     text-align: center;
     display: inline;
-    margin: 3em;
-    padding: 2em;
 }
 
 nav button {
-    margin: 3em;
+    margin: 1em;
     padding: 0.5em;
-    background-color: bisque;
+    background-color: #f0c4ff;
 }
 
 img {
