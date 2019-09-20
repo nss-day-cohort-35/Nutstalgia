@@ -1,3 +1,14 @@
+/* CSS Variables */
+:root {
+    --button-font-color: rgb(255, 255, 255);
+    --button-bg: #383838;
+    --moss-green: #AFD5AA;
+    --flash-white: #F0F2EF;
+    --onyx: #383838;
+    --pastel-brown: #876E56;
+    --rhythm: #8E719E;
+    
+}
 /* modal popup start */
 .modal {
     display: none; /* Hidden by default */
