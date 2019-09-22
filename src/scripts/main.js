@@ -82,7 +82,7 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 
     //I called the save User method that is on the API
     //This will now post the registered user to JSON
-    API.saveUser(registeredUser);
+    API.saveAnything(registeredUser);
 })
 
 const getRegisterFormValue = () => {
@@ -160,6 +160,7 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
                     sessionStorage.setItem("activeUser", user.id)
                     console.log(sessionStorage)
                     alert("It's a Match!")
+                    closeLoginAddModal()
                 } else {
                      alert("Get off my lawn.")
                 }
