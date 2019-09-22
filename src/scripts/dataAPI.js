@@ -4,7 +4,7 @@ const API = {
         return fetch(`http://localhost:8088/${placeholder}`)
             .then(response => response.json())
     },
-    saveAnything: (placeholder) => {
+    saveAnything: (user, placeholder) => {
         return fetch(`http://localhost:8088/${placeholder}`, {
             method: "POST",
             headers: {

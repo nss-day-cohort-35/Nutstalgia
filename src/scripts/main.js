@@ -82,7 +82,7 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 
     //I called the save User method that is on the API
     //This will now post the registered user to JSON
-    API.saveAnything(registeredUser);
+    API.saveAnything(registeredUser, "users");
 })
 
 const getRegisterFormValue = () => {
