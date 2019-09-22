@@ -159,10 +159,10 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
                 if (user.userName === loginUser && user.password === loginPW) {
                     sessionStorage.setItem("activeUser", user.id)
                     console.log(sessionStorage)
-                    alert("It's a Match!")
+                    console.log("It's a Match!")
                     closeLoginAddModal()
                 } else {
-                     alert("Get off my lawn.")
+                    // alert("Get off my lawn.")
                 }
             });
         });
