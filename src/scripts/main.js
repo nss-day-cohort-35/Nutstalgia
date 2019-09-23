@@ -1,4 +1,7 @@
-import API from "./dataAPI.js";
+import API from "./dataAPI.js"
+import newsObject from "./news/eventListeners.js"
+
+newsObject.newsButton()
 
 
 /*
@@ -117,62 +120,23 @@ const getRegisterFormValue = () => {
 // Storage Session 
 
 
+/* Input form value end */
 
-//Event listener button that changes innerHTML
-document.querySelector("#btnNews").addEventListener("click", () => {
-    // This makes sure we have news articles when the page loads!
-
-
-
-
-
-
-
-
-    /* News form Input Value */
-    const addNewsModal = document.querySelector("#newsModal")
-    const addNewsModalBtn = document.querySelector("#btnNews")
-    const closeAddNewsModalBtn = document.querySelector("#btnCloseNews")
-
-    const openNewsAddModal = () => {
-        addNewsModal.style.display = "block";
-
-    }
-    const closeNewsAddModal = () => {
-        addNewsModal.style.display = "none";
-    }
-
-    const getNewsFormValue = () => {
-            const title = document.querySelector("#newsTitle").value
-            const synopsis = document.querySelector("#newsSynopsis").value
-            const url = document.querySelector("#newsURL").value
-
-            const news = {
-                title: title,
-                synopsis: synopsis,
-                url: url,
-            }
-            return news
-
-        }
-        /* Input form value end */
-
-    document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
-        const loginUser = document.querySelector("#loginUserName").value
-        const loginPW = document.querySelector("#myPassword").value
-        API.getAnything("users")
-            .then(response => {
-                response.forEach(user => {
-                    console.log(response)
-                    if (user.userName === loginUser && user.password === loginPW) {
-                        sessionStorage.setItem("activeUser", user.id)
-                        console.log(sessionStorage)
-                        console.log("It's a Match!")
-                        closeLoginAddModal()
-                    } else {
-                        // alert("Get off my lawn.")
-                    }
-                });
+document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
+    const loginUser = document.querySelector("#loginUserName").value
+    const loginPW = document.querySelector("#myPassword").value
+    API.getAnything("users")
+        .then(response => {
+            response.forEach(user => {
+                console.log(response)
+                if (user.userName === loginUser && user.password === loginPW) {
+                    sessionStorage.setItem("activeUser", user.id)
+                    console.log(sessionStorage)
+                    console.log("It's a Match!")
+                    closeLoginAddModal()
+                } else {
+                    // alert("Get off my lawn.")
+                }
             });
-    });
+        });
 });
