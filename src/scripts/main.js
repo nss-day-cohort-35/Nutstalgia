@@ -122,21 +122,27 @@ const getRegisterFormValue = () => {
 
 /* Input form value end */
 
+/* Login Event Listener */
 document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
     const loginUser = document.querySelector("#loginUserName").value
     const loginPW = document.querySelector("#myPassword").value
-    API.getAnything("users")
+    API.getByUserName(loginUser)
         .then(response => {
-            response.forEach(user => {
-                console.log(response)
-                if (user.userName === loginUser && user.password === loginPW) {
-                    sessionStorage.setItem("activeUser", user.id)
-                    console.log(sessionStorage)
-                    console.log("It's a Match!")
-                    closeLoginAddModal()
-                } else {
-                    // alert("Get off my lawn.")
-                }
-            });
-        });
+            console.log(response);
+            if (response.length === 0) {
+                alert("Please enter a valid Username.")
+            } else if (response.length === 1 && response[0].password !== loginPW) {
+                alert("Password is incorrect.")
+            } else if (response[0].password === loginPW) {
+                closeLoginAddModal()
+                sessionStorage.setItem("activeUser", response[0].id)
+                console.log("It matches?!")
+            }
+        })
 });
+/* Logout Event Listener */
+document.querySelector("#btnSignOut").addEventListener("click", event => {
+    sessionStorage.removeItem("activeUser")
+    alert("Logged out!")
+    console.log("Session Storage", sessionStorage);
+})

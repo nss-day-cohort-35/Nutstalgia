@@ -18,6 +18,12 @@ const API = {
         return fetch(`http://localhost:8088/${user}/${id}`, {
             method: "DELETE"
         }).then(response => response.json())
+
+    },
+    /* This dynamically returns a user object by Username. */
+    getByUserName(userPlaceholder) {
+        return fetch(`http://localhost:8088/users?userName=${userPlaceholder}`)
+            .then(response => response.json())
     }
 }
 
