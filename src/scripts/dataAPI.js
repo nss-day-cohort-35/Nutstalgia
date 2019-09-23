@@ -12,6 +12,11 @@ const API = {
             },
             body: JSON.stringify(user)
         })
+    },
+    getEventsEntries: () => {
+        return fetch(`http://localhost:8088/events`)
+            .then(response => response.json())
+                       
     }
 }
 

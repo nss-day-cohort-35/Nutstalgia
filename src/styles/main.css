@@ -78,7 +78,7 @@
     font-size: 30px;
   }
   
-  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover
+  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover,
   #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus
    {
     color: black;
