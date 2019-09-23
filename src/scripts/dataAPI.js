@@ -1,6 +1,10 @@
 const API = {
     // This method will post the user information to JSON
+<<<<<<< HEAD
     getAnything(placeholder) {
+=======
+    getAnything (placeholder) {
+>>>>>>> master
         return fetch(`http://localhost:8088/${placeholder}`)
             .then(response => response.json())
     },
