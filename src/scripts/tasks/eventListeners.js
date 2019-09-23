@@ -6,11 +6,10 @@ const taskObject = {
     },
     taskNav: () => {
         document.querySelector("#btnDailyTasks").addEventListener("click", event => {
-            console.log("you clllickkedd")
             let mainContainer = document.querySelector("#mainContainer")
             mainContainer.innerHTML = ""
-            mainContainer.innerHTML += taskObject.taskModalComponent();
-            mainContainer.innerHTML += ' Heyyyy daily Tasks <button type="button" id="addTask">Add Task</button>'
+            mainContainer.innerHTML += taskObject.modalComponent();
+            mainContainer.innerHTML += ' Heyyyy daily Tasks <button type="button" id="addTask">Add Task</button>Heyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily Tasks'
             document.querySelector("#addTask").addEventListener("click", event => {
                 document.querySelector("#tasksModal").style.display = "block";
             })
@@ -19,10 +18,10 @@ const taskObject = {
             })
             console.log(sessionStorage.activeUser);
             API.searchGet("tasks", "userId", sessionStorage.activeUser)
-                .then (response => console.log(response));
+                .then (response => taskObject.taskLoop(response));
         })
     },
-    taskModalComponent: () => {
+    modalComponent: () => {
         return `
             <section id="tasksContainer"></section>
             <div id="tasksModal" class="modal">
@@ -42,9 +41,17 @@ const taskObject = {
             </div> 
             `
     },
-    connected: () => {
-        console.log("the paggggeeee issss connnasctteddd")
-    }
+    taskComponent: (task) => {
+        return `<div>
+            <h1>${task.taskName}</h1>
+            <p>${task.dueDate}</p>
+        </div>`
+    },
+    taskLoop:(taskArray) => {
+        taskArray.forEach(task => {
+            document.querySelector("#mainContainer").innerHTML += taskObject.taskComponent(task);
+        });
+    },
 }
 
 export default taskObject
