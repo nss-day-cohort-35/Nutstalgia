@@ -12,7 +12,43 @@ import API from "./dataAPI.js";
 document.querySelector("#container").innerHTML = `<h1>${message}</h1>`
 
 console.log(message) */
-/* registration input value start */
+
+/* Login input start */
+const addLoginModal = document.querySelector("#loginModal")
+const addLoginModalBtn = document.querySelector("#btnSignIn")
+const closeLoginModalBtn = document.querySelector("#btnCloseLoginForm")
+
+const openLoginAddModal = () => {
+    addLoginModal.style.display = "block";
+
+}
+const closeLoginAddModal = () => {
+    addLoginModal.style.display = "none";
+}
+
+addLoginModalBtn.addEventListener("click", openLoginAddModal);
+closeLoginModalBtn.addEventListener("click", closeLoginAddModal);
+
+document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
+    const user = getLoginFormValue()
+    console.log(user)
+
+})
+
+const getLoginFormValue = () => {
+        const user = document.querySelector("#loginUserName").value
+        const password = document.querySelector("#myPassword").value
+
+        const userLogin = {
+            user: user,
+            password: password,
+
+        }
+        return userLogin
+
+    }
+    /* Login Form end */
+    /* registration input value start */
 const addModal = document.querySelector("#register-form")
 const addModalBtn = document.querySelector("#btn-add")
 const closeAddModalBtn = document.querySelector("#btnCloseRegistrationForm")
@@ -22,6 +58,7 @@ const openAddModal = () => {
     document.querySelector("#firstName").value = ""
     document.querySelector("#lastName").value = ""
     document.querySelector("#emailAddress").value = ""
+    document.querySelector("#userName").value = ""
     document.querySelector("#userPassword").value = ""
     document.querySelector("#confirmPassword").value = ""
 }
@@ -46,13 +83,14 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 
     //I called the save User method that is on the API
     //This will now post the registered user to JSON
-    API.saveUser(registeredUser);
+    API.saveAnything(registeredUser, "users");
 })
 
 const getRegisterFormValue = () => {
         const firstName = document.querySelector("#firstName").value
         const lastName = document.querySelector("#lastName").value
         const email = document.querySelector("#emailAddress").value
+        const userName = document.querySelector("#userName").value
         const password = document.querySelector("#userPassword").value
         const confirmPassword = document.querySelector("#confirmPassword").value
 
@@ -66,6 +104,7 @@ const getRegisterFormValue = () => {
             firstName: firstName,
             lastName: lastName,
             email: email,
+            userName: userName,
             password: password,
             confirmPassword: confirmPassword
         }
@@ -81,7 +120,7 @@ const getRegisterFormValue = () => {
 
 //Event listener button that changes innerHTML
 document.querySelector("#btnNews").addEventListener("click", () => {
-            // This makes sure we have news articles when the page loads!
+    // This makes sure we have news articles when the page loads!
 
 
 
@@ -90,41 +129,50 @@ document.querySelector("#btnNews").addEventListener("click", () => {
 
 
 
-            /* News form Input Value */
-            const addNewsModal = document.querySelector("#newsModal")
-            const addNewsModalBtn = document.querySelector("#btnNews")
-            const closeAddNewsModalBtn = document.querySelector("#btnCloseNews")
+    /* News form Input Value */
+    const addNewsModal = document.querySelector("#newsModal")
+    const addNewsModalBtn = document.querySelector("#btnNews")
+    const closeAddNewsModalBtn = document.querySelector("#btnCloseNews")
 
-            const openNewsAddModal = () => {
-                addNewsModal.style.display = "block";
+    const openNewsAddModal = () => {
+        addNewsModal.style.display = "block";
 
+    }
+    const closeNewsAddModal = () => {
+        addNewsModal.style.display = "none";
+    }
+
+    const getNewsFormValue = () => {
+            const title = document.querySelector("#newsTitle").value
+            const synopsis = document.querySelector("#newsSynopsis").value
+            const url = document.querySelector("#newsURL").value
+
+            const news = {
+                title: title,
+                synopsis: synopsis,
+                url: url,
             }
-            const closeNewsAddModal = () => {
-                addNewsModal.style.display = "none";
-            }
+            return news
 
-            addNewsModalBtn.addEventListener("click", openNewsAddModal);
-            closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
+        }
+        /* Input form value end */
 
-
-            /*
-            document.querySelector("#btnNewsSave").addEventListener("click", event => {
-                    const news = getNewsFormValue()
-                    console.log(news)
-
-                })
-               
-                const getNewsFormValue = () => {
-                        const title = document.querySelector("#newsTitle").value
-                        const synopsis = document.querySelector("#newsSynopsis").value
-                        const url = document.querySelector("#newsURL").value
-
-                        const news = {
-                            title: title,
-                            synopsis: synopsis,
-                            url: url,
-                        }
-                        return news
-
+    document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
+        const loginUser = document.querySelector("#loginUserName").value
+        const loginPW = document.querySelector("#myPassword").value
+        API.getAnything("users")
+            .then(response => {
+                response.forEach(user => {
+                    console.log(response)
+                    if (user.userName === loginUser && user.password === loginPW) {
+                        sessionStorage.setItem("activeUser", user.id)
+                        console.log(sessionStorage)
+                        console.log("It's a Match!")
+                        closeLoginAddModal()
+                    } else {
+                        // alert("Get off my lawn.")
                     }
-                    /* Input form value end */
+                });
+            });
+    });
+});

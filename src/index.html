@@ -18,33 +18,32 @@
             <button id="btnEvents">Events</button>
             <button id="btnFriends">Friends</button>
             <button id="btnNews">News</button>
+            <button id="btnSignIn">Sign In</button>
             <button id="btnSignOut">Sign Out</button>
         </nav>
     </header>
     <article id="mainContainer"></article>
 
     <!-- Login form start -->
-    <div id="loginModal" class="modal">
+     <div id="loginModal" class="modal"> -->
         <div class="modal-content">
             <div class="modal-header">
-                <span class="btnCloseLoginForm">&times;</span>
+                <span id="btnCloseLoginForm">&times;</span>
                 <h2 class="login-header">Welcome!</h2>
                 <h3 class="login-userLogin">User Login</h3>
             </div>
             <div class="modal-body ">
                 <div class="flex-container">
-                    <input class="flex-input" type="text" placeholder="Enter Username" id="userName" />
+                    <input class="flex-input" type="text" placeholder="Enter Username" id="loginUserName" />
                 </div>
                 <div class="flex-container">
-                    <input class="flex-input" type="password" placeholder="Enter Password" id="password" />
+                    <input class="flex-input" type="password" placeholder="Enter Password" id="myPassword" />
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btn-submit">Login!</button>
-            </div>
-            <div>
-                <a href="#">Create An Account!</a>
-            </div>
+                <button type="button" id="btnLoginSubmit">Login!</button>
+                <div><a href="#">Create An Account!</a></div>
+               </div>
         </div>
     </div>
     <!-- Login form end -->
@@ -57,7 +56,7 @@
                 <span id="btnCloseNews">&times;</span>
                 <h2>News Item</h2>
             </div>
-            <div class="modal-body ">
+            <div class="modal-body">
                 <div class="flex-container">
                     <input class="flex-input" type="text" placeholder="News Title" id="newsTitle">
                     <input class="flex-input" type="text" placeholder="Synopsis" id="newsSynopsis">
@@ -115,6 +114,7 @@
                     <input class="flex-input" type="text" id="firstName" placeholder="First Name" />
                     <input class="flex-input" type="text" id="lastName" placeholder="Last Name" />
                     <input class="flex-input" type="text" id="emailAddress" placeholder="Email Address" />
+                    <input class="flex-input" type="text" id="userName" placeholder="User Name" />
                     <input class="flex-input" type="password" id="userPassword" placeholder="Password" />
                     <input class="flex-input" type="password" id="confirmPassword" placeholder="Confirm Password" />
                 </div>
