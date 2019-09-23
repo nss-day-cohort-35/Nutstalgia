@@ -1,5 +1,7 @@
 import API from "./dataAPI.js";
-
+import taskObject from "./tasks/eventListeners.js";
+taskObject.connected();
+taskObject.taskNav();
 /*
     Import all the tools into main.js that are needed to display
     the initial UI to the user. Either the login form should appear
