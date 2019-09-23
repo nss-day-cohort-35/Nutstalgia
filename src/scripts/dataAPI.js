@@ -13,6 +13,11 @@ const API = {
             },
             body: JSON.stringify(user)
         })
+    },
+    deleteAnything: (user, id) => {
+        return fetch(`http://localhost:8088/${user}/${id}`, {
+            method: "DELETE"
+        }).then(response => response.json())
     }
 }
 

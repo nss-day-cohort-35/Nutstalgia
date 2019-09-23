@@ -61,72 +61,70 @@
                     <input class="flex-input" type="text" placeholder="News Title" id="newsTitle">
                     <input class="flex-input" type="text" placeholder="Synopsis" id="newsSynopsis">
                     <input class="flex-input" type="text" placeholder="URL" id="newsURL">
+                    <input class="flex-input" type="date" placeholder="Date Created" id="newsDate">
                 </div>
                 <button id="btnNewsSave">Submit</button>
             </div>
-            <div id="NewsResultContainer"></div>
-        </div>
-    </div>
-    <!-- News Form end -->
+            <!-- News Form end -->
 
-    <div id="eventsModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="closeBtn">&times;</span>
-                <h2>Events Item</h2>
-            </div>
-            <div class="modal-body ">
-                <div class="flex-container">
-                    <input class="flex-input" type="text" placeholder="Name of Event">
-                    <input class="flex-input" type="text" placeholder="Date of Event">
-                    <input class="flex-input" type="text" placeholder="Location of Event">
-                </div>
-                <button>Submit</button>
-            </div>
-        </div>
-    </div>
-    <div id="friendsModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="closeBtn">&times;</span>
-                <h2>Friends Item</h2>
-            </div>
-            <div class="modal-body ">
-                <div class="flex-container">
-                    <input class="flex-input" type="text" placeholder="add friend">
-                    <button>Add</button>
-                </div>
-                <button>Submit</button>
-            </div>
-        </div>
-    </div>
-    <!-- registration form start-->
-    <button type="button" id="btn-add">Add</button>
-    <div id="register-form" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span id="btnCloseRegistrationForm">&times;</span>
-                <h2>Register User</h2>
-            </div>
-            <div class="modal-body ">
-                <div class="flex-container">
-                    <input class="flex-input" type="text" id="firstName" placeholder="First Name" />
-                    <input class="flex-input" type="text" id="lastName" placeholder="Last Name" />
-                    <input class="flex-input" type="text" id="emailAddress" placeholder="Email Address" />
-                    <input class="flex-input" type="text" id="userName" placeholder="User Name" />
-                    <input class="flex-input" type="password" id="userPassword" placeholder="Password" />
-                    <input class="flex-input" type="password" id="confirmPassword" placeholder="Confirm Password" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="btn-save">Save</button>
+            <div id="eventsModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="closeBtn">&times;</span>
+                        <h2>Events Item</h2>
+                    </div>
+                    <div class="modal-body ">
+                        <div class="flex-container">
+                            <input class="flex-input" type="text" placeholder="Name of Event">
+                            <input class="flex-input" type="text" placeholder="Date of Event">
+                            <input class="flex-input" type="text" placeholder="Location of Event">
+                        </div>
+                        <button>Submit</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- registration form end -->
+            <div id="friendsModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="closeBtn">&times;</span>
+                        <h2>Friends Item</h2>
+                    </div>
+                    <div class="modal-body ">
+                        <div class="flex-container">
+                            <input class="flex-input" type="text" placeholder="add friend">
+                            <button>Add</button>
+                        </div>
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+            <!-- registration form start-->
+            <button type="button" id="btn-add">Add</button>
+            <div id="register-form" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span id="btnCloseRegistrationForm">&times;</span>
+                        <h2>Register User</h2>
+                    </div>
+                    <div class="modal-body ">
+                        <div class="flex-container">
+                            <input class="flex-input" type="text" id="firstName" placeholder="First Name" />
+                            <input class="flex-input" type="text" id="lastName" placeholder="Last Name" />
+                            <input class="flex-input" type="text" id="emailAddress" placeholder="Email Address" />
+                            <input class="flex-input" type="text" id="userName" placeholder="User Name" />
+                            <input class="flex-input" type="password" id="userPassword" placeholder="Password" />
+                            <input class="flex-input" type="password" id="confirmPassword" placeholder="Confirm Password" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="btn-save">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- registration form end -->
 
-        <div id="registerContainer"></div>
+                <div id="registerContainer"></div>
 
-        <script type="module" src="scripts/main.js"></script>
+                <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>
