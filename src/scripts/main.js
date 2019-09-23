@@ -112,6 +112,7 @@ const getRegisterFormValue = () => {
 }
 /* registration form value end */
 
+
 /* News form Input Value */
 const addNewsModal = document.querySelector("#newsModal")
 const addNewsModalBtn = document.querySelector("#btnNews")
