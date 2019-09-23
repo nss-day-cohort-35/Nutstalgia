@@ -1,4 +1,4 @@
-// import API from "./../dataAPI.js";
+import API from "./../dataAPI.js";
 
 const taskObject = {
     connected: () => {
@@ -14,6 +14,12 @@ const taskObject = {
             document.querySelector("#addTask").addEventListener("click", event => {
                 document.querySelector("#tasksModal").style.display = "block";
             })
+            document.querySelector("#btnCloseTasks").addEventListener("click", event => {
+                document.querySelector("#tasksModal").style.display = "none";
+            })
+            console.log(sessionStorage.activeUser);
+            API.searchGet("tasks", "userId", sessionStorage.activeUser)
+                .then (response => console.log(response));
         })
     },
     taskModalComponent: () => {
@@ -22,14 +28,13 @@ const taskObject = {
             <div id="tasksModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <span id="btnCloseNews">&times;</span>
+                        <span id="btnCloseTasks">&times;</span>
                         <h2>Task Item</h2>
                     </div>
                     <div class="modal-body">
                         <div class="flex-container">
-                            <input class="flex-input" type="text" placeholder="News Title" id="newsTitle">
-                            <input class="flex-input" type="text" placeholder="Synopsis" id="newsSynopsis">
-                            <input class="flex-input" type="text" placeholder="URL" id="newsURL">
+                            <input class="flex-input" type="text" placeholder=" Title" id="taskTitle">
+                            <input class="flex-input" type="text" placeholder="Write a task..." id="taskDetails">
                         </div>
                         <button id="btnNewsSave">Submit</button>
                     </div>
@@ -41,9 +46,5 @@ const taskObject = {
         console.log("the paggggeeee issss connnasctteddd")
     }
 }
-
-
-
-
 
 export default taskObject

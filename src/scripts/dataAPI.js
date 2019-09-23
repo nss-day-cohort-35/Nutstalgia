@@ -12,7 +12,12 @@ const API = {
             },
             body: JSON.stringify(user)
         })
-    }
+    },
+    searchGet (array, key, value) {
+        return fetch(`http://localhost:8088/${array}?${key}=${value}`)
+            .then(response => response.json())
+    },
+    
 }
 
 export default API
