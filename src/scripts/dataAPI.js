@@ -1,7 +1,6 @@
 const API = {
     // This method will post the user information to JSON
-   
-    getAnything (placeholder) {
+    getAnything(placeholder) {
         return fetch(`http://localhost:8088/${placeholder}`)
             .then(response => response.json())
     },
@@ -13,10 +12,10 @@ const API = {
             },
             body: JSON.stringify(user)
         })
-        
+
     },
     /* This dynamically returns a user object by Username. */
-    getByUserName (userPlaceholder) {
+    getByUserName(userPlaceholder) {
         return fetch(`http://localhost:8088/users?userName=${userPlaceholder}`)
             .then(response => response.json())
     }

@@ -149,6 +149,7 @@ const getNewsFormValue = () => {
 }
 /* Input form value end */
 
+/* Login Event Listener */
 document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
     const loginUser = document.querySelector("#loginUserName").value
     const loginPW = document.querySelector("#myPassword").value
@@ -167,7 +168,7 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
             }
         })
     });
-
+    /* Logout Event Listener */
     document.querySelector("#btnSignOut").addEventListener("click", event => {
         sessionStorage.removeItem("activeUser")
         alert("Logged out!")
