@@ -12,6 +12,12 @@ const API = {
             },
             body: JSON.stringify(user)
         })
+
+    },
+    /* This dynamically returns a user object by Username. */
+    getByUserName(userPlaceholder) {
+        return fetch(`http://localhost:8088/users?userName=${userPlaceholder}`)
+            .then(response => response.json())
     }
 }
 
