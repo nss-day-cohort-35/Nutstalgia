@@ -13,12 +13,16 @@ const API = {
             body: JSON.stringify(user)
         })
     },
-    
     getEventsEntries: () => {
         return fetch(`http://localhost:8088/events`)
             .then(response => response.json())
                        
     },
+  /*   getEventsEntries: (array, key, value) => {
+        return fetch(`http://localhost:8088/${array}?${key}=${value}`)
+            .then(response => response.json())
+                       
+    }, */
     saveEventsEntries: (entry) => {
         return fetch(`http://localhost:8088/events`, {
             method: "POST",
@@ -28,6 +32,7 @@ const API = {
             body: JSON.stringify(entry)
         })
     },
+    
     deleteEventEntries: (id) => {
         return fetch(`http://localhost:8088/events/${id}`, {
             method: 'DELETE'
