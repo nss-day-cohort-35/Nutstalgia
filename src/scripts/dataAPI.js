@@ -21,7 +21,27 @@ const API = {
     getByUserName(userPlaceholder) {
         return fetch(`http://localhost:8088/users?userName=${userPlaceholder}`)
             .then(response => response.json())
-    }
+    },
+    deleteByID(array, id) {
+        return fetch(`http://localhost:8088/${array}/${id}`, {
+            method: "DELETE"
+        })
+            .then(response => response.json())
+    },
+    getByID(array, id) {
+        return fetch(`http://localhost:8088/${array}/${id}`)
+            .then(response => response.json())
+    },
+    putByID(array, id, object) {
+        return fetch(`http://localhost:8088/${array}/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(object)
+        })
+            .then(response => response.json())
+    },
 }
 
 export default API
