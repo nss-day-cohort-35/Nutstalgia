@@ -6,22 +6,23 @@ const taskObject = {
     },
     taskNav: () => {
         document.querySelector("#btnDailyTasks").addEventListener("click", event => {
+            console.log("you clllickkedd")
             let mainContainer = document.querySelector("#mainContainer")
             mainContainer.innerHTML = ""
-            mainContainer.innerHTML += taskObject.modalComponent();
-            mainContainer.innerHTML += ' Heyyyy daily Tasks <button type="button" id="addTask">Add Task</button>Heyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily TasksHeyyyy daily Tasks'
+            mainContainer.innerHTML += taskObject.taskModalComponent();
+            document.querySelector("#addContainer").innerHTML = ' Heyyyy daily Tasks <button type="button" id="addTask">Add Task</button> '
             document.querySelector("#addTask").addEventListener("click", event => {
                 document.querySelector("#tasksModal").style.display = "block";
-            })
-            document.querySelector("#btnCloseTasks").addEventListener("click", event => {
-                document.querySelector("#tasksModal").style.display = "none";
+                document.querySelector("#btnCloseTasks").addEventListener("click", event => {
+                    document.querySelector("#tasksModal").style.display = "none";
+                })
             })
             console.log(sessionStorage.activeUser);
             API.searchGet("tasks", "userId", sessionStorage.activeUser)
-                .then (response => taskObject.taskLoop(response));
+                .then(response => taskObject.taskLoop(response));
         })
     },
-    modalComponent: () => {
+    taskModalComponent: () => {
         return `
             <section id="tasksContainer"></section>
             <div id="tasksModal" class="modal">
@@ -41,17 +42,22 @@ const taskObject = {
             </div> 
             `
     },
+    connected: () => {
+        console.log("the paggggeeee issss connnasctteddd")
+    },
     taskComponent: (task) => {
         return `<div>
-            <h1>${task.taskName}</h1>
-            <p>${task.dueDate}</p>
+            <h1>theeeee  ${task.taskName}</h1>
+            <p> eeeeeyyah${task.dueDate}</p>
         </div>`
     },
-    taskLoop:(taskArray) => {
+    taskLoop: (taskArray) => {
         taskArray.forEach(task => {
-            document.querySelector("#mainContainer").innerHTML += taskObject.taskComponent(task);
+            document.querySelector("#mainContainer").innerHTML += taskObject.taskComponent(task)
+            console.log(taskObject.taskComponent(task));
         });
     },
 }
+
 
 export default taskObject
