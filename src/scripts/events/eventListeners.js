@@ -1,5 +1,5 @@
 import API from "./../dataAPI.js";
-let activeUserId = sessionStorage.getItem("activeUser");
+
 
 /* Modal Popup Open */
 const addEventModal = document.querySelector("#eventsModal")
@@ -7,6 +7,10 @@ const addEventModalBtn = document.querySelector("#btnAddEvents")
 const closeAddModalBtn = document.querySelector("#btnCloseEvents")
 
 const openEventModal = () => {
+    document.querySelector("#eventName").value = ""
+                 document.querySelector("#eventDate").value = ""
+                 document.querySelector("#eventLocation").value = ""
+
     addEventModal.style.display = "block";
    
 }
@@ -41,7 +45,7 @@ const eventsInputValue = () => {
         eventName: name,
         eventDate: date,
         eventLocation: location,
-        userId: activeUserId
+        userId: sessionStorage.activeUser
     };
     return events;
 };
@@ -65,7 +69,7 @@ const eventsInputEditValue = () => {
         eventDate: date,
         eventLocation: location,
         id: id,
-        userId: activeUserId
+        userId: sessionStorage.activeUser
     };
     return events;
 };
@@ -100,6 +104,7 @@ const eventsObject = {
             document.querySelector("#addButtonContainer").innerHTML = `<div><button type="button" id="btnAddEvents">Add Event</button></div>`
              API.getEventsEntries("allEvents").then(events => {
                  renderEvents(events);
+                 
                  document
                      .querySelector("#btnAddEvents")
                      .addEventListener("click", () => {
@@ -122,8 +127,10 @@ const eventsObject = {
     deleteEvent: () => {
         document.querySelector("#container").addEventListener("click", event => {
             if (event.target.id.startsWith("deleteEvent--")) {
-                API.deleteEvent(event.target.id.split("--")[1]).then(response => {
-                    document.querySelector("#container").innerHTML = "";
+                API.deleteEventEntries(event.target.id.split("--")[1])
+                .then((response) => {
+                   
+                    //document.querySelector("#container").innerHTML = "";
                     loadEventEntries();
                 });
             }

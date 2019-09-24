@@ -1,7 +1,7 @@
 import API from "./dataAPI.js";
 import eventsObject from "./events/eventListeners.js"
 
-let activeUserId = sessionStorage.getItem("activeUser");
+
 
 eventsObject.eventsButtonClick();
 eventsObject.eventSave();

@@ -28,7 +28,7 @@ const API = {
             body: JSON.stringify(entry)
         })
     },
-    deleteEvent: (id) => {
+    deleteEventEntries: (id) => {
         return fetch(`http://localhost:8088/events/${id}`, {
             method: 'DELETE'
         })
