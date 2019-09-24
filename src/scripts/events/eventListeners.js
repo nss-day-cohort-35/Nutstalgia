@@ -82,7 +82,7 @@ const renderEvents = events => {
 };
 
 const loadEventEntries = () =>{
-    API.getEventsEntries("allEvents").then(events => {
+    API.searchGet("events", "userId", sessionStorage.activeUser).then(events => {
         renderEvents(events);
     });
 }
@@ -102,7 +102,7 @@ const eventsObject = {
     eventsButtonClick: () => {
         document.querySelector("#btnEvents").addEventListener("click", () => {
             document.querySelector("#addButtonContainer").innerHTML = `<div><button type="button" id="btnAddEvents">Add Event</button></div>`
-             API.getEventsEntries("allEvents").then(events => {
+            API.searchGet("events", "userId", sessionStorage.activeUser).then(events => {
                  renderEvents(events);
                  
                  document
