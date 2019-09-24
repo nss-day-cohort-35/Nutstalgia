@@ -7,23 +7,6 @@ const taskObject = {
     taskNav: () => {
         document.querySelector("#btnDailyTasks").addEventListener("click", event => {
             taskObject.taskRefresh();
-            // console.log("you clllickkedd")
-            // let mainContainer = document.querySelector("#mainContainer")
-            // mainContainer.innerHTML = ""
-            // mainContainer.innerHTML += taskObject.taskModalComponent();
-            // document.querySelector("#addContainer").innerHTML = ' Heyyyy daily Tasks <button type="button" id="addTask">Add Task</button> '
-            // document.querySelector("#addTask").addEventListener("click", event => {
-            //     document.querySelector("#tasksModal").style.display = "block";
-            //     document.querySelector("#btnCloseTasks").addEventListener("click", event => {
-            //         document.querySelector("#tasksModal").style.display = "none";
-            //     })
-            //     document.querySelector("#btnTasksSave").addEventListener("click", event => {
-            //         taskObject.postJSON();
-            //     })
-            // })
-            // console.log(sessionStorage.activeUser);
-            // API.searchGet("tasks", "userId", sessionStorage.activeUser)
-            //     .then(response => taskObject.taskLoop(response));
         })
     },
     taskRefresh: () => {
@@ -68,8 +51,9 @@ const taskObject = {
     },
     taskComponent: (task) => {
         return `<div>
-            <h1>title  ${task.taskName}</h1>
-            <p>date ${task.dueDate}</p>
+            <h1>title:  ${task.taskName}</h1>
+            <h3>deets: ${task.taskDescription}</h3>
+            <h3>date: ${task.dueDate}</h3>
         </div>`
     },
     taskLoop: (taskArray) => {
