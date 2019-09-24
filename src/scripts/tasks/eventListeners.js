@@ -66,9 +66,6 @@ const taskObject = {
             </div> 
             `
     },
-    connected: () => {
-        console.log("the paggggeeee issss connnasctteddd")
-    },
     taskComponent: (task) => {
         return `<div>
             <h1>title  ${task.taskName}</h1>
@@ -95,12 +92,9 @@ const taskObject = {
         let deets = document.querySelector("#taskDetails").value
         let date = document.querySelector("#taskDate").value
         API.saveAnything(taskObject.jsonObject(title, deets, date), "tasks")
-            .then(taskObject.taskRefresh());
+            .then(response => taskObject.taskRefresh());
 
     }
 }
-
-
-
 
 export default taskObject
