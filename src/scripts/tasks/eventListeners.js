@@ -57,7 +57,9 @@ const taskObject = {
         </div>`
     },
     taskLoop: (taskArray) => {
-        taskArray.forEach(task => {
+        const arrayOfTasks = [...taskArray]
+        const sortedTasks = arrayOfTasks.sort((yeahhh, boiii) => boiii.id - yeahhh.id)
+        sortedTasks.forEach(task => {
             document.querySelector("#mainContainer").innerHTML += taskObject.taskComponent(task)
             console.log(taskObject.taskComponent(task));
         });
