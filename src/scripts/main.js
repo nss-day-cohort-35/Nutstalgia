@@ -1,5 +1,13 @@
 import API from "./dataAPI.js";
+import eventsObject from "./events/eventListeners.js"
 import taskObject from "./tasks/eventListeners.js";
+
+eventsObject.eventsButtonClick();
+eventsObject.eventSave();
+eventsObject.deleteEvent();
+eventsObject.editEvent();
+eventsObject.updateEvent();
+
 taskObject.taskListeners();
 /*
     Import all the tools into main.js that are needed to display
@@ -87,31 +95,34 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 })
 
 const getRegisterFormValue = () => {
-        const firstName = document.querySelector("#firstName").value
-        const lastName = document.querySelector("#lastName").value
-        const email = document.querySelector("#emailAddress").value
-        const userName = document.querySelector("#userName").value
-        const password = document.querySelector("#userPassword").value
-        const confirmPassword = document.querySelector("#confirmPassword").value
+    const firstName = document.querySelector("#firstName").value
+    const lastName = document.querySelector("#lastName").value
+    const email = document.querySelector("#emailAddress").value
+    const userName = document.querySelector("#userName").value
+    const password = document.querySelector("#userPassword").value
+    const confirmPassword = document.querySelector("#confirmPassword").value
 
-        //validate password
-        if (password != confirmPassword) {
-            alert("Password doesn't match")
-            return null;
-        }
-
-        const registeredUser = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            userName: userName,
-            password: password,
-            confirmPassword: confirmPassword
-        }
-        return registeredUser
-
+    //validate password
+    if (password != confirmPassword) {
+        alert("Password doesn't match")
+        return null;
     }
-    /* registration form value end */
+
+    const registeredUser = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        userName: userName,
+        password: password,
+        confirmPassword: confirmPassword
+    }
+    return registeredUser
+
+}
+return registeredUser
+
+}
+/* registration form value end */
 
 
 /* News form Input Value */
@@ -141,15 +152,8 @@ const getNewsFormValue = () => {
         const synopsis = document.querySelector("#newsSynopsis").value
         const url = document.querySelector("#newsURL").value
 
-        const news = {
-            title: title,
-            synopsis: synopsis,
-            url: url,
-        }
-        return news
-
     }
-    /* Input form value end */
+    /* News Input form value end */
 
 /* Login Event Listener */
 document.querySelector("#btnLoginSubmit").addEventListener("click", event => {

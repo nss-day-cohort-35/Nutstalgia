@@ -26,7 +26,7 @@ const taskObject = {
         let mainContainer = document.querySelector("#mainContainer")
         mainContainer.innerHTML = ""
         mainContainer.innerHTML += taskObject.taskModalComponent();
-        document.querySelector("#addContainer").innerHTML = ' Heyyyy daily Tasks <button type="button" id="addTask">Add Task</button> '
+        document.querySelector("#addButtonContainer").innerHTML = ' Heyyyy daily Tasks <button type="button" id="addTask">Add Task</button> '
         document.querySelector("#addTask").addEventListener("click", event => {
             taskObject.displayModal();
             taskObject.hiddenId = ""
