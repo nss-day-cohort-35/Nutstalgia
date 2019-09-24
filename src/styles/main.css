@@ -104,7 +104,7 @@
     overflow: auto;
   }
 
-  #btn-save, #btnNewsSave {
+  #btn-save, #btnNewsSave, #btnTasksSave {
     background-color: rgb(1, 53, 82);
     color: antiquewhite;
     padding: 5px 10px;
