@@ -71,15 +71,15 @@
     text-align: center;
   }
   
-  #btnCloseRegistrationForm, #btnCloseNews, #btnCloseLoginForm, #btnCloseTasks
+  #btnCloseRegistrationForm, #btnCloseNews, #btnCloseLoginForm, #btnCloseEvents,#btnEditCloseEvents, #btnCloseTasks
   {
     color: #ccc;
     float: right;
     font-size: 30px;
   }
   
-  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover,
-  #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus,
+  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover, #btnCloseEvents:hover,#btnEditCloseEvents:hover,
+  #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus, #btnCloseEvents:focus,#btnEditCloseEvents:focus, 
   #btnCloseTasks:hover, #btnCloseTasks:focus
    {
     color: black;
@@ -104,13 +104,13 @@
     overflow: auto;
   }
 
-  #btn-save, #btnNewsSave, #btnTasksSave {
+  #btn-save, #btnNewsSave, #btnEventSave, #btnEventSaveEdit, #btnTasksSave {
     background-color: rgb(1, 53, 82);
     color: antiquewhite;
     padding: 5px 10px;
     font-size: 20px;
   }
-  #btn-save:hover, #btnNewsSave:hover {
+  #btn-save:hover, #btnNewsSave:hover,#btnEventSave:hover, #btnEventSaveEdit:hover {
     background-color: green;
     border: 2px solid #4caf50;
   }
