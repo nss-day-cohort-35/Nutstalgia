@@ -75,9 +75,9 @@ const eventsInputEditValue = () => {
 };
 
 const renderEvents = events => {
-    document.querySelector("#container").innerHTML = "";
+    document.querySelector("#mainContainer").innerHTML = "";
     events.forEach(event => {
-        document.querySelector("#container").innerHTML += createEventsHTML(event);
+        document.querySelector("#mainContainer").innerHTML += createEventsHTML(event);
     });
 };
 
@@ -125,12 +125,12 @@ const eventsObject = {
     },
         
     deleteEvent: () => {
-        document.querySelector("#container").addEventListener("click", event => {
+        document.querySelector("#mainContainer").addEventListener("click", event => {
             if (event.target.id.startsWith("deleteEvent--")) {
                 API.deleteEventEntries(event.target.id.split("--")[1])
                 .then((response) => {
                    
-                    //document.querySelector("#container").innerHTML = "";
+                    //document.querySelector("#mainContainer").innerHTML = "";
                     loadEventEntries();
                 });
             }
@@ -138,7 +138,7 @@ const eventsObject = {
     },
        
     editEvent: () =>  {
-        document.querySelector("#container").addEventListener("click", event => {
+        document.querySelector("#mainContainer").addEventListener("click", event => {
             if (event.target.id.startsWith("editEvent--")) {
                 API.getEventById(event.target.id.split("--")[1]).then(response => {
                     loadEditForm(response);

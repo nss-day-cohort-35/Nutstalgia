@@ -1,7 +1,6 @@
 import API from "./dataAPI.js";
 import eventsObject from "./events/eventListeners.js"
-
-
+import taskObject from "./tasks/eventListeners.js";
 
 eventsObject.eventsButtonClick();
 eventsObject.eventSave();
@@ -9,9 +8,7 @@ eventsObject.deleteEvent();
 eventsObject.editEvent();
 eventsObject.updateEvent();
 
-
-
-
+taskObject.taskListeners();
 /*
     Import all the tools into main.js that are needed to display
     the initial UI to the user. Either the login form should appear
@@ -60,7 +57,7 @@ const getLoginFormValue = () => {
 }
 /* Login Form end */
 /* registration input value start */
-/* const addModal = document.querySelector("#register-form")
+ const addModal = document.querySelector("#register-form")
 const addModalBtn = document.querySelector("#btn-add")
 const closeAddModalBtn = document.querySelector("#btnCloseRegistrationForm")
 
@@ -121,8 +118,9 @@ const getRegisterFormValue = () => {
     }
     return registeredUser
 
-} */
+} 
 /* registration form value end */
+
 
 /* News form Input Value */
 const addNewsModal = document.querySelector("#newsModal")
