@@ -29,7 +29,7 @@ const closeEditModalBtn = () => {
 };
 
 //addEventEditModal.addEventListener("click", openEventEditModal);
-addEditEventModal.addEventListener("click", closeEditModalBtn);
+editCloseModalBtn.addEventListener("click", closeEditModalBtn);
 
 /* Get Input Value form Form */
 const eventsInputValue = () => {
@@ -52,7 +52,7 @@ const loadEditForm = editEvent => {
     document.querySelector("#eventDateEdit").value = editEvent.eventDate;
     document.querySelector("#eventLocationEdit").value = editEvent.eventLocation;
     document.querySelector("#eventId").value = editEvent.id;
-};
+}
 /* Get Value from edit input field */
 const eventsInputEditValue = () => {
     const name = document.querySelector("#eventNameEdit").value;
@@ -92,30 +92,34 @@ const createEventsHTML = eventObj => {
     <button type="button" class="btn" id="deleteEvent--${eventObj.id}">Delete</button>
     <button type="button" class="btn" id="editEvent--${eventObj.id}">Edit</button>
     </div>
-    `;
+    `
 };
 const eventsObject = {
-    eventsButtonClick: () =>
+    eventsButtonClick: () => {
         document.querySelector("#btnEvents").addEventListener("click", () => {
-           document.querySelector("#addButtonContainer").innerHTML = `<div><button type="button" id="btnAddEvents">Add Event</button></div>`
-            API.getEventsEntries("allEvents").then(events => {
-                renderEvents(events);
-                document
-                    .querySelector("#btnAddEvents")
-                    .addEventListener("click", () => {
-                        openEventModal();
-                    });
-            });
-        }),
-    eventSave: () =>
+            document.querySelector("#addButtonContainer").innerHTML = `<div><button type="button" id="btnAddEvents">Add Event</button></div>`
+             API.getEventsEntries("allEvents").then(events => {
+                 renderEvents(events);
+                 document
+                     .querySelector("#btnAddEvents")
+                     .addEventListener("click", () => {
+                         openEventModal();
+                     });
+             });
+         })
+    },
+       
+    eventSave: () => {
         document.querySelector("#btnEventSave").addEventListener("click", event => {
             const getEvents = eventsInputValue();
             API.saveEventsEntries(getEvents).then(() => {
                 closeEventModal();
                 loadEventEntries();
             });
-        }),
-    deleteEvent: () =>
+        })
+    },
+        
+    deleteEvent: () => {
         document.querySelector("#container").addEventListener("click", event => {
             if (event.target.id.startsWith("deleteEvent--")) {
                 API.deleteEvent(event.target.id.split("--")[1]).then(response => {
@@ -123,8 +127,10 @@ const eventsObject = {
                     loadEventEntries();
                 });
             }
-        }),
-    editEvent: () =>
+        })
+    },
+       
+    editEvent: () =>  {
         document.querySelector("#container").addEventListener("click", event => {
             if (event.target.id.startsWith("editEvent--")) {
                 API.getEventById(event.target.id.split("--")[1]).then(response => {
@@ -132,8 +138,12 @@ const eventsObject = {
                     openEventEditModal();
                 });
             }
-        }),
-    updateEvent: () =>
+        })
+    },
+    
+    
+        
+    updateEvent: () => {
         document
         .querySelector("#btnEventSaveEdit")
         .addEventListener("click", event => {
@@ -144,6 +154,8 @@ const eventsObject = {
             });
            
         })
-};
+    }
+       
+}
 
-export default eventsObject;
+export default eventsObject 
