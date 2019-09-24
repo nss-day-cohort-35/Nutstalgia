@@ -13,7 +13,7 @@
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 5; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -71,15 +71,16 @@
     text-align: center;
   }
   
-  #btnCloseRegistrationForm, #btnCloseNews, #btnCloseLoginForm
+  #btnCloseRegistrationForm, #btnCloseNews, #btnCloseLoginForm, #btnCloseTasks
   {
     color: #ccc;
     float: right;
     font-size: 30px;
   }
   
-  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover
-  #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus
+  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover,
+  #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus,
+  #btnCloseTasks:hover, #btnCloseTasks:focus
    {
     color: black;
     text-decoration: none;
@@ -103,7 +104,7 @@
     overflow: auto;
   }
 
-  #btn-save, #btnNewsSave {
+  #btn-save, #btnNewsSave, #btnTasksSave {
     background-color: rgb(1, 53, 82);
     color: antiquewhite;
     padding: 5px 10px;
