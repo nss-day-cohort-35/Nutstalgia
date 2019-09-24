@@ -52,7 +52,6 @@
     <!-- Login form end -->
 
     <!-- News Form start -->
-    <section id="newsContainer"></section>
     <div id="newsModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -70,7 +69,27 @@
             </div>
         </div>
     </div>
+    <div id="newsEditModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="btnEditCloseNews">&times;</span>
+                <h2>News</h2>
+            </div>
+            <div class="modal-body ">
+                <div class="flex-container">
+                    <input class="flex-input" type="text" placeholder="News Title" id="editNewsTitle">
+                    <input class="flex-input" type="text" placeholder="Synopsis" id="editNewsSynopsis">
+                    <input class="flex-input" type="text" placeholder="URL" id="editNewsURL">
+                    <input class="flex-input" type="date" placeholder="Date Created" id="editNewsDate">
+                    <input class="flex-input" type="hidden" id="newsId">
+                </div>
+                <div class="modal-footer"><button id="btnNewsSaveEdit">Save</button></div>
+
+            </div>
+        </div>
+    </div>
     <!-- News Form end -->
+
     <!-- Event Form Start -->
 
     <div id="eventsModal" class="modal">

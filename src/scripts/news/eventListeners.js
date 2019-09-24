@@ -1,43 +1,42 @@
 import API from "./../dataAPI.js"
 
-
-
-//Entry that will Post to the DOM
-const makeNewsArticle = (news) => {
-    return `
-<div class="newsPosts"> 
-  <h2 id="title">News: ${news.newsTitle}</h2>
-  <p id="synposis">Synopsis: ${news.synopsis}</p>
-  <h3 id="url">${news.url}</h3>
-  <aside id="createDate">Date Created: ${news.createDate}</aside>
-  <button type="button" id="btnDeleteNews--${news.id}">
-     Delete News
-  </button>
-  <button type="button" id="btnEditNews--${news.id}">
-     Edit News
-  </button>
-</div>
-`
-}
-
-// Function that render article to the DOM
-const renderNewsArticle = (news) => {
-    document.querySelector("#mainContainer").innerHTML += makeNewsArticle(news);
-}
-
-/* News form Input Value */
+/* Modal Popup Open */
 const addNewsModal = document.querySelector("#newsModal")
 const addNewsModalBtn = document.querySelector("#btnNews")
 const closeAddNewsModalBtn = document.querySelector("#btnCloseNews")
 
 const openNewsAddModal = () => {
-    addNewsModal.style.display = "block";
+    document.querySelector("#newsTitle").value = "";
+    document.querySelector("#newsSynopsis").value = "";
+    document.querySelector("#newsURL").value = "";
+    document.querySelector("#newsDate").value = "";
 
+    addNewsModal.style.display = "block";
 }
 const closeNewsAddModal = () => {
     addNewsModal.style.display = "none";
 }
 
+addNewsModalBtn.addEventListener("click", openNewsAddModal);
+closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
+
+// Edit Modal PopUp 
+const addNewsEditModal = document.querySelector("#newsEditModal")
+const editNewsModalBtn = document.querySelector("#btnNewsSaveEdit")
+const editCloseNewsModalBtn = document.querySelector("#btnEditCloseNews")
+
+const openNewsEditModal = () => {
+    addNewsEditModal.style.display = "block";
+};
+
+const closeNewsEditModalBtn = () => {
+    addNewsEditModal.style.display = "none";
+};
+
+addNewsEditModal.addEventListener("click", openNewsEditModal);
+editCloseNewsModalBtn.addEventListener("click", closeNewsEditModalBtn);
+
+// Get Input Value form Form 
 const getNewsFormValue = () => {
     const title = document.querySelector("#newsTitle").value
     const synopsis = document.querySelector("#newsSynopsis").value
@@ -54,54 +53,121 @@ const getNewsFormValue = () => {
 
 }
 
-const newsObject = {
-    //Event listener button that changes innerHTML
-    newsButton: () => document.querySelector("#btnNews").addEventListener("click", () => {
-        // This makes sure we have news articles when the page loads!
-        document.querySelector("#mainContainer").innerHTML =
-            `<div><button id="addNewsButton"> Add News </button></div>`
-        API.getAnything("news").then((allArticles) => {
-            allArticles.forEach(article => {
-                renderNewsArticle(article);
+/* Edit Input Value */
+const newsEditForm = editNews => {
+        document.querySelector("#editNewsTitle").value = editNews.newsTitle;
+        document.querySelector("#editNewsSynopsis").value = editNews.synopsis;
+        document.querySelector("#editNewsURL").value = editNews.url;
+        document.querySelector("#editNewsDate").value = editNews.createDate
+        document.querySelector("#newsId").value = editNews.id;
+    }
+    /* Get Value from edit input field */
+const newsInputEditValue = () => {
+    const title = document.querySelector("#editNewsTitle").value
+    const synopsis = document.querySelector("#editNewsSynopsis").value
+    const url = document.querySelector("#editNewsURL").value
+    const date = document.querySelector("#editNewsDate").value
+    const id = document.querySelector("#newsId").value
 
-            }), document.querySelector("#mainContainer").addEventListener("click", (event) => {
-                if (event.target.id.startsWith("btnDeleteNews--") === true) {
-                    const eventId = event.target.id.split("--" [1]);
-                    // Clear container
-                    document.querySelector("#mainContainer").innerHTML = "";
-                    // Delete function 
-                    API.deleteAnything("news", eventId[2])
-                        //Get all News articles
-                    API.getAnything("news").then((allArticles) => {
-                        allArticles.forEach(article => {
-                            renderNewsArticle(article);
-                        })
-                    })
-                }
-            }), document.querySelector("#addNewsButton").addEventListener("click", () => {
-                openNewsAddModal();
-            }), document.querySelector("#btnNewsSave").addEventListener("click", () => {
-                const userNews = getNewsFormValue();
-                API.saveAnything(userNews, "news");
-                closeNewsAddModal();
-                //Get all News articles
-                renderNewsArticle(userNews)
-            })
-        })
-    })
-}
-
-
-/*
-const newNewsArticle = (title, synopsis, url, date) => {
     const newArticle = {
         newsTitle: title,
         synopsis: synopsis,
         url: url,
-        createDate: date
-    }
-    return newArticle
+        createDate: date,
+        id: id,
+        userId: sessionStorage.activeUser
+    };
+    return newArticle;
 };
-*/
+
+// Function that render article to the DOM
+const renderNewsArticle = (news) => {
+    document.querySelector("#mainContainer").innerHTML += createNewsHTML(news);
+}
+
+// Get all News Articles
+const getNewsArticles = () => {
+    API.getAnything("news").then((allArticles) => {
+        allArticles.forEach(article => {
+            renderNewsArticle(article);
+        })
+    })
+}
+
+//Entry that will Post to the DOM
+const createNewsHTML = (news) => {
+    return `
+      <div class="newsPosts"> 
+       <h2 id="title">News: ${news.newsTitle}</h2>
+       <p id="synposis">Synopsis: ${news.synopsis}</p>
+       <h3 id="url">${news.url}</h3>
+       <aside id="createDate">Date Created: ${news.createDate}</aside>
+       <button type="button" id="btnDeleteNews--${news.id}">
+         Delete News
+       </button>
+       <button type="button" id="btnEditNews--${news.id}">
+         Edit News
+       </button>
+      </div>`
+}
+
+const newsObject = {
+    newsButtonClick: () => document.querySelector("#btnNews").addEventListener("click", () => {
+        document.querySelector("#addButtonContainer").innerHTML =
+            `<div><button id="btnAddNews">Add News</button></div>`
+        getNewsArticles();
+        document.querySelector("#btnAddNews").addEventListener("click", () => {
+            openNewsAddModal()
+        })
+    }),
+    saveNewsClick: () => {
+        document.querySelector("#btnNewsSave").addEventListener("click", () => {
+            const userNews = getNewsFormValue();
+            API.saveAnything(userNews, "news");
+            closeNewsAddModal();
+            //Get all News articles
+            renderNewsArticle(userNews)
+        })
+    },
+    deleteNewsClick: () => {
+        document.querySelector("#mainContainer").addEventListener("click", event => {
+            if (event.target.id.startsWith("btnDeleteNews--")) {
+                const eventId = event.target.id.split("--" [1]);
+                console.log(eventId)
+                    // Clear container
+                document.querySelector("#mainContainer").innerHTML = "";
+                // Delete function 
+                API.deleteByID("news", eventId[2])
+                    .then((response) => {
+                        getNewsArticles(response);
+                    })
+            }
+        })
+    },
+    editNewsClick: () => {
+        document.querySelector("#mainContainer").addEventListener("click", event => {
+            if (event.target.id.startsWith("btnEditNews--")) {
+                const eventId2 = event.target.id.split("--" [1])
+                API.getByID("news", eventId2[2]).then(response => {
+                    newsEditForm(response);
+                    openNewsEditModal();
+                });
+            }
+        })
+    },
+    updateNewsClick: () => {
+        document.querySelector("#btnNewsSaveEdit").addEventListener("click", event => {
+            const getNews = newsInputEditValue();
+            API.putByID("news", getNews.id, getNews).then((response) => {
+                closeNewsEditModalBtn();
+                document.querySelector("#mainContainer").innerHTML = "";
+                getNewsArticles();
+            });
+
+        })
+    }
+}
+
+
 
 export default newsObject

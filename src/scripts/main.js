@@ -2,7 +2,13 @@ import API from "./dataAPI.js"
 import newsObject from "./news/eventListeners.js"
 import eventsObject from "./events/eventListeners.js"
 import taskObject from "./tasks/eventListeners.js";
-newsObject.newsButton()
+newsObject.newsButtonClick();
+newsObject.saveNewsClick();
+newsObject.deleteNewsClick();
+newsObject.editNewsClick()
+newsObject.updateNewsClick()
+
+
 eventsObject.eventsButtonClick();
 eventsObject.eventSave();
 eventsObject.deleteEvent();
@@ -119,42 +125,8 @@ const getRegisterFormValue = () => {
     }
     return registeredUser
 
-}
-return registeredUser
+} /* registration form value end */
 
-}
-/* registration form value end */
-
-
-/* News form Input Value */
-const addNewsModal = document.querySelector("#newsModal")
-const addNewsModalBtn = document.querySelector("#btnNews")
-const closeAddNewsModalBtn = document.querySelector("#btnCloseNews")
-
-const openNewsAddModal = () => {
-    addNewsModal.style.display = "block";
-
-}
-const closeNewsAddModal = () => {
-    addNewsModal.style.display = "none";
-}
-
-addNewsModalBtn.addEventListener("click", openNewsAddModal);
-closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
-
-document.querySelector("#btnNewsSave").addEventListener("click", event => {
-    const news = getNewsFormValue()
-    console.log(news)
-
-})
-
-const getNewsFormValue = () => {
-        const title = document.querySelector("#newsTitle").value
-        const synopsis = document.querySelector("#newsSynopsis").value
-        const url = document.querySelector("#newsURL").value
-
-    }
-    /* News Input form value end */
 
 /* Login Event Listener */
 document.querySelector("#btnLoginSubmit").addEventListener("click", event => {

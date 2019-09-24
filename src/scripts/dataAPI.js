@@ -14,7 +14,6 @@ const API = {
             body: JSON.stringify(user)
         })
     },
-
     getEventsEntries: () => {
         return fetch(`http://localhost:8088/events`)
             .then(response => response.json())
@@ -50,7 +49,15 @@ const API = {
             body: JSON.stringify(entry)
         })
     },
-
+    updateNews: (entry) => {
+        return fetch(`http://localhost:8088/news/${entry.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(entry)
+        })
+    },
     searchGet(array, key, value) {
         return fetch(`http://localhost:8088/${array}?${key}=${value}`)
             .then(response => response.json())
