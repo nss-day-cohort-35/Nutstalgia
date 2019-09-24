@@ -1,4 +1,13 @@
 import API from "./dataAPI.js";
+import eventsObject from "./events/eventListeners.js"
+
+let activeUserId = sessionStorage.getItem("activeUser");
+
+eventsObject.eventsButtonClick();
+eventsObject.eventSave();
+eventsObject.deleteEvent();
+eventsObject.editEvent();
+eventsObject.updateEvent();
 
 
 
@@ -151,61 +160,6 @@ const getNewsFormValue = () => {
 
 }
 /* News Input form value end */
-
-/* Events Input Field Start */
-const addEventModal = document.querySelector("#eventsModal")
-const addEventModalBtn = document.querySelector("#btnAddEvents")
-const closeAddModalBtn = document.querySelector("#btnCloseEvents")
-
-const openEventModal = () => {
-    addEventModal.style.display = "block";
-   
-}
-const closeEventModal = () => {
-    addEventModal.style.display = "none";
-}
-        
-//addEventModalBtn.addEventListener("click", openEventModal);
-closeAddModalBtn.addEventListener("click", closeEventModal);      
-
-
-
-const renderEvents = (event) => {
-    
-    document.querySelector("#container").innerHTML += createEventsHTML(event)
-}
-
-const createEventsHTML = (eventObj) => {
-    return `
-    <div>
-    <h2>${eventObj.eventName}</h2>
-    <p>${eventObj.eventDate}</p>
-    <p>${eventObj.eventLocation}</p>
-    <button type="button" class="btn" id="deleteEvent--${eventObj.id}">Delete</button>
-    <button type="button" class="btn" id="editEvent--${eventObj.id}">Edit</button>
-    </div>
-    `
-} 
-const eventsObject = {
-    eventsButtonClick: () => document.querySelector("#btnEvents").addEventListener("click", () => {
-        document.querySelector("#container").innerHTML = `<button type="button" id="btnAddEvents">Add Events</button>`
-        API.getEventsEntries("allEvents").then(events => {
-           events.forEach(event => {
-               console.log(event)
-               renderEvents(event)
-               document.querySelector("#btnAddEvents").addEventListener("click", () => {
-                openEventModal()
-            })
-           })
-        })
-    
-    }),
-   
-}
-eventsObject.eventsButtonClick();
-
-/* Events Input Field End */
-
 
 
  document.querySelector("#btnLoginSubmit").addEventListener("click", event => {

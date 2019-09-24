@@ -71,15 +71,15 @@
     text-align: center;
   }
   
-  #btnCloseRegistrationForm, #btnCloseNews, #btnCloseLoginForm
+  #btnCloseRegistrationForm, #btnCloseNews, #btnCloseLoginForm, #btnCloseEvents
   {
     color: #ccc;
     float: right;
     font-size: 30px;
   }
   
-  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover,
-  #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus
+  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover, #btnCloseEvents:hover,
+  #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus, #btnCloseEvents:focus
    {
     color: black;
     text-decoration: none;

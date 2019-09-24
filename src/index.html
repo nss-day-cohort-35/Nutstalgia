@@ -22,8 +22,12 @@
             <button id="btnSignOut">Sign Out</button>
         </nav>
     </header>
+<div id="addButtonContainer">
 
-    <article id="container"></article>
+</div>
+    <article id="container">
+ 
+    </article>
     <!-- Login form start -->
      <div id="loginModal" class="modal"> -->
         <div class="modal-content">
@@ -72,19 +76,36 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span id="btnCloseEvents">&times;</span>
-                <h2>Events Item</h2>
+                <h2>Events</h2>
             </div>
             <div class="modal-body ">
                 <div class="flex-container">
                     <input class="flex-input" type="text" placeholder="Name of Event" id="eventName">
-                    <input class="flex-input" type="text" placeholder="Date of Event" id="dateOfTheEvent">
+                    <input class="flex-input" type="date" placeholder="Date of Event" id="eventDate">
                     <input class="flex-input" type="text" placeholder="Location of Event" id="eventLocation">
                 </div>
-                <button>Submit</button>
+                <button id="btnEventSave">Save</button>
             </div>
         </div>
     </div>
-    <!-- Friend Form End -->
+    <div id="eventsEditModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="btnEditCloseEvents">&times;</span>
+                <h2>Events</h2>
+            </div>
+            <div class="modal-body ">
+                <div class="flex-container">
+                    <input class="flex-input" type="text" placeholder="Name of Event" id="eventNameEdit">
+                    <input class="flex-input" type="date" placeholder="Date of Event" id="eventDateEdit">
+                    <input class="flex-input" type="text" placeholder="Location of Event" id="eventLocationEdit">
+                    <input class="flex-input" type="hidden" id="eventId">
+                </div>
+                <button id="btnEventSaveEdit">Save</button>
+            </div>
+        </div>
+    </div>
+    <!-- Event Form End -->
     <!-- Friend Form start -->
     <div id="friendsModal" class="modal">
         <div class="modal-content">
