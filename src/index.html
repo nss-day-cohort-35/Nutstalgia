@@ -23,9 +23,10 @@
             <button type="button" id="btn-add">Sign Up</button>
         </nav>
     </header>
-    <div id="addContainer"></div>
+    <div id="addButtonContainer"></div>
+
     <div id="mainContainer"></div>
-    <article id="container"></article>
+
     <!-- Login form start -->
     <div id="loginModal" class="modal"> -->
         <div class="modal-content">
@@ -67,43 +68,66 @@
                 </div>
                 <button id="btnNewsSave">Submit</button>
             </div>
-            <!-- News Form end -->
+        </div>
+    </div>
+    <!-- News Form end -->
+    <!-- Event Form Start -->
 
-            <div id="eventsModal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="closeBtn">&times;</span>
-                        <h2>Events Item</h2>
-                    </div>
-                    <div class="modal-body ">
-                        <div class="flex-container">
-                            <input class="flex-input" type="text" placeholder="Name of Event">
-                            <input class="flex-input" type="text" placeholder="Date of Event">
-                            <input class="flex-input" type="text" placeholder="Location of Event">
-                        </div>
-                        <button>Submit</button>
-                    </div>
-                </div>
+    <div id="eventsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="btnCloseEvents">&times;</span>
+                <h2>Events</h2>
             </div>
-            <div id="friendsModal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="closeBtn">&times;</span>
-                        <h2>Friends Item</h2>
-                    </div>
-                    <div class="modal-body ">
-                        <div class="flex-container">
-                            <input class="flex-input" type="text" placeholder="add friend">
-                            <button>Add</button>
-                        </div>
-                        <button>Submit</button>
-                    </div>
+            <div class="modal-body ">
+                <div class="flex-container">
+                    <input class="flex-input" type="text" placeholder="Name of Event" id="eventName">
+                    <input class="flex-input" type="date" placeholder="Date of Event" id="eventDate">
+                    <input class="flex-input" type="text" placeholder="Location of Event" id="eventLocation">
+
+                </div>
+                <div class=modal-footer> <button type="button" id="btnEventSave">Save</button></div>
+
+            </div>
+        </div>
+    </div>
+    <div id="eventsEditModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="btnEditCloseEvents">&times;</span>
+                <h2>Events</h2>
+            </div>
+            <div class="modal-body ">
+                <div class="flex-container">
+                    <input class="flex-input" type="text" placeholder="Name of Event" id="eventNameEdit">
+                    <input class="flex-input" type="date" placeholder="Date of Event" id="eventDateEdit">
+                    <input class="flex-input" type="text" placeholder="Location of Event" id="eventLocationEdit">
+                    <input class="flex-input" type="hidden" id="eventId">
+                </div>
+                <div class="modal-footer"><button id="btnEventSaveEdit">Save</button></div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Event Form End -->
+    <!-- Friend Form start -->
+    <div id="friendsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeBtn">&times;</span>
+                <h2>Friends Item</h2>
+            </div>
+            <div class="modal-body ">
+                <div class="flex-container">
+                    <input class="flex-input" type="text" placeholder="add friend">
+                    <button>Add</button>
                 </div>
             </div>
         </div>
     </div>
-
+    <!-- Friend Form End -->
     <!-- registration form start-->
+
     <div id="register-form" class="modal">
         <div class="modal-content">
             <div class="modal-header">
