@@ -1,5 +1,6 @@
 import API from "./dataAPI.js";
-
+import taskObject from "./tasks/eventListeners.js";
+taskObject.taskListeners();
 /*
     Import all the tools into main.js that are needed to display
     the initial UI to the user. Either the login form should appear
@@ -35,19 +36,19 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
 })
 
 const getLoginFormValue = () => {
-    const user = document.querySelector("#loginUserName").value
-    const password = document.querySelector("#myPassword").value
+        const user = document.querySelector("#loginUserName").value
+        const password = document.querySelector("#myPassword").value
 
-    const userLogin = {
-        user: user,
-        password: password,
+        const userLogin = {
+            user: user,
+            password: password,
+
+        }
+        return userLogin
 
     }
-    return userLogin
-
-}
-/* Login Form end */
-/* registration input value start */
+    /* Login Form end */
+    /* registration input value start */
 const addModal = document.querySelector("#register-form")
 const addModalBtn = document.querySelector("#btn-add")
 const closeAddModalBtn = document.querySelector("#btnCloseRegistrationForm")
@@ -71,7 +72,7 @@ closeAddModalBtn.addEventListener("click", closeAddModal);
 document.querySelector("#btn-save").addEventListener("click", event => {
     const registeredUser = getRegisterFormValue()
     console.log(registeredUser)
-    // check if registredUser variable is null,
+        // check if registredUser variable is null,
     if (registeredUser != null) {
         //if not null, register and store in session.
         closeAddModal()
@@ -86,41 +87,31 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 })
 
 const getRegisterFormValue = () => {
-    const firstName = document.querySelector("#firstName").value
-    const lastName = document.querySelector("#lastName").value
-    const email = document.querySelector("#emailAddress").value
-    const userName = document.querySelector("#userName").value
-    const password = document.querySelector("#userPassword").value
-    const confirmPassword = document.querySelector("#confirmPassword").value
+        const firstName = document.querySelector("#firstName").value
+        const lastName = document.querySelector("#lastName").value
+        const email = document.querySelector("#emailAddress").value
+        const userName = document.querySelector("#userName").value
+        const password = document.querySelector("#userPassword").value
+        const confirmPassword = document.querySelector("#confirmPassword").value
 
-    //validate password
-    if (password != confirmPassword) {
-        alert("Password doesn't match")
-        return null;
+        //validate password
+        if (password != confirmPassword) {
+            alert("Password doesn't match")
+            return null;
+        }
+
+        const registeredUser = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            userName: userName,
+            password: password,
+            confirmPassword: confirmPassword
+        }
+        return registeredUser
+
     }
-
-    const registeredUser = {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        userName: userName,
-        password: password,
-        confirmPassword: confirmPassword
-    }
-    return registeredUser
-
-}
-/* registration form value end */
-
-
-    // Storage Session 
-    
-
-
-
-
-
-
+    /* registration form value end */
 
 
 /* News form Input Value */
@@ -146,19 +137,19 @@ document.querySelector("#btnNewsSave").addEventListener("click", event => {
 })
 
 const getNewsFormValue = () => {
-    const title = document.querySelector("#newsTitle").value
-    const synopsis = document.querySelector("#newsSynopsis").value
-    const url = document.querySelector("#newsURL").value
+        const title = document.querySelector("#newsTitle").value
+        const synopsis = document.querySelector("#newsSynopsis").value
+        const url = document.querySelector("#newsURL").value
 
-    const news = {
-        title: title,
-        synopsis: synopsis,
-        url: url,
+        const news = {
+            title: title,
+            synopsis: synopsis,
+            url: url,
+        }
+        return news
+
     }
-    return news
-
-}
-/* Input form value end */
+    /* Input form value end */
 
 /* Login Event Listener */
 document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
@@ -169,8 +160,7 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
             console.log(response);
             if (response.length === 0) {
                 alert("Please enter a valid Username.")
-            }
-            else if (response.length === 1 && response[0].password !== loginPW){
+            } else if (response.length === 1 && response[0].password !== loginPW) {
                 alert("Password is incorrect.")
             } else if (response[0].password === loginPW) {
                 closeLoginAddModal()
@@ -178,10 +168,10 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
                 console.log("It matches?!")
             }
         })
-    });
-    /* Logout Event Listener */
-    document.querySelector("#btnSignOut").addEventListener("click", event => {
-        sessionStorage.removeItem("activeUser")
-        alert("Logged out!")
-        console.log("Session Storage", sessionStorage);
-    })
+});
+/* Logout Event Listener */
+document.querySelector("#btnSignOut").addEventListener("click", event => {
+    sessionStorage.removeItem("activeUser")
+    alert("Logged out!")
+    console.log("Session Storage", sessionStorage);
+})
