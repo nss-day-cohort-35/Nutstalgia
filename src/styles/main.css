@@ -71,15 +71,15 @@
     text-align: center;
   }
   
-  #btnCloseRegistrationForm, #btnCloseNews, #btnCloseLoginForm, #btnCloseEvents
+  #btnCloseRegistrationForm, #btnCloseNews, #btnCloseLoginForm, #btnCloseEvents,#btnEditCloseEvents
   {
     color: #ccc;
     float: right;
     font-size: 30px;
   }
   
-  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover, #btnCloseEvents:hover,
-  #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus, #btnCloseEvents:focus
+  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover, #btnCloseEvents:hover,#btnEditCloseEvents:hover,
+  #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus, #btnCloseEvents:focus,#btnEditCloseEvents:focus
    {
     color: black;
     text-decoration: none;
@@ -103,13 +103,13 @@
     overflow: auto;
   }
 
-  #btn-save, #btnNewsSave {
+  #btn-save, #btnNewsSave, #btnEventSave, #btnEventSaveEdit {
     background-color: rgb(1, 53, 82);
     color: antiquewhite;
     padding: 5px 10px;
     font-size: 20px;
   }
-  #btn-save:hover, #btnNewsSave:hover {
+  #btn-save:hover, #btnNewsSave:hover,#btnEventSave:hover, #btnEventSaveEdit:hover {
     background-color: green;
     border: 2px solid #4caf50;
   }

@@ -29,7 +29,7 @@ const closeEditModalBtn = () => {
 };
 
 //addEventEditModal.addEventListener("click", openEventEditModal);
-//closeEditModalBtn.addEventListener("click", closeEditModalBtn);
+addEditEventModal.addEventListener("click", closeEditModalBtn);
 
 /* Get Input Value form Form */
 const eventsInputValue = () => {
