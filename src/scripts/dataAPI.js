@@ -17,7 +17,11 @@ const API = {
         return fetch(`http://localhost:8088/${array}?${key}=${value}`)
             .then(response => response.json())
     },
-    
+    /* This dynamically returns a user object by Username. */
+    getByUserName(userPlaceholder) {
+        return fetch(`http://localhost:8088/users?userName=${userPlaceholder}`)
+            .then(response => response.json())
+    }
 }
 
 export default API

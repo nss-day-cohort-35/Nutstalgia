@@ -37,18 +37,18 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
 })
 
 const getLoginFormValue = () => {
-        const user = document.querySelector("#loginUserName").value
-        const password = document.querySelector("#myPassword").value
+    const user = document.querySelector("#loginUserName").value
+    const password = document.querySelector("#myPassword").value
 
-        const userLogin = {
-            user: user,
-            password: password,
-          
-        }
-        return userLogin
+    const userLogin = {
+        user: user,
+        password: password,
 
     }
-    /* Login Form end */
+    return userLogin
+
+}
+/* Login Form end */
 /* registration input value start */
 const addModal = document.querySelector("#register-form")
 const addModalBtn = document.querySelector("#btn-add")
@@ -88,28 +88,28 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 })
 
 const getRegisterFormValue = () => {
-        const firstName = document.querySelector("#firstName").value
-        const lastName = document.querySelector("#lastName").value
-        const email = document.querySelector("#emailAddress").value
-        const userName = document.querySelector("#userName").value
-        const password = document.querySelector("#userPassword").value
-        const confirmPassword = document.querySelector("#confirmPassword").value
+    const firstName = document.querySelector("#firstName").value
+    const lastName = document.querySelector("#lastName").value
+    const email = document.querySelector("#emailAddress").value
+    const userName = document.querySelector("#userName").value
+    const password = document.querySelector("#userPassword").value
+    const confirmPassword = document.querySelector("#confirmPassword").value
 
-        //validate password
-        if (password != confirmPassword) {
-            alert("Password doesn't match")
-            return null;
-        }
+    //validate password
+    if (password != confirmPassword) {
+        alert("Password doesn't match")
+        return null;
+    }
 
-        const registeredUser = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            userName: userName,
-            password: password,
-            confirmPassword: confirmPassword
-        }
-        return registeredUser
+    const registeredUser = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        userName: userName,
+        password: password,
+        confirmPassword: confirmPassword
+    }
+    return registeredUser
 
 }
 /* registration form value end */
@@ -152,21 +152,28 @@ const getNewsFormValue = () => {
 }
 /* Input form value end */
 
+/* Login Event Listener */
 document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
     const loginUser = document.querySelector("#loginUserName").value
     const loginPW = document.querySelector("#myPassword").value
-    API.getAnything("users")
+    API.getByUserName(loginUser)
         .then(response => {
-            response.forEach(user => {
-                console.log(response)
-                if (user.userName === loginUser && user.password === loginPW) {
-                    sessionStorage.setItem("activeUser", user.id)
-                    console.log(sessionStorage)
-                    console.log("It's a Match!")
-                    closeLoginAddModal()
-                } else {
-                    // alert("Get off my lawn.")
-                }
-            });
-        });
-});
+            console.log(response);
+            if (response.length === 0) {
+                alert("Please enter a valid Username.")
+            }
+            else if (response.length === 1 && response[0].password !== loginPW){
+                alert("Password is incorrect.")
+            } else if (response[0].password === loginPW) {
+                closeLoginAddModal()
+                sessionStorage.setItem("activeUser", response[0].id)
+                console.log("It matches?!")
+            }
+        })
+    });
+    /* Logout Event Listener */
+    document.querySelector("#btnSignOut").addEventListener("click", event => {
+        sessionStorage.removeItem("activeUser")
+        alert("Logged out!")
+        console.log("Session Storage", sessionStorage);
+    })
