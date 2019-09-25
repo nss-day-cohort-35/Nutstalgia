@@ -6,9 +6,29 @@ const friendsObject = {
             friendsObject.refresh();
             friendsObject.populateFriends();
         })
-        // mainContainer.addEventListener("click", () => {
-        //     taskObject.editOrDelete();
-        // })
+        mainContainer.addEventListener("click", () => {
+            console.log("you clicked main")
+            if (event.target.id.startsWith("removeFriend--")) {
+                const compoundId = event.target.id.split("--")[1]
+                const confirmUnfriend = confirm("Do you want to cut this person out of your life?")
+                if (confirmUnfriend) {
+                    console.log(compoundId)
+                    API.searchGet("friendships", "compound", compoundId)
+                        .then(response => friendsObject.deleteBothFriendships(response))
+                    // .then(response => API.searchGetExpand("requests", "receiverId", sessionStorage.activeUser, "user"))
+                    // .then(response => friendsObject.requestsLoop(response))
+                }
+            }
+        })
+    },
+    deleteBothFriendships: (array) => {
+        console.log("yey", array)
+        array.forEach(friendship => {
+            API.deleteByID("friendships", friendship.id)
+                .then(response => friendsObject.refresh())
+                .then(response => friendsObject.populateFriends())
+            console.log(friendship.id)
+        });
     },
     displayModal: () => {
         document.querySelector("#requestsModal").style.display = "block";
@@ -106,7 +126,7 @@ const friendsObject = {
     friendComponent: (object) => {
         return `<div>
             <h3>${object.user.firstName} ${object.user.lastName} (${object.user.userName}) is your friend</h3>
-            <button id="removeFriend-${object.compound}">End Friendship</button>
+            <button id="removeFriend--${object.compound}">End Friendship</button>
         </div>`
     },
     requestsLoop: (requestsArray) => {

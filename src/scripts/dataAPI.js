@@ -71,6 +71,12 @@ const API = {
         })
             .then(response => response.json())
     },
+    deleteByKeyValue(array, key, value) {
+        return fetch(`http://localhost:8088/${array}?${key}=${value}`, {
+            method: "DELETE"
+        })
+            .then(response => response.json())
+    },
     getByID(array, id) {
         return fetch(`http://localhost:8088/${array}/${id}`)
             .then(response => response.json())
