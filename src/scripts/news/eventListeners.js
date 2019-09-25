@@ -20,7 +20,7 @@ const closeNewsAddModal = () => {
 //addNewsModalBtn.addEventListener("click", openNewsAddModal);
 closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
 
-// Edit Modal PopUp 
+//Edit Modal PopUp
 const addNewsEditModal = document.querySelector("#newsEditModal")
 const editNewsModalBtn = document.querySelector("#btnNewsSaveEdit")
 const editCloseBtn = document.querySelector("#btnEditCloseNews")
@@ -35,10 +35,10 @@ const closeNewsEditModalBtn = () => {
     console.log("whats up")
 };
 
-addNewsEditModal.addEventListener("click", openNewsEditModal);
+//addNewsEditModal.addEventListener("click", openNewsEditModal);
 editCloseBtn.addEventListener("click", closeNewsEditModalBtn);
 
-// Get Input Value form Form 
+/*Get Input Value for Form*/
 const getNewsFormValue = () => {
     const title = document.querySelector("#newsTitle").value
     const synopsis = document.querySelector("#newsSynopsis").value
@@ -118,7 +118,7 @@ const newsObject = {
     newsButtonClick: () => {
         document.querySelector("#btnNews").addEventListener("click", () => {
             document.querySelector("#addButtonContainer").innerHTML =
-                `<div><button id="btnAddNews">Add News</button></div>`
+                "<div><button id='btnAddNews'>Add News</button></div>"
             getNewsArticles();
             document.querySelector("#btnAddNews").addEventListener("click", () => {
                 openNewsAddModal()
@@ -141,11 +141,9 @@ const newsObject = {
                 console.log(eventId)
                     // Clear container
                 document.querySelector("#mainContainer").innerHTML = "";
-                // Delete function 
-                API.deleteByID("news", eventId[2])
-                    .then((response) => {
-                        getNewsArticles(response);
-                    })
+                API.deleteByID("news", eventId[2]).then((response) => {
+                    getNewsArticles(response);
+                })
             }
         })
     },

@@ -27,9 +27,7 @@ const friendObject = {
             const confirmAdd = confirm("Do you want to add this friend?")
             if (confirmAdd) {
                 console.log("you added this friend", targetID)
-                // API.getByID("users", targetID)
-                //     .then(response => 
-                //         console.log(response));
+                    // API.getByID("users", targetID).then(response =>console.log(response));
                 API.saveAnything(friendObject.jsonObject(targetID), "friendships")
             }
         }
@@ -37,9 +35,9 @@ const friendObject = {
     friendSearchBar: () => {
         /* Clears the main container */
         document.querySelector("#mainContainer").innerHTML = ""
-        /* Populates the '#addButtonContainer' with the search bar and button */
+            /* Populates the '#addButtonContainer' with the search bar and button */
         document.querySelector("#addButtonContainer").innerHTML =
-            ' <input type="text" type="input" placeholder="Search For Friends" id="friendSearch"></input><input type="submit" value="Dont Press This Button! Hit Enter Instead!"></input> '
+            "<input type='text' type='input' placeholder='Search For Friends' id='friendSearch'></input><input type='submit' value='Dont Press This Button! Hit Enter Instead!'></input>"
     },
     /* Formatting HTML component for the resulting user info */
     friendComponent: (friend) => {
@@ -63,11 +61,11 @@ const friendObject = {
             document.querySelector("#mainContainer").innerHTML += friendObject.friendComponent(friend)
         });
     },
-    
+
     jsonObject: (placeholder) => {
         return {
-           initiatorID: sessionStorage.activeUser,
-           userId: placeholder
+            initiatorID: sessionStorage.activeUser,
+            userId: placeholder
         }
     },
 

@@ -104,7 +104,7 @@ const createEventsHTML = eventObj => {
 const eventsObject = {
     eventsButtonClick: () => {
         document.querySelector("#btnEvents").addEventListener("click", () => {
-            document.querySelector("#addButtonContainer").innerHTML = `<div><button type="button" id="btnAddEvents">Add Event</button></div>`
+            document.querySelector("#addButtonContainer").innerHTML = "<div><button type='button' id='btnAddEvents'>Add Event</button></div>"
             loadEventEntries()
             document
                 .querySelector("#btnAddEvents")
