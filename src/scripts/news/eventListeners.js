@@ -29,8 +29,10 @@ const openNewsEditModal = () => {
     addNewsEditModal.style.display = "block";
 };
 
+
 const closeNewsEditModalBtn = () => {
     addNewsEditModal.style.display = "none";
+    console.log("whats up")
 };
 
 addNewsEditModal.addEventListener("click", openNewsEditModal);

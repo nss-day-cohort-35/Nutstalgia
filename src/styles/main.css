@@ -1,4 +1,5 @@
 /* CSS Variables */
+
 :root {
     --button-font-color: rgb(255, 255, 255);
     --button-bg: #383838;
@@ -7,124 +8,158 @@
     --onyx: #383838;
     --pastel-brown: #876E56;
     --rhythm: #8E719E;
-    
 }
+
+
 /* modal popup start */
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 5; /* Sit on top */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 5;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
-  }
-  
-  .modal-content {
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Black w/ opacity */
+}
+
+.modal-content {
     position: relative;
     background-color: #fefefe;
-    margin: 50px auto; /* 15% from the top and centered */
+    margin: 50px auto;
+    /* 15% from the top and centered */
     padding: 0;
-    width: 60%; /* Could be more or less, depending on screen size */
+    width: 60%;
+    /* Could be more or less, depending on screen size */
     box-shadow: 0px 5px 8px 0 rgba(0, 0, 0, 0.5);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
-  }
-  @-webkit-keyframes animatetop {
-    from {
-      top: -300px;
-      opacity: 0;
-    }
-    to {
-      top: 0;
-      opacity: 1;
-    }
-  }
-  
-  @keyframes animatetop {
-    from {
-      top: -300px;
-      opacity: 0;
-    }
-    to {
-      top: 0;
-      opacity: 1;
-    }
-  }
+}
 
-  .modal-header {
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.modal-header {
     padding: 2px 16px;
     background-color: rgba(5, 114, 168);
     color: white;
-  }
-  
-  .modal-footer {
+}
+
+.modal-footer {
     padding: 10px 0;
     background-color: rgba(5, 114, 168);
     color: white;
     height: 40px;
     margin-top: 10px;
     text-align: center;
-  }
-  
-  #btnCloseRegistrationForm, #btnCloseNews, #btnCloseLoginForm, #btnCloseEvents,#btnEditCloseEvents, #btnCloseTasks
-  {
+}
+
+#btnCloseRegistrationForm,
+#btnCloseNews,
+#btnCloseLoginForm,
+#btnCloseEvents,
+#btnEditCloseEvents,
+#btnCloseTasks,
+#btnEditCloseNews {
     color: #ccc;
     float: right;
     font-size: 30px;
-  }
-  
-  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover, #btnCloseEvents:hover,#btnEditCloseEvents:hover,
-  #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus, #btnCloseEvents:focus,#btnEditCloseEvents:focus, 
-  #btnCloseTasks:hover, #btnCloseTasks:focus
-   {
+}
+
+#btnCloseRegistrationForm:hover,
+#btnCloseNews:hover,
+#btnCloseLoginForm:hover,
+#btnCloseEvents:hover,
+#btnEditCloseEvents:hover,
+#btnCloseRegistrationForm:focus,
+#btnCloseNews:focus,
+#btnCloseLoginForm:focus,
+#btnCloseEvents:focus,
+#btnEditCloseEvents:focus,
+#btnCloseTasks:hover,
+#btnCloseTasks:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  .flex-container {
+.flex-container {
     display: flex;
     flex-flow: column wrap;
     margin: auto;
     padding: 15px;
     overflow: auto;
-  }
-  
-  .flex-input {
+}
+
+.flex-input {
     padding: 4px 5px;
     font-size: 20px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 10px;
     overflow: auto;
-  }
+}
 
-  #btn-save, #btnNewsSave, #btnEventSave, #btnEventSaveEdit, #btnTasksSave {
+#btn-save,
+#btnNewsSave,
+#btnEventSave,
+#btnEventSaveEdit,
+#btnTasksSave {
     background-color: rgb(1, 53, 82);
     color: antiquewhite;
     padding: 5px 10px;
     font-size: 20px;
-  }
-  #btn-save:hover, #btnNewsSave:hover,#btnEventSave:hover, #btnEventSaveEdit:hover {
+}
+
+#btn-save:hover,
+#btnNewsSave:hover,
+#btnEventSave:hover,
+#btnEventSaveEdit:hover {
     background-color: green;
     border: 2px solid #4caf50;
-  }
-  
-  #btn-save-changes {
+}
+
+#btn-save-changes {
     background-color: rgb(1, 53, 82);
     color: antiquewhite;
     padding: 5px 10px;
     font-size: 20px;
-  }
-  #btn-save-changes:hover {
+}
+
+#btn-save-changes:hover {
     background-color: green;
     border: 2px solid #4caf50;
-  }
+}
 
 h1 {
     display: inline-block;
