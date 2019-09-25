@@ -1,7 +1,14 @@
-import API from "./dataAPI.js";
+import API from "./dataAPI.js"
+import newsObject from "./news/eventListeners.js"
 import eventsObject from "./events/eventListeners.js"
 import taskObject from "./tasks/eventListeners.js";
 import friendObject from "./friends/eventListeners.js";
+
+newsObject.newsButtonClick();
+newsObject.saveNewsClick();
+newsObject.deleteNewsClick();
+newsObject.editNewsClick()
+newsObject.updateNewsClick()
 
 eventsObject.eventsButtonClick();
 eventsObject.eventSave();
@@ -47,20 +54,20 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
 })
 
 const getLoginFormValue = () => {
-    const user = document.querySelector("#loginUserName").value
-    const password = document.querySelector("#myPassword").value
+        const user = document.querySelector("#loginUserName").value
+        const password = document.querySelector("#myPassword").value
 
-    const userLogin = {
-        user: user,
-        password: password,
+        const userLogin = {
+            user: user,
+            password: password,
+
+        }
+        return userLogin
 
     }
-    return userLogin
-
-}
-/* Login Form end */
-/* registration input value start */
- const addModal = document.querySelector("#register-form")
+    /* Login Form end */
+    /* registration input value start */
+const addModal = document.querySelector("#register-form")
 const addModalBtn = document.querySelector("#btn-add")
 const closeAddModalBtn = document.querySelector("#btnCloseRegistrationForm")
 
@@ -83,7 +90,7 @@ closeAddModalBtn.addEventListener("click", closeAddModal);
 document.querySelector("#btn-save").addEventListener("click", event => {
     const registeredUser = getRegisterFormValue()
     console.log(registeredUser)
-    // check if registredUser variable is null,
+        // check if registredUser variable is null,
     if (registeredUser != null) {
         //if not null, register and store in session.
         closeAddModal()
@@ -98,6 +105,7 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 })
 
 const getRegisterFormValue = () => {
+
     const firstName = document.querySelector("#firstName").value
     const lastName = document.querySelector("#lastName").value
     const email = document.querySelector("#emailAddress").value
@@ -121,8 +129,8 @@ const getRegisterFormValue = () => {
     }
     return registeredUser
 
-} 
-/* registration form value end */
+} /* registration form value end */
+
 
 /* Login Event Listener */
 document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
@@ -133,18 +141,17 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
             console.log(response);
             if (response.length === 0) {
                 alert("Please enter a valid Username.")
-            }
-            else if (response.length === 1 && response[0].password !== loginPW){
+            } else if (response.length === 1 && response[0].password !== loginPW) {
                 alert("Password is incorrect.")
             } else if (response[0].password === loginPW) {
                 closeLoginAddModal()
                 sessionStorage.setItem("activeUser", response[0].id)
             }
         })
-    });
-    /* Logout Event Listener */
-    document.querySelector("#btnSignOut").addEventListener("click", event => {
-        sessionStorage.removeItem("activeUser")
-        alert("Logged out!")
-        console.log("Session Storage", sessionStorage);
-    })
+});
+/* Logout Event Listener */
+document.querySelector("#btnSignOut").addEventListener("click", event => {
+    sessionStorage.removeItem("activeUser")
+    alert("Logged out!")
+    console.log("Session Storage", sessionStorage);
+})
