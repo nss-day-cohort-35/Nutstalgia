@@ -104,7 +104,7 @@ const friendsObject = {
             <div id="requestsModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <span id="btnCloseRequests">&times;</span>
+                        <span class="closeModal "id="btnCloseRequests">&times;</span>
                         <h2>Friend Requests</h2>
                     </div>
                     <div class="modal-body">
