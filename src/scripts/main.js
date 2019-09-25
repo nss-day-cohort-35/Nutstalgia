@@ -91,7 +91,7 @@ document.querySelector("#btn-save").addEventListener("click", event => {
     const registeredUser = getRegisterFormValue()
     console.log(registeredUser)
         // check if registredUser variable is null,
-    if (registeredUser != null) {
+    if (registeredUser !== null) {
         //if not null, register and store in session.
         closeAddModal()
     }
@@ -114,7 +114,7 @@ const getRegisterFormValue = () => {
     const confirmPassword = document.querySelector("#confirmPassword").value
 
     //validate password
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
         alert("Password doesn't match")
         return null;
     }
