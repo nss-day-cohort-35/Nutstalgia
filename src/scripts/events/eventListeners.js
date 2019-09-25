@@ -93,11 +93,12 @@ const loadEventEntries = () =>{
 const createEventsHTML = eventObj => {
     return `
     <div>
-    <h2>${eventObj.eventName}</h2>
-    <p>${eventObj.eventDate}</p>
-    <p>${eventObj.eventLocation}</p>
+    <h2>Name: ${eventObj.eventName}</h2>
+    <p>Date: ${eventObj.eventDate}</p>
+    <p>Location: ${eventObj.eventLocation}</p>
     <button type="button" class="btn" id="deleteEvent--${eventObj.id}">Delete</button>
     <button type="button" class="btn" id="editEvent--${eventObj.id}">Edit</button>
+    <hr>
     </div>
     `
 };
@@ -128,12 +129,16 @@ const eventsObject = {
     deleteEvent: () => {
         document.querySelector("#mainContainer").addEventListener("click", event => {
             if (event.target.id.startsWith("deleteEvent--")) {
-                API.deleteEventEntries(event.target.id.split("--")[1])
-                .then((response) => {
-                   
-                    //document.querySelector("#mainContainer").innerHTML = "";
-                    loadEventEntries();
-                });
+                const confirmDelete = confirm("Do you want to delete this event?")
+                if (confirmDelete){
+                    API.deleteEventEntries(event.target.id.split("--")[1])
+                    .then((response) => {
+                       
+                        //document.querySelector("#mainContainer").innerHTML = "";
+                        loadEventEntries();
+                    });
+                }
+               
             }
         })
     },

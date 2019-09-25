@@ -61,7 +61,7 @@ const getLoginFormValue = () => {
 /* Login Form end */
 /* registration input value start */
  const addModal = document.querySelector("#register-form")
-const addModalBtn = document.querySelector("#btn-add")
+const addModalBtn = document.querySelector("#btnSignUp")
 const closeAddModalBtn = document.querySelector("#btnCloseRegistrationForm")
 
 const openAddModal = () => {
@@ -80,6 +80,7 @@ const closeAddModal = () => {
 addModalBtn.addEventListener("click", openAddModal);
 closeAddModalBtn.addEventListener("click", closeAddModal);
 
+
 document.querySelector("#btn-save").addEventListener("click", event => {
     const registeredUser = getRegisterFormValue()
     console.log(registeredUser)
@@ -95,6 +96,13 @@ document.querySelector("#btn-save").addEventListener("click", event => {
     //I called the save User method that is on the API
     //This will now post the registered user to JSON
     API.saveAnything(registeredUser, "users");
+    
+   })    
+
+document.querySelector("#createAccount").addEventListener("click", event => {
+    openAddModal()
+    closeLoginAddModal()
+   
 })
 
 const getRegisterFormValue = () => {
@@ -138,8 +146,14 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
                 alert("Password is incorrect.")
             } else if (response[0].password === loginPW) {
                 closeLoginAddModal()
+                document.querySelector("#welcomeMessage").innerHTML = `<div><h1>Welcome ${loginUser}!</h1></div>`
+                document.querySelector("#btnSignOut").style.display="block";
+                document.querySelector("#btnSignIn").style.display="none";
+                document.querySelector("#btnSignUp").style.display="none";
                 sessionStorage.setItem("activeUser", response[0].id)
                 console.log("It matches?!")
+                
+               
             }
         })
     });
@@ -148,4 +162,9 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
         sessionStorage.removeItem("activeUser")
         alert("Logged out!")
         console.log("Session Storage", sessionStorage);
+        document.querySelector("#btnSignOut").style.display="none";
+        document.querySelector("#btnSignIn").style.display="block";
+        document.querySelector("#btnSignUp").style.display="block";
+        document.querySelector("#welcomeMessage").innerHTML = ""
+       
     })

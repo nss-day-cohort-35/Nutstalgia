@@ -61,7 +61,7 @@ const taskObject = {
             <div id="tasksModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <span id="btnCloseTasks">&times;</span>
+                        <span class="closeModal" id="btnCloseTasks">&times;</span>
                         <h2>Task Item</h2>
                     </div>
                     <div class="modal-body">
@@ -70,11 +70,11 @@ const taskObject = {
                             <input class="flex-input" type="text" placeholder="Write a task..." id="taskDetails">
                             <input class="flex-input" type="date" id="taskDate">
                         </div>
-                        <button id="btnTasksSave">Submit</button>
+                        <button class="submit" id="btnTasksSave">Submit</button>
                     </div>
                 </div>
             </div> 
-            `
+            ` 
     },
     taskComponent: (task) => {
         return `<div>
