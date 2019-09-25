@@ -64,6 +64,10 @@ const API = {
         return fetch(`http://localhost:8088/${array}?${key}=${value}`)
             .then(response => response.json())
     },
+    searchGetExpand (array, key, value, expand) {
+        return fetch(`http://localhost:8088/${array}?_expand=${expand}&${key}=${value}`)
+            .then(response => response.json())
+    },
     /* This dynamically returns a user object by Username. */
     getByUserName(userPlaceholder) {
         return fetch(`http://localhost:8088/users?userName=${userPlaceholder}`)
@@ -73,6 +77,12 @@ const API = {
         return fetch(`http://localhost:8088/${array}/${id}`, {
                 method: "DELETE"
             })
+            .then(response => response.json())
+    },
+    deleteByKeyValue(array, key, value) {
+        return fetch(`http://localhost:8088/${array}?${key}=${value}`, {
+            method: "DELETE"
+        })
             .then(response => response.json())
     },
     getByID(array, id) {

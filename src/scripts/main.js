@@ -2,7 +2,9 @@ import API from "./dataAPI.js"
 import newsObject from "./news/eventListeners.js"
 import eventsObject from "./events/eventListeners.js"
 import taskObject from "./tasks/eventListeners.js";
-import friendObject from "./friends/eventListeners.js";
+import friendsObject from "./friends/eventListeners.js";
+// import friendsListObject from "./friendsList/eventListeners.js";
+import requestsObject from "./requests/eventListeners.js";
 
 newsObject.newsButtonClick();
 newsObject.saveNewsClick();
@@ -17,7 +19,9 @@ eventsObject.editEvent();
 eventsObject.updateEvent();
 
 taskObject.taskListeners();
-friendObject.friendListeners();
+friendsObject.friendsListeners();
+requestsObject.friendListeners();
+// friendsListObject.listeners();
 
 /*
     Import all the tools into main.js that are needed to display

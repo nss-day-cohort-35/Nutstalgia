@@ -84,7 +84,7 @@ const newsInputEditValue = () => {
 
 // Function that render article to the DOM
 const renderNewsArticle = (news) => {
-    document.querySelector("#mainContainer").innerHTML = "";
+    document.querySelector("#mainContainer").innerHTML += "";
     document.querySelector("#mainContainer").innerHTML += createNewsHTML(news);
 }
 
