@@ -4,13 +4,13 @@ const API = {
         return fetch(`http://localhost:8088/${placeholder}`)
             .then(response => response.json())
     },
-    saveAnything: (user, placeholder) => {
-        return fetch(`http://localhost:8088/${placeholder}`, {
+    saveAnything: (object, location) => {
+        return fetch(`http://localhost:8088/${location}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(object)
         })
     },
     
