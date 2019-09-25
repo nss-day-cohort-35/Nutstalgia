@@ -8,18 +8,18 @@ const closeAddModalBtn = document.querySelector("#btnCloseEvents")
 
 const openEventModal = () => {
     document.querySelector("#eventName").value = ""
-                 document.querySelector("#eventDate").value = ""
-                 document.querySelector("#eventLocation").value = ""
+    document.querySelector("#eventDate").value = ""
+    document.querySelector("#eventLocation").value = ""
 
     addEventModal.style.display = "block";
-   
+
 }
 const closeEventModal = () => {
     addEventModal.style.display = "none";
 }
-        
+
 //addEventModalBtn.addEventListener("click", openEventModal);
-closeAddModalBtn.addEventListener("click", closeEventModal);      
+closeAddModalBtn.addEventListener("click", closeEventModal);
 /* Edit Modal PopUp */
 const addEditEventModal = document.querySelector("#eventsEditModal")
 const editEventModalBtn = document.querySelector("#btnAddEvents")
@@ -52,12 +52,12 @@ const eventsInputValue = () => {
 
 /* Edit Input Value */
 const loadEditForm = editEvent => {
-    document.querySelector("#eventNameEdit").value = editEvent.eventName;
-    document.querySelector("#eventDateEdit").value = editEvent.eventDate;
-    document.querySelector("#eventLocationEdit").value = editEvent.eventLocation;
-    document.querySelector("#eventId").value = editEvent.id;
-}
-/* Get Value from edit input field */
+        document.querySelector("#eventNameEdit").value = editEvent.eventName;
+        document.querySelector("#eventDateEdit").value = editEvent.eventDate;
+        document.querySelector("#eventLocationEdit").value = editEvent.eventLocation;
+        document.querySelector("#eventId").value = editEvent.id;
+    }
+    /* Get Value from edit input field */
 const eventsInputEditValue = () => {
     const name = document.querySelector("#eventNameEdit").value;
     const date = document.querySelector("#eventDateEdit").value;
@@ -77,14 +77,14 @@ const eventsInputEditValue = () => {
 const renderEvents = events => {
     document.querySelector("#mainContainer").innerHTML = "";
     events.forEach(event => {
-        
+
         document.querySelector("#mainContainer").innerHTML += createEventsHTML(event);
     });
 };
 
-const loadEventEntries = () =>{
-    
-    API.getEventsEntries(sessionStorage.activeUser).then(event=>{
+const loadEventEntries = () => {
+
+    API.getEventsEntries(sessionStorage.activeUser).then(event => {
         renderEvents(event);
     })
 }
@@ -105,17 +105,17 @@ const createEventsHTML = eventObj => {
 const eventsObject = {
     eventsButtonClick: () => {
         document.querySelector("#btnEvents").addEventListener("click", () => {
-            document.querySelector("#addButtonContainer").innerHTML = `<div><button type="button" id="btnAddEvents">Add Event</button></div>`
+            document.querySelector("#addButtonContainer").innerHTML = "<div><button type='button' id='btnAddEvents'>Add Event</button></div>"
             loadEventEntries()
             document
-                     .querySelector("#btnAddEvents")
-                     .addEventListener("click", () => {
-                         openEventModal();
-                     });
-            
-         })
+                .querySelector("#btnAddEvents")
+                .addEventListener("click", () => {
+                    openEventModal();
+                });
+
+        })
     },
-       
+
     eventSave: () => {
         document.querySelector("#btnEventSave").addEventListener("click", event => {
             const getEvents = eventsInputValue();
@@ -125,10 +125,11 @@ const eventsObject = {
             });
         })
     },
-        
+
     deleteEvent: () => {
         document.querySelector("#mainContainer").addEventListener("click", event => {
             if (event.target.id.startsWith("deleteEvent--")) {
+<<<<<<< HEAD
                 const confirmDelete = confirm("Do you want to delete this event?")
                 if (confirmDelete){
                     API.deleteEventEntries(event.target.id.split("--")[1])
@@ -139,11 +140,19 @@ const eventsObject = {
                     });
                 }
                
+=======
+                API.deleteEventEntries(event.target.id.split("--")[1])
+                    .then((response) => {
+
+                        //document.querySelector("#mainContainer").innerHTML = "";
+                        loadEventEntries();
+                    });
+>>>>>>> master
             }
         })
     },
-       
-    editEvent: () =>  {
+
+    editEvent: () => {
         document.querySelector("#mainContainer").addEventListener("click", event => {
             if (event.target.id.startsWith("editEvent--")) {
                 API.getEventById(event.target.id.split("--")[1]).then(response => {
@@ -153,22 +162,22 @@ const eventsObject = {
             }
         })
     },
-    
-    
-        
+
+
+
     updateEvent: () => {
         document
-        .querySelector("#btnEventSaveEdit")
-        .addEventListener("click", event => {
-            const getEventsUpdateValue = eventsInputEditValue();
-            API.updateEvent(getEventsUpdateValue).then(() => {
-                closeEditModalBtn();
-                loadEventEntries();
-            });
-           
-        })
+            .querySelector("#btnEventSaveEdit")
+            .addEventListener("click", event => {
+                const getEventsUpdateValue = eventsInputEditValue();
+                API.updateEvent(getEventsUpdateValue).then(() => {
+                    closeEditModalBtn();
+                    loadEventEntries();
+                });
+
+            })
     }
-       
+
 }
 
-export default eventsObject 
+export default eventsObject

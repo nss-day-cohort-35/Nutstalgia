@@ -19,14 +19,14 @@ const taskObject = {
             document.querySelector("#taskDate").value = ""
         })
         document.querySelector("#btnTasksSave").addEventListener("click", event => {
-                taskObject.postJSON();
+            taskObject.postJSON();
         })
     },
     taskRefresh: () => {
         let mainContainer = document.querySelector("#mainContainer")
         mainContainer.innerHTML = ""
         mainContainer.innerHTML += taskObject.taskModalComponent();
-        document.querySelector("#addButtonContainer").innerHTML = ' Heyyyy daily Tasks <button type="button" id="addTask">Add Task</button> '
+        document.querySelector("#addButtonContainer").innerHTML = "Heyyyy daily Tasks <button type='button' id='addTask'>Add Task</button>"
         document.querySelector("#addTask").addEventListener("click", event => {
             taskObject.displayModal();
             taskObject.hiddenId = ""
@@ -106,10 +106,9 @@ const taskObject = {
         let deets = document.querySelector("#taskDetails").value
         let date = document.querySelector("#taskDate").value
         if (taskObject.hiddenId === "") {
-        API.saveAnything(taskObject.jsonObject(title, deets, date), "tasks")
-            .then(response => taskObject.taskRefresh());
-        }
-        else {
+            API.saveAnything(taskObject.jsonObject(title, deets, date), "tasks")
+                .then(response => taskObject.taskRefresh());
+        } else {
             API.putByID("tasks", taskObject.hiddenId, taskObject.jsonObject(title, deets, date))
                 .then(response => taskObject.taskRefresh());
         }
