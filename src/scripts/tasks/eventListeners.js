@@ -73,8 +73,8 @@ const taskObject = {
                         <button class="submit" id="btnTasksSave">Submit</button>
                     </div>
                 </div>
-            </div> 
-            ` 
+            </div>
+            `
     },
     taskComponent: (task) => {
         return `<div>

@@ -83,7 +83,7 @@
     margin-top: 10px;
     text-align: center;
   }
-  
+
   .closeModal {
     color: #ccc;
     float: right;
@@ -102,7 +102,7 @@
     text-decoration: none;
     cursor: pointer;
   }
-  
+
  /*  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover, #btnCloseEvents:hover,#btnEditCloseEvents:hover,
   #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus, #btnCloseEvents:focus,#btnEditCloseEvents:focus, 
   #btnCloseTasks:hover, #btnCloseTasks:focus
@@ -154,7 +154,7 @@
     background-color: green;
     border: 2px solid #4caf50;
   }
-  
+
   #btn-save-changes {
     background-color: var(--button-bg);
     color: antiquewhite;
@@ -171,7 +171,7 @@ h1 {
     display: inline-block;
     text-align: center;
     width: 80%;
-} 
+}
 
 /* header {
     background-color: var(--pastel-brown);
@@ -181,7 +181,7 @@ h1 {
  */
 /* nav {
     text-align: center;
-    display: inline; 
+    display: inline;
     margin: 3em;
     padding: 2em;
 } */
@@ -190,7 +190,7 @@ nav button {
     margin: 3em;
     padding: 0.5em;
     background-color: bisque;
-} 
+}
 
 img {
     margin:25px;
@@ -207,7 +207,7 @@ img {
 }
 #mainContainer {
   margin-left: 275px;
-  
+
 }
 
 #addButtonContainer {
@@ -226,16 +226,16 @@ header {
   background-color:var(--pastel-brown);
   overflow-x: hidden;
   padding-top: 20px;
-} 
+}
 
- li{ 
+ li{
   list-style-type: none;
   padding: 10px;
   margin: 10px;
   text-align:center;
   font-size: 20px;
   border: 1px solid #626262;
-  background:var(--button-bg);  
+  background:var(--button-bg);
   color:white;
  font-family: 'Courier New', Courier, monospace;
 
@@ -243,7 +243,7 @@ header {
 a:link {
   color: white;
   text-decoration: none;
- 
+
 }
 a:visited{
   color:white;
