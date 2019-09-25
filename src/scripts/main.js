@@ -4,15 +4,11 @@ import eventsObject from "./events/eventListeners.js"
 import taskObject from "./tasks/eventListeners.js";
 import friendObject from "./friends/eventListeners.js";
 
-
-
 newsObject.newsButtonClick();
 newsObject.saveNewsClick();
 newsObject.deleteNewsClick();
 newsObject.editNewsClick()
 newsObject.updateNewsClick()
-
-
 
 eventsObject.eventsButtonClick();
 eventsObject.eventSave();
@@ -134,32 +130,6 @@ const getRegisterFormValue = () => {
     return registeredUser
 
 } /* registration form value end */
-
-const firstName = document.querySelector("#firstName").value
-const lastName = document.querySelector("#lastName").value
-const email = document.querySelector("#emailAddress").value
-const userName = document.querySelector("#userName").value
-const password = document.querySelector("#userPassword").value
-const confirmPassword = document.querySelector("#confirmPassword").value
-
-//validate password
-if (password != confirmPassword) {
-    alert("Password doesn't match")
-    return null;
-}
-
-const registeredUser = {
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    userName: userName,
-    password: password,
-    confirmPassword: confirmPassword
-}
-return registeredUser
-
-
-/* registration form value end */
 
 
 /* Login Event Listener */
