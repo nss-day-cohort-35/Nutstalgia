@@ -17,7 +17,7 @@ const closeNewsAddModal = () => {
     addNewsModal.style.display = "none";
 }
 
-addNewsModalBtn.addEventListener("click", openNewsAddModal);
+//addNewsModalBtn.addEventListener("click", openNewsAddModal);
 closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
 
 // Edit Modal PopUp 
@@ -112,14 +112,16 @@ const createNewsHTML = (news) => {
 }
 
 const newsObject = {
-    newsButtonClick: () => document.querySelector("#btnNews").addEventListener("click", () => {
-        document.querySelector("#addButtonContainer").innerHTML =
-            `<div><button id="btnAddNews">Add News</button></div>`
-        getNewsArticles();
-        document.querySelector("#btnAddNews").addEventListener("click", () => {
-            openNewsAddModal()
+    newsButtonClick: () => {
+        document.querySelector("#btnNews").addEventListener("click", () => {
+            document.querySelector("#addButtonContainer").innerHTML =
+                `<div><button id="btnAddNews">Add News</button></div>`
+            getNewsArticles();
+            document.querySelector("#btnAddNews").addEventListener("click", () => {
+                openNewsAddModal()
+            })
         })
-    }),
+    },
     saveNewsClick: () => {
         document.querySelector("#btnNewsSave").addEventListener("click", () => {
             const userNews = getNewsFormValue();
