@@ -12,7 +12,7 @@
 <body>
     <header>
         <h1>Nutstalgia</h1>
-        <img src="styles/img/walnut.jpg">
+        <img src="styles/img/walnut.jpg" alt="A picture of walnuts">
         <nav>
             <button id="btnDailyTasks">Daily Tasks</button>
             <button id="btnEvents">Events</button>
@@ -28,14 +28,14 @@
     <div id="mainContainer"></div>
 
     <!-- Login form start -->
-    <div id="loginModal" class="modal"> -->
+    <div id="loginModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <span id="btnCloseLoginForm">&times;</span>
                 <h2 class="login-header">Welcome!</h2>
                 <h3 class="login-userLogin">User Login</h3>
             </div>
-            <div class="modal-body ">
+            <div class="modal-body">
                 <div class="flex-container">
                     <input class="flex-input" type="text" placeholder="Enter Username" id="loginUserName" />
                 </div>
@@ -63,7 +63,7 @@
                     <input class="flex-input" type="text" placeholder="News Title" id="newsTitle">
                     <input class="flex-input" type="text" placeholder="Synopsis" id="newsSynopsis">
                     <input class="flex-input" type="text" placeholder="URL" id="newsURL">
-                    <input class="flex-input" type="date" placeholder="Date Created" id="newsDate">
+                    <input class="flex-input" type="date" id="newsDate">
                 </div>
                 <button id="btnNewsSave">Submit</button>
             </div>
@@ -75,16 +75,15 @@
                 <span id="btnEditCloseNews">&times;</span>
                 <h2>News</h2>
             </div>
-            <div class="modal-body ">
+            <div class="modal-body">
                 <div class="flex-container">
                     <input class="flex-input" type="text" placeholder="News Title" id="editNewsTitle">
                     <input class="flex-input" type="text" placeholder="Synopsis" id="editNewsSynopsis">
                     <input class="flex-input" type="text" placeholder="URL" id="editNewsURL">
-                    <input class="flex-input" type="date" placeholder="Date Created" id="editNewsDate">
+                    <input class="flex-input" type="date" id="editNewsDate">
                     <input class="flex-input" type="hidden" id="newsId">
                 </div>
                 <div class="modal-footer"><button id="btnNewsSaveEdit">Save</button></div>
-
             </div>
         </div>
     </div>
@@ -98,14 +97,14 @@
                 <span id="btnCloseEvents">&times;</span>
                 <h2>Events</h2>
             </div>
-            <div class="modal-body ">
+            <div class="modal-body">
                 <div class="flex-container">
                     <input class="flex-input" type="text" placeholder="Name of Event" id="eventName">
-                    <input class="flex-input" type="date" placeholder="Date of Event" id="eventDate">
+                    <input class="flex-input" type="date" id="eventDate">
                     <input class="flex-input" type="text" placeholder="Location of Event" id="eventLocation">
 
                 </div>
-                <div class=modal-footer> <button type="button" id="btnEventSave">Save</button></div>
+                <div class=modal-footer><button type="button" id="btnEventSave">Save</button></div>
 
             </div>
         </div>
@@ -116,15 +115,14 @@
                 <span id="btnEditCloseEvents">&times;</span>
                 <h2>Events</h2>
             </div>
-            <div class="modal-body ">
+            <div class="modal-body">
                 <div class="flex-container">
                     <input class="flex-input" type="text" placeholder="Name of Event" id="eventNameEdit">
-                    <input class="flex-input" type="date" placeholder="Date of Event" id="eventDateEdit">
+                    <input class="flex-input" type="date" id="eventDateEdit">
                     <input class="flex-input" type="text" placeholder="Location of Event" id="eventLocationEdit">
                     <input class="flex-input" type="hidden" id="eventId">
                 </div>
                 <div class="modal-footer"><button id="btnEventSaveEdit">Save</button></div>
-
             </div>
         </div>
     </div>
@@ -136,7 +134,7 @@
                 <span class="closeBtn">&times;</span>
                 <h2>Friends Item</h2>
             </div>
-            <div class="modal-body ">
+            <div class="modal-body">
                 <div class="flex-container">
                     <input class="flex-input" type="text" placeholder="add friend">
                     <button>Add</button>
@@ -153,24 +151,25 @@
                 <span id="btnCloseRegistrationForm">&times;</span>
                 <h2>Register User</h2>
             </div>
-            <div class="modal-body ">
-                <div class="flex-container">
-                    <input class="flex-input" type="text" id="firstName" placeholder="First Name" />
-                    <input class="flex-input" type="text" id="lastName" placeholder="Last Name" />
-                    <input class="flex-input" type="text" id="emailAddress" placeholder="Email Address" />
-                    <input class="flex-input" type="text" id="userName" placeholder="User Name" />
-                    <input class="flex-input" type="password" id="userPassword" placeholder="Password" />
-                    <input class="flex-input" type="password" id="confirmPassword" placeholder="Confirm Password" />
+            <div class="modal-body">
+                <div class="flex-container ">
+                    <input class="flex-input" type="text" id="firstName" placeholder="First Name">
+                    <input class="flex-input" type="text" id="lastName" placeholder="Last Name">
+                    <input class="flex-input" type="text" id="emailAddress" placeholder="Email Address">
+                    <input class="flex-input" type="text" id="userName" placeholder="User Name">
+                    <input class="flex-input" type="password" id="userPassword" placeholder="Password">
+                    <input class="flex-input" type="password" id="confirmPassword" placeholder="Confirm Password">
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btn-save">Save</button>
                 </div>
             </div>
         </div>
-        <!-- registration form end -->
-        <div id="registerContainer"></div>
+    </div>
+    <!-- registration form end -->
+    <div id="registerContainer"></div>
 
-        <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>

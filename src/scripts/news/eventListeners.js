@@ -23,7 +23,7 @@ closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
 // Edit Modal PopUp 
 const addNewsEditModal = document.querySelector("#newsEditModal")
 const editNewsModalBtn = document.querySelector("#btnNewsSaveEdit")
-const editCloseNewsModalBtn = document.querySelector("#btnEditCloseNews")
+const editCloseBtn = document.querySelector("#btnEditCloseNews")
 
 const openNewsEditModal = () => {
     addNewsEditModal.style.display = "block";
@@ -34,7 +34,7 @@ const closeNewsEditModalBtn = () => {
 };
 
 addNewsEditModal.addEventListener("click", openNewsEditModal);
-editCloseNewsModalBtn.addEventListener("click", closeNewsEditModalBtn);
+editCloseBtn.addEventListener("click", closeNewsEditModalBtn);
 
 // Get Input Value form Form 
 const getNewsFormValue = () => {
@@ -82,6 +82,7 @@ const newsInputEditValue = () => {
 
 // Function that render article to the DOM
 const renderNewsArticle = (news) => {
+    document.querySelector("#mainContainer").innerHTML = "";
     document.querySelector("#mainContainer").innerHTML += createNewsHTML(news);
 }
 
@@ -99,7 +100,7 @@ const createNewsHTML = (news) => {
     return `
       <div class="newsPosts"> 
        <h2 id="title">News: ${news.newsTitle}</h2>
-       <p id="synposis">Synopsis: ${news.synopsis}</p>
+       <p id="synposis">${news.synopsis}</p>
        <h3 id="url">${news.url}</h3>
        <aside id="createDate">Date Created: ${news.createDate}</aside>
        <button type="button" id="btnDeleteNews--${news.id}">
