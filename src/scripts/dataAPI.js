@@ -13,16 +13,13 @@ const API = {
             body: JSON.stringify(user)
         })
     },
-    getEventsEntries: () => {
-        return fetch(`http://localhost:8088/events`)
+    
+    getEventsEntries: (userId) => {
+        return fetch(`http://localhost:8088/events?userId=${userId}&_sort=eventDate&_order=asc`)
             .then(response => response.json())
                        
     },
-  /*   getEventsEntries: (array, key, value) => {
-        return fetch(`http://localhost:8088/${array}?${key}=${value}`)
-            .then(response => response.json())
-                       
-    }, */
+
     saveEventsEntries: (entry) => {
         return fetch(`http://localhost:8088/events`, {
             method: "POST",
