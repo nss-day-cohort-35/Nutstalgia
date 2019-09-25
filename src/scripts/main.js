@@ -139,7 +139,6 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
             } else if (response[0].password === loginPW) {
                 closeLoginAddModal()
                 sessionStorage.setItem("activeUser", response[0].id)
-                console.log("It matches?!")
             }
         })
     });
