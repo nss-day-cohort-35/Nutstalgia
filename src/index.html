@@ -10,10 +10,23 @@
 </head>
 
 <body>
-    <header>
-        <h1>Nutstalgia</h1>
-        <img src="styles/img/walnut.jpg" alt="A picture of walnuts">
-        <nav>
+    <header >
+        <div>
+                <img src="styles/img/walnut.jpg">
+                <h1>Nutstalgia</h1>
+                <div id="welcomeMessage"></div>
+                <nav class="sidenav">
+                    <li id="btnDailyTasks"><a href="#">Daily Tasks</a></li>
+                    <li id="btnEvents"><a href="#">Events</a></li>
+                    <li id="btnFriends"><a href="#">Friends</a></li>
+                    <li id="btnNews"><a href="#">News</a></li>
+                    <li id="btnSignIn"><a href="#">Sign In</a></li>
+                    <li id="btnSignOut" style="display: none"><a href="#">Sign Out</a></li>
+                    <li id="btnSignUp"><a href="#">Sign Up</a></li>
+                </nav>
+        </div>
+       
+        <!--  <nav>
             <button id="btnDailyTasks">Daily Tasks</button>
             <button id="btnEvents">Events</button>
             <button id="btnFriends">Friends</button>
@@ -21,17 +34,19 @@
             <button id="btnSignIn">Sign In</button>
             <button id="btnSignOut">Sign Out</button>
             <button type="button" id="btn-add">Sign Up</button>
-        </nav>
+        </nav>  -->
     </header>
-    <div id="addButtonContainer"></div>
 
-    <div id="mainContainer"></div>
+    <div id="addButtonContainer"></div>
+    <div id="mainContainer">
+
+    </div>
 
     <!-- Login form start -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span id="btnCloseLoginForm">&times;</span>
+                <span class="closeModal" id="btnCloseLoginForm">&times;</span>
                 <h2 class="login-header">Welcome!</h2>
                 <h3 class="login-userLogin">User Login</h3>
             </div>
@@ -44,8 +59,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btnLoginSubmit">Login!</button>
-                <div><a href="#">Create An Account!</a></div>
+                <button class="submit" type="button" id="btnLoginSubmit">Login!</button>
+                <div id="createAccount"><a href="#">Create An Account!</a></div>
             </div>
         </div>
     </div>
@@ -55,7 +70,7 @@
     <div id="newsModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span id="btnCloseNews">&times;</span>
+                <span class="closeModal" id="btnCloseNews">&times;</span>
                 <h2>News Item</h2>
             </div>
             <div class="modal-body">
@@ -65,7 +80,7 @@
                     <input class="flex-input" type="text" placeholder="URL" id="newsURL">
                     <input class="flex-input" type="date" id="newsDate">
                 </div>
-                <button id="btnNewsSave">Submit</button>
+                <button class="submit" id="btnNewsSave">Submit</button>
             </div>
         </div>
     </div>
@@ -94,7 +109,7 @@
     <div id="eventsModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span id="btnCloseEvents">&times;</span>
+                <span class="closeModal" id="btnCloseEvents">&times;</span>
                 <h2>Events</h2>
             </div>
             <div class="modal-body">
@@ -104,7 +119,7 @@
                     <input class="flex-input" type="text" placeholder="Location of Event" id="eventLocation">
 
                 </div>
-                <div class=modal-footer><button type="button" id="btnEventSave">Save</button></div>
+                <div class=modal-footer> <button type="button" class="submit" id="btnEventSave">Save</button></div>
 
             </div>
         </div>
@@ -112,7 +127,7 @@
     <div id="eventsEditModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span id="btnEditCloseEvents">&times;</span>
+                <span class="closeModal" id="btnEditCloseEvents">&times;</span>
                 <h2>Events</h2>
             </div>
             <div class="modal-body">
@@ -122,7 +137,8 @@
                     <input class="flex-input" type="text" placeholder="Location of Event" id="eventLocationEdit">
                     <input class="flex-input" type="hidden" id="eventId">
                 </div>
-                <div class="modal-footer"><button id="btnEventSaveEdit">Save</button></div>
+                <div class="modal-footer"><button class="submit" id="btnEventSaveEdit">Save</button></div>
+
             </div>
         </div>
     </div>
@@ -131,7 +147,7 @@
     <div id="friendsModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="closeBtn">&times;</span>
+                <span class="closeModal">&times;</span>
                 <h2>Friends Item</h2>
             </div>
             <div class="modal-body">
@@ -139,6 +155,7 @@
                     <input class="flex-input" type="text" placeholder="add friend">
                     <button>Add</button>
                 </div>
+                <button class="submit">Submit</button>
             </div>
         </div>
     </div>
@@ -148,7 +165,7 @@
     <div id="register-form" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span id="btnCloseRegistrationForm">&times;</span>
+                <span class="closeModal" id="btnCloseRegistrationForm">&times;</span>
                 <h2>Register User</h2>
             </div>
             <div class="modal-body">
@@ -161,7 +178,7 @@
                     <input class="flex-input" type="password" id="confirmPassword" placeholder="Confirm Password">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btn-save">Save</button>
+                    <button type="button" class="submit" id="btn-save">Save</button>
                 </div>
             </div>
         </div>
@@ -169,7 +186,7 @@
     <!-- registration form end -->
     <div id="registerContainer"></div>
 
-    <script type="module" src="scripts/main.js"></script>
+   <!-- <script type="module" src="scripts/main.js"></script> -->
 </body>
 
 </html>
