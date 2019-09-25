@@ -20,7 +20,7 @@ const closeNewsAddModal = () => {
 //addNewsModalBtn.addEventListener("click", openNewsAddModal);
 closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
 
-// Edit Modal PopUp 
+// Edit Modal PopUp
 const addNewsEditModal = document.querySelector("#newsEditModal")
 const editNewsModalBtn = document.querySelector("#btnNewsSaveEdit")
 const editCloseBtn = document.querySelector("#btnEditCloseNews")
@@ -38,7 +38,7 @@ const closeNewsEditModalBtn = () => {
 addNewsEditModal.addEventListener("click", openNewsEditModal);
 editCloseBtn.addEventListener("click", closeNewsEditModalBtn);
 
-// Get Input Value form Form 
+// Get Input Value form Form
 const getNewsFormValue = () => {
     const title = document.querySelector("#newsTitle").value
     const synopsis = document.querySelector("#newsSynopsis").value
@@ -100,7 +100,7 @@ const getNewsArticles = () => {
 //Entry that will Post to the DOM
 const createNewsHTML = (news) => {
     return `
-      <div class="newsPosts"> 
+      <div class="newsPosts">
        <h2 id="title">News: ${news.newsTitle}</h2>
        <p id="synposis">${news.synopsis}</p>
        <h3 id="url">${news.url}</h3>
