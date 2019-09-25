@@ -56,6 +56,10 @@ const API = {
         return fetch(`http://localhost:8088/${array}?${key}=${value}`)
             .then(response => response.json())
     },
+    searchGetExpand (array, key, value, expand) {
+        return fetch(`http://localhost:8088/${array}?_expand=${expand}&${key}=${value}`)
+            .then(response => response.json())
+    },
     /* This dynamically returns a user object by Username. */
     getByUserName(userPlaceholder) {
         return fetch(`http://localhost:8088/users?userName=${userPlaceholder}`)
