@@ -67,8 +67,8 @@ const requestsObject = {
     
     jsonObject: (placeholder) => {
         return {
-           receiverId: placeholder,
-           userId: sessionStorage.activeUser
+           userId: sessionStorage.activeUser,
+           receiverId: placeholder
         }
     },
 
