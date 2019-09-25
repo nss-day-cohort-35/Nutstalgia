@@ -129,7 +129,6 @@ const eventsObject = {
     deleteEvent: () => {
         document.querySelector("#mainContainer").addEventListener("click", event => {
             if (event.target.id.startsWith("deleteEvent--")) {
-<<<<<<< HEAD
                 const confirmDelete = confirm("Do you want to delete this event?")
                 if (confirmDelete){
                     API.deleteEventEntries(event.target.id.split("--")[1])
@@ -140,14 +139,6 @@ const eventsObject = {
                     });
                 }
                
-=======
-                API.deleteEventEntries(event.target.id.split("--")[1])
-                    .then((response) => {
-
-                        //document.querySelector("#mainContainer").innerHTML = "";
-                        loadEventEntries();
-                    });
->>>>>>> master
             }
         })
     },

@@ -64,19 +64,11 @@ const getLoginFormValue = () => {
         }
         return userLogin
 
-<<<<<<< HEAD
 }
 /* Login Form end */
 /* registration input value start */
  const addModal = document.querySelector("#register-form")
 const addModalBtn = document.querySelector("#btnSignUp")
-=======
-    }
-    /* Login Form end */
-    /* registration input value start */
-const addModal = document.querySelector("#register-form")
-const addModalBtn = document.querySelector("#btn-add")
->>>>>>> master
 const closeAddModalBtn = document.querySelector("#btnCloseRegistrationForm")
 
 const openAddModal = () => {
@@ -171,7 +163,6 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
                
             }
         })
-<<<<<<< HEAD
     });
     /* Logout Event Listener */
     document.querySelector("#btnSignOut").addEventListener("click", event => {
@@ -184,12 +175,3 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
         document.querySelector("#welcomeMessage").innerHTML = ""
        
     })
-=======
-});
-/* Logout Event Listener */
-document.querySelector("#btnSignOut").addEventListener("click", event => {
-    sessionStorage.removeItem("activeUser")
-    alert("Logged out!")
-    console.log("Session Storage", sessionStorage);
-})
->>>>>>> master

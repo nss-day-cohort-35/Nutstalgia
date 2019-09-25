@@ -82,7 +82,6 @@
     height: 50px;
     margin-top: 10px;
     text-align: center;
-<<<<<<< HEAD
   }
   
   .closeModal {
@@ -112,38 +111,6 @@
     text-decoration: none;
     cursor: pointer;
    }*/
-=======
-}
-
-#btnCloseRegistrationForm,
-#btnCloseNews,
-#btnCloseLoginForm,
-#btnCloseEvents,
-#btnEditCloseEvents,
-#btnCloseTasks,
-#btnEditCloseNews {
-    color: #ccc;
-    float: right;
-    font-size: 30px;
-}
-
-#btnCloseRegistrationForm:hover,
-#btnCloseNews:hover,
-#btnCloseLoginForm:hover,
-#btnCloseEvents:hover,
-#btnEditCloseEvents:hover,
-#btnCloseRegistrationForm:focus,
-#btnCloseNews:focus,
-#btnCloseLoginForm:focus,
-#btnCloseEvents:focus,
-#btnEditCloseEvents:focus,
-#btnCloseTasks:hover,
-#btnCloseTasks:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
->>>>>>> master
 
 .flex-container {
     display: flex;
@@ -160,7 +127,6 @@
     margin-right: 20px;
     margin-bottom: 10px;
     overflow: auto;
-<<<<<<< HEAD
   }
   .submit{
     background-color: var(--button-bg);
@@ -176,16 +142,6 @@
   }
   /* #btn-save, #btnNewsSave, #btnEventSave, #btnEventSaveEdit, #btnTasksSave {
     background-color: var(--button-bg);
-=======
-}
-
-#btn-save,
-#btnNewsSave,
-#btnEventSave,
-#btnEventSaveEdit,
-#btnTasksSave {
-    background-color: rgb(1, 53, 82);
->>>>>>> master
     color: antiquewhite;
     padding: 5px 10px;
     font-size: 20px;
@@ -197,17 +153,10 @@
 #btnEventSaveEdit:hover {
     background-color: green;
     border: 2px solid #4caf50;
-<<<<<<< HEAD
   }
   
   #btn-save-changes {
     background-color: var(--button-bg);
-=======
-}
-
-#btn-save-changes {
-    background-color: rgb(1, 53, 82);
->>>>>>> master
     color: antiquewhite;
     padding: 5px 10px;
     font-size: 20px;
@@ -216,15 +165,9 @@
 #btn-save-changes:hover {
     background-color: green;
     border: 2px solid #4caf50;
-<<<<<<< HEAD
-  }
- */
- h1 {
-=======
 }
 
 h1 {
->>>>>>> master
     display: inline-block;
     text-align: center;
     width: 80%;
@@ -253,7 +196,6 @@ img {
     margin:25px;
     float: center;
     border-radius: 25% 10%;
-<<<<<<< HEAD
     height: 120px;
     width: 120px;
 }
@@ -311,8 +253,4 @@ a:hover {
   color: var( --moss-green);
   text-decoration: none;
   cursor:pointer;
-=======
-    height: 90px;
-    width: 90px;
->>>>>>> master
 }
