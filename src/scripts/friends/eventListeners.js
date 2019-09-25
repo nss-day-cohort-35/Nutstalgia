@@ -39,7 +39,7 @@ const friendObject = {
         document.querySelector("#mainContainer").innerHTML = ""
         /* Populates the '#addButtonContainer' with the search bar and button */
         document.querySelector("#addButtonContainer").innerHTML =
-            ' <input type="text" type="input" placeholder="Search For Friends" id="friendSearch"></input><input type="submit" value="Search"></input> '
+            ' <input type="text" type="input" placeholder="Search For Friends" id="friendSearch"></input><input type="submit" value="Dont Press This Button! Hit Enter Instead!"></input> '
     },
     /* Formatting HTML component for the resulting user info */
     friendComponent: (friend) => {
