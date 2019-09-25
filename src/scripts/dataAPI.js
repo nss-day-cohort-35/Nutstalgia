@@ -21,7 +21,7 @@ const API = {
     },
 
     saveEventsEntries: (entry) => {
-        return fetch(`http://localhost:8088/events`, {
+        return fetch("http://localhost:8088/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -32,13 +32,13 @@ const API = {
 
     deleteEventEntries: (id) => {
         return fetch(`http://localhost:8088/events/${id}`, {
-                method: 'DELETE'
+                method: "DELETE"
             })
             .then(response => response.json())
     },
     getEventById: (id) => {
         return fetch(`http://localhost:8088/events/${id}`, {
-                method: 'GET',
+                method: "GET",
             })
             .then(response => response.json());
     },
