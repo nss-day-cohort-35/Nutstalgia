@@ -1,74 +1,153 @@
 import API from "./../dataAPI.js";
-const friendObject = {
-    template: () => {
-        document.querySelector("#friendSearch").addEventListener("keypress", keyPressEvent => {
-            if (keyPressEvent.charCode === 13) {
-                let searchInput = keyPressEvent.target.value;
-                /* WHEN  USER PRESSES ENTER, FIND MATCHING user */
-                API.getAnything("users")
-                    .then(response => friendObject.friendLoop(response, searchInput))
-            }
-        })
-    },
-    /* Generates search bar and users after search is executed. */
-    friendListeners: () => {
-        document.querySelector("#btnFriends").addEventListener("click", event => {
-            friendObject.friendSearchBar()
-            friendObject.template();
 
+const friendsObject = {
+    friendsListeners: () => {
+        document.querySelector("#btnFriends").addEventListener("click", event => {
+            friendsObject.refresh();
+            friendsObject.populateFriends();
         })
-        document.querySelector("#mainContainer").addEventListener("click", () => {
-            friendObject.addFriend();
-        })
-    },
-    addFriend: () => {
-        if (event.target.id.startsWith("friendAdd-")) {
-            const targetID = event.target.id.split("-")[1]
-            const confirmAdd = confirm("Do you want to add this friend?")
-            if (confirmAdd) {
-                console.log("you added this friend", targetID)
-                    // API.getByID("users", targetID).then(response =>console.log(response));
-                API.saveAnything(friendObject.jsonObject(targetID), "friendships")
+        mainContainer.addEventListener("click", () => {
+            console.log("you clicked main")
+            if (event.target.id.startsWith("removeFriend--")) {
+                const compoundId = event.target.id.split("--")[1]
+                const confirmUnfriend = confirm("Do you want to cut this person out of your life?")
+                if (confirmUnfriend) {
+                    console.log(compoundId)
+                    API.searchGet("friendships", "compound", compoundId)
+                        .then(response => friendsObject.deleteBothFriendships(response))
+                    // .then(response => API.searchGetExpand("requests", "receiverId", sessionStorage.activeUser, "user"))
+                    // .then(response => friendsObject.requestsLoop(response))
+                }
             }
-        }
+        })
     },
-    friendSearchBar: () => {
-        /* Clears the main container */
-        document.querySelector("#mainContainer").innerHTML = ""
-            /* Populates the '#addButtonContainer' with the search bar and button */
-        document.querySelector("#addButtonContainer").innerHTML =
-            "<input type='text' type='input' placeholder='Search For Friends' id='friendSearch'></input><input type='submit' value='Dont Press This Button! Hit Enter Instead!'></input>"
-    },
-    /* Formatting HTML component for the resulting user info */
-    friendComponent: (friend) => {
-        return `<div>
-            <h2>UserName:  ${friend.userName}</h2>
-            <h3>First Name: ${friend.firstName}</h3>
-            <h3>Last Name: ${friend.lastName}</h3>
-            <h4>Friend's Password: ${friend.password}</h4>
-            <button id="friendAdd-${friend.id}">Add as Friend!</button>
-        </div>`
-    },
-    /* Filtering through Users based on what characters are included in the search. */
-    friendLoop: (friendArray, search) => {
-        const arrayOffriends = [...friendArray]
-        const foundUsers = arrayOffriends.filter(user =>
-            user.firstName.includes(search) || user.lastName.includes(search)
-        );
-        /* Adds Search Results to the DOM */
-        console.log(foundUsers);
-        foundUsers.forEach(friend => {
-            document.querySelector("#mainContainer").innerHTML += friendObject.friendComponent(friend)
+    deleteBothFriendships: (array) => {
+        console.log("yey", array)
+        array.forEach(friendship => {
+            API.deleteByID("friendships", friendship.id)
+                .then(response => friendsObject.refresh())
+                .then(response => friendsObject.populateFriends())
+            console.log(friendship.id)
         });
     },
+    displayModal: () => {
+        document.querySelector("#requestsModal").style.display = "block";
 
-    jsonObject: (placeholder) => {
+        document.querySelector("#btnCloseRequests").addEventListener("click", event => {
+            document.querySelector("#requestsModal").style.display = "none";
+            document.querySelector("#requestsContainer").innerHTML = ""
+        })
+        document.querySelector("#requestsModal").addEventListener("click", event => {
+            console.log("you clicked request modal")
+            if (event.target.id.startsWith("requestReject-")) {
+                const requestId = event.target.id.split("-")[1]
+                const confirmReject = confirm("Do you want to reject this request?")
+                if (confirmReject) {
+                    API.deleteByID("requests", requestId)
+                        .then(response => API.searchGetExpand("requests", "receiverId", sessionStorage.activeUser, "user"))
+                        .then(response => friendsObject.requestsLoop(response))
+                }
+            }
+            else if (event.target.id.startsWith("requestAccept-")) {
+                const confirmAccept = confirm("Do you want to accept this friend request?")
+                if (confirmAccept) {
+                    const requestId = event.target.id.split("-")[1]
+                    const userId = event.target.id.split("-")[2]
+                    console.log("you accepted request")
+                    API.saveAnything(friendsObject.jsonObject(userId), "friendships").then(response =>
+                        API.saveAnything(friendsObject.switchedJsonObject(userId), "friendships")).then(response =>
+                            API.deleteByID("requests", requestId)).then(response =>
+                                API.searchGetExpand("requests", "receiverId", sessionStorage.activeUser, "user"))
+                        .then(response => friendsObject.requestsLoop(response))
+                        .then(response => friendsObject.refresh())
+                        .then(response => friendsObject.populateFriends())
+                }
+                event.stopPropagation()
+            }
+        })
+    },
+    jsonObject: (id) => {
+        let compoundId = `${sessionStorage.activeUser}-${id}`
         return {
-            initiatorID: sessionStorage.activeUser,
-            userId: placeholder
+            initiatorId: sessionStorage.activeUser,
+            userId: id,
+            compound: compoundId
         }
     },
+    switchedJsonObject: (id) => {
+        let compoundId = `${sessionStorage.activeUser}-${id}`
+        return {
+            initiatorId: id,
+            userId: sessionStorage.activeUser,
+            compound: compoundId
+        }
+    },
+    refresh: () => {
+        let mainContainer = document.querySelector("#mainContainer")
+        mainContainer.innerHTML = ""
+        mainContainer.innerHTML += friendsObject.requestsModalComponent();
+        document.querySelector("#addButtonContainer").innerHTML = '<input id="seeRequests" type="submit" value="Friend Requests"></input>'
+        document.querySelector("#seeRequests").addEventListener("click", event => {
+            friendsObject.displayModal();
+            document.querySelector("#requestsContainer").innerHTML = ""
+            API.searchGetExpand("requests", "receiverId", sessionStorage.activeUser, "user")
+                .then(response => friendsObject.requestsLoop(response))
+        })
 
+    },
+    populateFriends: () => {
+        API.searchGetExpand("friendships", "initiatorId", sessionStorage.activeUser, "user")
+            .then(response => friendsObject.friendsLoop(response))
+    },
+    requestsModalComponent: () => {
+        return `
+            <div id="requestsModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="closeModal "id="btnCloseRequests">&times;</span>
+                        <h2>Friend Requests</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div id="requestsContainer"class="flex-container">
+                            <p>friend requests</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            `
+    },
+    requestComponent: (object) => {
+        return `<div>
+            <h3>${object.user.firstName} ${object.user.lastName} (${object.user.userName}) wants to be friends!</h3>
+            <button id="requestAccept-${object.id}-${object.user.id}">Accept</button>
+            <button id="requestReject-${object.id}">Reject</button>
+        </div>`
+    },
+    friendComponent: (object) => {
+        return `<div>
+            <h3>${object.user.firstName} ${object.user.lastName} (${object.user.userName}) is your friend</h3>
+            <button id="removeFriend--${object.compound}">End Friendship</button>
+        </div>`
+    },
+    requestsLoop: (requestsArray) => {
+        document.querySelector("#requestsContainer").innerHTML = ""
+        const arrayOfRequests = [...requestsArray]
+        const sortedRequests = arrayOfRequests.sort((yeahhh, boiii) => boiii.id - yeahhh.id)
+        sortedRequests.forEach(request => {
+            // console.log(request)
+            document.querySelector("#requestsContainer").innerHTML += friendsObject.requestComponent(request)
+        });
+    },
+    friendsLoop: (friendsArray) => {
+        friendsObject.refresh()
+        const arrayOfFriends = [...friendsArray]
+        const sortedFriends = arrayOfFriends.sort((yeahhh, boiii) => boiii.id - yeahhh.id)
+        sortedFriends.forEach(friend => {
+            // console.log(friend)
+            document.querySelector("#mainContainer").innerHTML += friendsObject.friendComponent(friend)
+        });
+    },
 }
 
-export default friendObject;
+
+export default friendsObject
