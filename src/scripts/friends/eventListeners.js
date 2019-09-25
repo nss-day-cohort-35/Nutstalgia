@@ -18,7 +18,6 @@ const friendsObject = {
             document.querySelector("#requestsContainer").innerHTML = ""
         })
         document.querySelector("#requestsModal").addEventListener("click", event => {
-            // taskObject.postJSON();
             console.log("you clicked request modal")
             if (event.target.id.startsWith("requestReject-")) {
                 const requestId = event.target.id.split("-")[1]
@@ -35,8 +34,6 @@ const friendsObject = {
                     const requestId = event.target.id.split("-")[1]
                     const userId = event.target.id.split("-")[2]
                     console.log("you accepted request")
-                    // friendsObject.addFriendship(userId)
-                    // friendsObject.addFriendship(userId)
                     API.saveAnything(friendsObject.jsonObject(userId), "friendships").then(response =>
                         API.saveAnything(friendsObject.switchedJsonObject(userId), "friendships")).then(response =>
                             API.deleteByID("requests", requestId)).then(response =>
