@@ -16,9 +16,6 @@ const friendsObject = {
         document.querySelector("#btnCloseRequests").addEventListener("click", event => {
             document.querySelector("#requestsModal").style.display = "none";
             document.querySelector("#requestsContainer").innerHTML = ""
-            // document.querySelector("#taskTitle").value = ""
-            // document.querySelector("#taskDetails").value = ""
-            // document.querySelector("#taskDate").value = ""
         })
         document.querySelector("#requestsModal").addEventListener("click", event => {
             // taskObject.postJSON();
@@ -32,17 +29,20 @@ const friendsObject = {
                         .then(response => friendsObject.requestsLoop(response))
                 }
             }
-            // else if (event.target.id.startsWith("requestAccept-")) {
-            //     const confirmAccept = confirm("Do you want to accept this friend request?")
-            //     if (confirmAccept) {
-            //         const requestId = event.target.id.split("-")[1]
-            //         const userId = event.target.id.split("-")[2]
-            //         console.log("you accepted request")
-            //         friendsObject.addFriendship(userId);
-            //         API.deleteByID("requests", requestId)
-            //             .then(response => API.searchGetExpand("requests", "receiverId", sessionStorage.activeUser, "user"))
-            //             .then(response => friendsObject.requestsLoop(response))
-            //     }
+            else if (event.target.id.startsWith("requestAccept-")) {
+                const confirmAccept = confirm("Do you want to accept this friend request?")
+                if (confirmAccept) {
+                    const requestId = event.target.id.split("-")[1]
+                    const userId = event.target.id.split("-")[2]
+                    console.log("you accepted request")
+                    // friendsObject.addFriendship(userId)
+                    // friendsObject.addFriendship(userId)
+                    API.saveAnything(friendsObject.jsonObject(userId), "friendships").then(response =>
+                        API.saveAnything(friendsObject.switchedJsonObject(userId), "friendships")).then(response =>
+                            API.deleteByID("requests", requestId)).then(response =>
+                                API.searchGetExpand("requests", "receiverId", sessionStorage.activeUser, "user"))
+                        .then(response => friendsObject.requestsLoop(response))
+                }
                 // taskObject.displayModal();
                 // API.getByID("tasks", event.target.id.split("-")[1])
                 //     .then(response => {
@@ -52,29 +52,28 @@ const friendsObject = {
                 //         document.querySelector("#taskDetails").value = response.taskDescription
                 //         document.querySelector("#taskDate").value = response.dueDate
                 //     })
-            
-            event.stopPropagation()
 
+                event.stopPropagation()
+            }
         })
     },
-    addFriendship: (id) => {
-        API.saveAnything(friendsObject.jsonObject(id), "friendships")
-        // if (event.target.id.startsWith("friendAdd-")) {
-        //     const targetID = event.target.id.split("-")[1]
-        //     const confirmAdd = confirm("Do you want to send a friend request?")
-        //     if (confirmAdd) {
-        //         console.log("you sent a friend request to", targetID)
-        //         // API.getByID("users", targetID)
-        //         //     .then(response => 
-        //         //         console.log(response));
-        //         API.saveAnything(requestsObject.jsonObject(targetID), "requests")
-        //     }
-        // }
-    },
+    // addFriendship: (id) => {
+    //     API.saveAnything(friendsObject.jsonObject(id), "friendships")
+    // },
     jsonObject: (id) => {
+        let compoundId = `${sessionStorage.activeUser}-${id}`
         return {
             initiatorId: sessionStorage.activeUser,
-            userId: id
+            userId: id,
+            compound: compoundId
+        }
+    },
+    switchedJsonObject: (id) => {
+        let compoundId = `${sessionStorage.activeUser}-${id}`
+        return {
+            initiatorId: id,
+            userId: sessionStorage.activeUser,
+            compound: compoundId
         }
     },
     refresh: () => {
