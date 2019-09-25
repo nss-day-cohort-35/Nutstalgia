@@ -1,6 +1,7 @@
 import API from "./dataAPI.js";
 import eventsObject from "./events/eventListeners.js"
 import taskObject from "./tasks/eventListeners.js";
+import friendObject from "./friends/eventListeners.js";
 
 eventsObject.eventsButtonClick();
 eventsObject.eventSave();
@@ -9,6 +10,8 @@ eventsObject.editEvent();
 eventsObject.updateEvent();
 
 taskObject.taskListeners();
+friendObject.friendListeners();
+
 /*
     Import all the tools into main.js that are needed to display
     the initial UI to the user. Either the login form should appear
@@ -95,65 +98,31 @@ document.querySelector("#btn-save").addEventListener("click", event => {
 })
 
 const getRegisterFormValue = () => {
-    const firstName = document.querySelector("#firstName").value
-    const lastName = document.querySelector("#lastName").value
-    const email = document.querySelector("#emailAddress").value
-    const userName = document.querySelector("#userName").value
-    const password = document.querySelector("#userPassword").value
-    const confirmPassword = document.querySelector("#confirmPassword").value
+        const firstName = document.querySelector("#firstName").value
+        const lastName = document.querySelector("#lastName").value
+        const email = document.querySelector("#emailAddress").value
+        const userName = document.querySelector("#userName").value
+        const password = document.querySelector("#userPassword").value
+        const confirmPassword = document.querySelector("#confirmPassword").value
 
-    //validate password
-    if (password != confirmPassword) {
-        alert("Password doesn't match")
-        return null;
-    }
+        //validate password
+        if (password != confirmPassword) {
+            alert("Password doesn't match")
+            return null;
+        }
 
-    const registeredUser = {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        userName: userName,
-        password: password,
-        confirmPassword: confirmPassword
-    }
-    return registeredUser
-
-}
-return registeredUser
-
-}
-/* registration form value end */
-
-
-/* News form Input Value */
-const addNewsModal = document.querySelector("#newsModal")
-const addNewsModalBtn = document.querySelector("#btnNews")
-const closeAddNewsModalBtn = document.querySelector("#btnCloseNews")
-
-const openNewsAddModal = () => {
-    addNewsModal.style.display = "block";
-
-}
-const closeNewsAddModal = () => {
-    addNewsModal.style.display = "none";
-}
-
-addNewsModalBtn.addEventListener("click", openNewsAddModal);
-closeAddNewsModalBtn.addEventListener("click", closeNewsAddModal);
-
-document.querySelector("#btnNewsSave").addEventListener("click", event => {
-    const news = getNewsFormValue()
-    console.log(news)
-
-})
-
-const getNewsFormValue = () => {
-        const title = document.querySelector("#newsTitle").value
-        const synopsis = document.querySelector("#newsSynopsis").value
-        const url = document.querySelector("#newsURL").value
+        const registeredUser = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            userName: userName,
+            password: password,
+            confirmPassword: confirmPassword
+        }
+        return registeredUser
 
     }
-    /* News Input form value end */
+    /* registration form value end */
 
 /* Login Event Listener */
 document.querySelector("#btnLoginSubmit").addEventListener("click", event => {

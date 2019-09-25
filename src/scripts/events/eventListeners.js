@@ -77,15 +77,18 @@ const eventsInputEditValue = () => {
 const renderEvents = events => {
     document.querySelector("#mainContainer").innerHTML = "";
     events.forEach(event => {
+        
         document.querySelector("#mainContainer").innerHTML += createEventsHTML(event);
     });
 };
 
 const loadEventEntries = () =>{
-    API.getEventsEntries("allEvents").then(events => {
-        renderEvents(events);
-    });
+    
+    API.getEventsEntries(sessionStorage.activeUser).then(event=>{
+        renderEvents(event);
+    })
 }
+
 
 const createEventsHTML = eventObj => {
     return `
@@ -102,15 +105,13 @@ const eventsObject = {
     eventsButtonClick: () => {
         document.querySelector("#btnEvents").addEventListener("click", () => {
             document.querySelector("#addButtonContainer").innerHTML = `<div><button type="button" id="btnAddEvents">Add Event</button></div>`
-             API.getEventsEntries("allEvents").then(events => {
-                 renderEvents(events);
-                 
-                 document
+            loadEventEntries()
+            document
                      .querySelector("#btnAddEvents")
                      .addEventListener("click", () => {
                          openEventModal();
                      });
-             });
+            
          })
     },
        

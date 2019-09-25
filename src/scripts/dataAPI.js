@@ -4,21 +4,22 @@ const API = {
         return fetch(`http://localhost:8088/${placeholder}`)
             .then(response => response.json())
     },
-    saveAnything: (user, placeholder) => {
-        return fetch(`http://localhost:8088/${placeholder}`, {
+    saveAnything: (object, location) => {
+        return fetch(`http://localhost:8088/${location}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(object)
         })
     },
     
-    getEventsEntries: () => {
-        return fetch(`http://localhost:8088/events`)
+    getEventsEntries: (userId) => {
+        return fetch(`http://localhost:8088/events?userId=${userId}&_sort=eventDate&_order=asc`)
             .then(response => response.json())
                        
     },
+
     saveEventsEntries: (entry) => {
         return fetch(`http://localhost:8088/events`, {
             method: "POST",
@@ -28,6 +29,7 @@ const API = {
             body: JSON.stringify(entry)
         })
     },
+    
     deleteEventEntries: (id) => {
         return fetch(`http://localhost:8088/events/${id}`, {
             method: 'DELETE'
