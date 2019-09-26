@@ -118,8 +118,10 @@ const createNewsHTML = (news) => {
 const newsObject = {
     newsButtonClick: () => {
         document.querySelector("#btnNews").addEventListener("click", () => {
+            // kw- added clear main container
+            document.querySelector("#mainContainer").innerHTML = ""
             document.querySelector("#addButtonContainer").innerHTML =
-                "<div><button id='btnAddNews'>Add News</button></div>"
+                "<div><button class='submit add-button' id='btnAddNews'>Add News</button></div>"
             getNewsArticles();
             document.querySelector("#btnAddNews").addEventListener("click", () => {
                 openNewsAddModal()

@@ -8,7 +8,22 @@
     --onyx: #383838;
     --pastel-brown: #876E56;
     --rhythm: #8E719E;
+    --keeps: #d7aefb;
 }
+
+body {
+  margin: 0px;
+}
+
+#topContainer {
+  background-color: var(--onyx);
+  margin: 0px 0px 20px 250px;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 
 
 /* modal popup start */
@@ -106,6 +121,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
   }
 
   .closeModal {
@@ -157,7 +173,7 @@
     color: var( --button-font-color);
     padding: 5px 20px;
     font-size: 20px;
-    height: 50px;
+    height: 43px;
   }
 
   .submit:hover,
@@ -232,7 +248,15 @@ img {
 }
 
 #addButtonContainer {
-  margin-left: 275px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.add-button {
+  margin: 0px 30px;
 }
 
 header {
@@ -248,18 +272,47 @@ header {
   filter: drop-shadow(3px 0px .5px #50505029);
 }
 
-.appTitle {
+#headerContainer{
+  text-align: center;
+}
+
+.task-component {
+  background-color: var(--keeps);
   display: inline-block;
-  width: 60%;
-  padding-left: .25em;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px;
+}
+
+.button-icon {
+  pointer-events: none;
+  height: 25px;
+  width: 25px;
+}
+
+.icon-button:hover {
+  filter: opacity(0.5);
+}
+
+
+.icon-button {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  outline:none;
+}
+
+.appTitle {
+  /* display: inline-block; */
+  /* width: 60%; */
+  /* padding-left: .25em; */
   font-family: 'Heebo', sans-serif;
   font-weight: lighter;
   color: white;
 }
 
 .loginWelcome {
-  padding-left: 5px;
-  font-weight: normal;
+  /* padding-left: 5px; */
+  font-weight: lighter;
   font-family: 'Heebo', sans-serif;
   font-size: 30px;
   color: white;
@@ -280,10 +333,13 @@ header {
 }
 
 .friendSearch {
-  padding: 10px 10px;
-  margin: 8px;
-  max-width: 15em;
-  display: inline-block;
+  /* padding: 10px 10px; */
+  margin: 30px;
+  width: 350px;
+  height: 40px;
+  /* display: inline-block; */
+  padding: 0px 8px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;

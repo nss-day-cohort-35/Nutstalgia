@@ -107,7 +107,7 @@ const friendsObject = {
         let mainContainer = document.querySelector("#mainContainer")
         mainContainer.innerHTML = ""
         mainContainer.innerHTML += friendsObject.requestsModalComponent();
-        document.querySelector("#addButtonContainer").innerHTML = '<input id="seeRequests" type="submit" value="Friend Requests"></input>'
+        document.querySelector("#addButtonContainer").innerHTML = '<input class="submit add-button" id="seeRequests" type="submit" value="Friend Requests"></input>'
         // put the listener on the see friend requests button
         document.querySelector("#seeRequests").addEventListener("click", event => {
             friendsObject.displayModal();

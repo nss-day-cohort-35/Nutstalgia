@@ -27,7 +27,7 @@ const taskObject = {
         let mainContainer = document.querySelector("#mainContainer")
         mainContainer.innerHTML = ""
         mainContainer.innerHTML += taskObject.taskModalComponent();
-        document.querySelector("#addButtonContainer").innerHTML = "<button type='button' id='addTask'>Add Task</button>"
+        document.querySelector("#addButtonContainer").innerHTML = "<button type='button' class='submit add-button' id='addTask'>Add Task</button>"
         document.querySelector("#addTask").addEventListener("click", event => {
             taskObject.displayModal();
             taskObject.hiddenId = ""
@@ -48,6 +48,7 @@ const taskObject = {
             API.getByID("tasks", event.target.id.split("-")[1])
                 .then(response => {
                     taskObject.hiddenId = `${response.id}`
+                    document.querySelector(".taskModalHeader").innerHTML = "Edit Task"
                     document.querySelector("#btnTasksSave").innerHTML = "Save Task";
                     document.querySelector("#taskTitle").value = response.taskName
                     document.querySelector("#taskDetails").value = response.taskDescription
@@ -63,7 +64,7 @@ const taskObject = {
                 <div class="modal-content">
                     <div class="modal-header">
                         <span class="closeModal" id="btnCloseTasks">&times;</span>
-                        <h2 class="taskModalHeader">Task Item</h2>
+                        <h2 class="taskModalHeader">New Task</h2>
                     </div>
                     <div class="modal-body">
                         <div class="flex-container">
@@ -80,14 +81,13 @@ const taskObject = {
             `
     },
     taskComponent: (task) => {
-        return `<div>
+        return `<div class="task-component">
             <h2>title:  ${task.taskName}</h2>
             <h3>description: ${task.taskDescription}</h3>
             <h3>date created: ${task.dateCreated}</h3>
             <h3>due date: ${task.dueDate}</h3>
-            <button id="taskEdit-${task.id}">Edit</button>
-            <button id="taskDelete-${task.id}">Delete</button>
-            <hr>
+            <button class="icon-button"id="taskEdit-${task.id}"><img class="button-icon"src="styles/img/edit.png" alt="EDIT"></button>
+            <button class="icon-button"id="taskDelete-${task.id}"><img class="button-icon"src="styles/img/trash.png" alt="DELETE"></button>
         </div>`
     },
     taskLoop: (taskArray) => {
@@ -99,7 +99,7 @@ const taskObject = {
     },
     jsonObject: (title, details, date) => {
         return {
-            userId: sessionStorage.activeUser,
+            userId: Number(sessionStorage.activeUser),
             taskName: title,
             taskDescription: details,
             dateCreated: moment().format("lll"),
