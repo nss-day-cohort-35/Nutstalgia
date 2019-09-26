@@ -99,6 +99,10 @@ const API = {
             })
             .then(response => response.json())
     },
+    getExpand(array, expand) {
+        return fetch(`http://localhost:8088/${array}?_expand=${expand}`)
+            .then(response => response.json())
+    }
 }
 
 export default API
