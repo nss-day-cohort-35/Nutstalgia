@@ -45,11 +45,12 @@ const requestsObject = {
     /* Formatting HTML component for the resulting user info */
     friendComponent: (friend) => {
         return `<div>
-            <h2>UserName:  ${friend.userName}</h2>
-            <h3>First Name: ${friend.firstName}</h3>
-            <h3>Last Name: ${friend.lastName}</h3>
-            <h4>Friend's Password: ${friend.password}</h4>
-            <button id="friendAdd-${friend.id}">send a friend request</button>
+            <h2 class="containerText">UserName:  ${friend.userName}</h2>
+            <h3 class="containerText">First Name: ${friend.firstName}</h3>
+            <h3 class="containerText">Last Name: ${friend.lastName}</h3>
+            <h4 class="containerText">Friend's Password: ${friend.password}</h4>
+            <button class="submit" id="friendAdd-${friend.id}">Send a Friend Request</button>
+            <hr>
         </div>`
     },
     /* Filtering through Users based on what characters are included in the search. */

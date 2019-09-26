@@ -134,15 +134,15 @@
   .submit{
     background-color: var(--button-bg);
     color: var( --button-font-color);
-    padding: 5px 20px;
+    padding: 0px 20px;
     font-size: 20px;
     height: 50px;
   }
 
   .submit:hover,
   .submit:focus {
-    background-color: green;
-    border: 2px solid #4caf50;
+    background-color: var(--moss-green);
+    transition: .15s;
   }
   /* #btn-save, #btnNewsSave, #btnEventSave, #btnEventSaveEdit, #btnTasksSave {
     background-color: var(--button-bg);
@@ -193,7 +193,7 @@ nav button {
 
 img {
     margin: 10px, 35px;
-    margin-left: 20px;
+    margin-left: 85px;
     float: inline-end;
     border-radius: 25% 10%;
     height: 75px;
@@ -208,6 +208,8 @@ img {
 }
 #mainContainer {
   margin-left: 275px;
+  font-family: 'heebo', sans-serif;
+  color: var(--onyx);
 }
 
 #addButtonContainer {
@@ -224,13 +226,25 @@ header {
   background-color:var(--pastel-brown);
   overflow-x: hidden;
   padding-top: 20px;
-  filter: drop-shadow(3px 0px .5px #50505029);
+  box-shadow: 4.5px 15px 22.5px grey;
 }
 
 .appTitle {
   display: inline-block;
   width: 60%;
-  padding-left: .25em;
+  height: 10px;
+  padding-left: 1.5em;
+  font-family: 'Heebo', sans-serif;
+  font-weight: lighter;
+  color: white;
+}
+
+.appSubTitle {
+  display: inline-block;
+  width: 60%;
+  text-align: center;
+  margin-bottom: 1em;
+  padding-left: 2.8em;
   font-family: 'Heebo', sans-serif;
   font-weight: lighter;
   color: white;
@@ -261,7 +275,7 @@ header {
 .friendSearch {
   padding: 10px 10px;
   margin: 8px;
-  max-width: 15em;
+  width: 93%;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -280,6 +294,12 @@ header {
   font-family: 'Courier New', Courier, monospace;
 
 }
+
+.containerText {
+  font-family: 'Heebo', sans-serif;
+  font-weight: normal;
+}
+
 a:link {
   color: white;
   text-decoration: none;
@@ -293,4 +313,19 @@ a:hover {
   color: var( --moss-green);
   text-decoration: none;
   cursor:pointer;
+  transition-duration: .15s;
+}
+
+hr {
+  height: 8px;
+  background-image: linear-gradient(90deg, var(--onyx), transparent);
+  border: 0;
+  height: 1px;
+}
+
+.navHR {
+  height: 8px;
+  background-image: linear-gradient(90deg, transparent, var(--flash-white), transparent);
+  border: 0;
+  height: 1px;
 }

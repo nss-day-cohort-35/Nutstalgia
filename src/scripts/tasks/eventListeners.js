@@ -26,7 +26,7 @@ const taskObject = {
         let mainContainer = document.querySelector("#mainContainer")
         mainContainer.innerHTML = ""
         mainContainer.innerHTML += taskObject.taskModalComponent();
-        document.querySelector("#addButtonContainer").innerHTML = "<button type='button' id='addTask'>Add Task</button>"
+        document.querySelector("#addButtonContainer").innerHTML = "<button type='button' class='submit' id='addTask'>Add Task</button>"
         document.querySelector("#addTask").addEventListener("click", event => {
             taskObject.displayModal();
             taskObject.hiddenId = ""
@@ -80,11 +80,11 @@ const taskObject = {
     },
     taskComponent: (task) => {
         return `<div>
-            <h2>title:  ${task.taskName}</h2>
-            <h3>description: ${task.taskDescription}</h3>
-            <h3>date: ${task.dueDate}</h3>
-            <button id="taskEdit-${task.id}">Edit</button>
-            <button id="taskDelete-${task.id}">Delete</button>
+            <h2 class="containerText">Title:  ${task.taskName}</h2>
+            <p class="containerText">Description: ${task.taskDescription}</p>
+            <p class="containerText">Date: ${task.dueDate}</p>
+            <button class="submit" id="taskEdit-${task.id}">Edit</button>
+            <button class="submit" id="taskDelete-${task.id}">Delete</button>
             <hr>
         </div>`
     },

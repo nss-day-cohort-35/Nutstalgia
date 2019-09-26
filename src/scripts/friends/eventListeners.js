@@ -86,7 +86,7 @@ const friendsObject = {
         let mainContainer = document.querySelector("#mainContainer")
         mainContainer.innerHTML = ""
         mainContainer.innerHTML += friendsObject.requestsModalComponent();
-        document.querySelector("#addButtonContainer").innerHTML = "<input id='seeRequests' type='submit' value='Friend Requests'></input>"
+        document.querySelector("#addButtonContainer").innerHTML = "<input class='submit' id='seeRequests' type='submit' value='Friend Requests'></input>"
         document.querySelector("#seeRequests").addEventListener("click", event => {
             friendsObject.displayModal();
             document.querySelector("#requestsContainer").innerHTML = ""
@@ -126,8 +126,9 @@ const friendsObject = {
     friendComponent: (object) => {
         return `<div>
             <h3>${object.user.firstName} ${object.user.lastName} (${object.user.userName}) is your friend</h3>
-            <button id="removeFriend--${object.compound}">End Friendship</button>
-        </div>`
+            <button class="submit" id="removeFriend--${object.compound}">End Friendship</button>
+            <hr>
+            </div>`
     },
     requestsLoop: (requestsArray) => {
         document.querySelector("#requestsContainer").innerHTML = ""
