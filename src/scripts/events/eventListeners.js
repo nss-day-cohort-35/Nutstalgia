@@ -133,12 +133,10 @@ const eventsObject = {
                 if (confirmDelete){
                     API.deleteEventEntries(event.target.id.split("--")[1])
                     .then((response) => {
-                       
                         //document.querySelector("#mainContainer").innerHTML = "";
                         loadEventEntries();
                     });
                 }
-               
             }
         })
     },

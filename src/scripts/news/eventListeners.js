@@ -100,7 +100,7 @@ const getNewsArticles = () => {
 //Entry that will Post to the DOM
 const createNewsHTML = (news) => {
     return `
-      <div class="newsPosts"> 
+      <div class="newsPosts">
        <h2 id="title">News: ${news.newsTitle}</h2>
        <p id="synposis">${news.synopsis}</p>
        <h3 id="url">${news.url}</h3>
@@ -111,6 +111,7 @@ const createNewsHTML = (news) => {
        <button type="button" id="btnEditNews--${news.id}">
          Edit News
        </button>
+       <hr>
       </div>`
 }
 

@@ -107,13 +107,11 @@ document.querySelector("#btn-save").addEventListener("click", event => {
     //I called the save User method that is on the API
     //This will now post the registered user to JSON
     API.saveAnything(registeredUser, "users");
-    
-   })    
+   })
 
 document.querySelector("#createAccount").addEventListener("click", event => {
     openAddModal()
     closeLoginAddModal()
-   
 })
 
 const getRegisterFormValue = () => {
@@ -157,7 +155,7 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
                 alert("Password is incorrect.")
             } else if (response[0].password === loginPW) {
                 closeLoginAddModal()
-                document.querySelector("#welcomeMessage").innerHTML = `<div><h1>Welcome ${loginUser}!</h1></div>`
+                document.querySelector("#welcomeMessage").innerHTML = `<div><h1 class="loginWelcome">Welcome ${loginUser}!</h1></div>`
                 document.querySelector("#btnSignOut").style.display="block";
                 // document.querySelector("#btnSignIn").style.display="none";
                 // document.querySelector("#btnSignUp").style.display="none";
@@ -166,9 +164,6 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
                 document.querySelector("#mainContainer").innerHTML = ""
                 document.querySelector("#addButtonContainer").innerHTML = ""
                 sessionStorage.setItem("activeUser", response[0].id)
-                console.log("It matches?!")
-                
-            
             }
         })
     });

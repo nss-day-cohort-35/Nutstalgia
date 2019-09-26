@@ -13,9 +13,9 @@
     <header >
         <div>
                 <img src="styles/img/walnut.jpg">
-                <h1>Nutstalgia</h1>
+                <h1 class="appTitle">Nutstalgia</h1>
                 <div id="welcomeMessage"></div>
-                <input type="text" type="input" placeholder="Search For Friends" id="friendSearch"></input>
+                <input type="text" type="input" placeholder="Search For Friends" class="friendSearch" id="friendSearch"></input>
                 <nav class="sidenav">
                     <li id="btnDailyTasks"><a href="#">Daily Tasks</a></li>
                     <li id="btnEvents"><a href="#">Events</a></li>
@@ -26,7 +26,7 @@
                     
                 </nav>
         </div>
-       
+
         <!--  <nav>
             <button id="btnDailyTasks">Daily Tasks</button>
             <button id="btnEvents">Events</button>
@@ -64,7 +64,7 @@
             </div>
             <div class="modal-footer">
                 <button class="submit" type="button" id="btnLoginSubmit">Login!</button>
-                <div id="createAccount"><a href="#">Create An Account!</a></div>
+                <div id="createAccount"><button class="submit" type="button">Create An Account!</button></div>
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="closeModal" id="btnCloseNews">&times;</span>
-                <h2>News Item</h2>
+                <h2 class="newsModalHeader">News Item</h2>
             </div>
             <div class="modal-body">
                 <div class="flex-container">
@@ -84,15 +84,17 @@
                     <input class="flex-input" type="text" placeholder="URL" id="newsURL">
                     <input class="flex-input" type="date" id="newsDate">
                 </div>
+                <div class="modal-footer">
                 <button class="submit" id="btnNewsSave">Submit</button>
+                </div>
             </div>
         </div>
     </div>
     <div id="newsEditModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span id="btnEditCloseNews">&times;</span>
-                <h2>News</h2>
+                <span class="closeModal" id="btnEditCloseNews">&times;</span>
+                <h2 class="newsModalHeader">News</h2>
             </div>
             <div class="modal-body">
                 <div class="flex-container">
@@ -102,7 +104,7 @@
                     <input class="flex-input" type="date" id="editNewsDate">
                     <input class="flex-input" type="hidden" id="newsId">
                 </div>
-                <div class="modal-footer"><button id="btnNewsSaveEdit">Save</button></div>
+                <div class="modal-footer"><button class="submit" id="btnNewsSaveEdit">Save</button></div>
             </div>
         </div>
     </div>
@@ -114,7 +116,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="closeModal" id="btnCloseEvents">&times;</span>
-                <h2>Events</h2>
+                <h2 class="eventsModalHeader">Events</h2>
             </div>
             <div class="modal-body">
                 <div class="flex-container">
@@ -170,7 +172,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="closeModal" id="btnCloseRegistrationForm">&times;</span>
-                <h2>Register User</h2>
+                <h2 class="register-header">Register User</h2>
             </div>
             <div class="modal-body">
                 <div class="flex-container ">
