@@ -229,11 +229,10 @@ header {
 
 .appTitle {
   display: inline-block;
-  text-align: right;
-  width: 63%;
-  padding-left: 5px;
+  width: 60%;
+  padding-left: .25em;
   font-family: 'Heebo', sans-serif;
-  font-weight: medium;
+  font-weight: lighter;
   color: white;
 }
 
@@ -254,7 +253,7 @@ header {
 
 .login-userLogin {
   font-weight: normal;
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   color: white;
 }

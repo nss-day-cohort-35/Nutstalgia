@@ -111,6 +111,7 @@ const createNewsHTML = (news) => {
        <button type="button" id="btnEditNews--${news.id}">
          Edit News
        </button>
+       <hr>
       </div>`
 }
 
