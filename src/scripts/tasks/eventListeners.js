@@ -1,4 +1,5 @@
 import API from "./../dataAPI.js";
+import moment from "moment";
 
 const taskObject = {
     hiddenId: "",
@@ -80,7 +81,8 @@ const taskObject = {
         return `<div>
             <h2>title:  ${task.taskName}</h2>
             <h3>description: ${task.taskDescription}</h3>
-            <h3>date: ${task.dueDate}</h3>
+            <h3>date created: ${task.dateCreated}</h3>
+            <h3>due date: ${task.dueDate}</h3>
             <button id="taskEdit-${task.id}">Edit</button>
             <button id="taskDelete-${task.id}">Delete</button>
         </div>`
@@ -97,6 +99,7 @@ const taskObject = {
             userId: sessionStorage.activeUser,
             taskName: title,
             taskDescription: details,
+            dateCreated: moment().format("lll"),
             dueDate: date,
             isComplete: "no"
         }

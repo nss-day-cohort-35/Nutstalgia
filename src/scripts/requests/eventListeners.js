@@ -1,35 +1,32 @@
 import API from "./../dataAPI.js";
 const requestsObject = {
-    template: (event) => {
+    // search users that match input and send the array to user loop
+    searchUsers: (event) => {
         requestsObject.clearContainers();
                 let searchInput = event.target.value;
                 API.getAnything("users")
-                    .then(response => requestsObject.friendLoop(response, searchInput))
+                    .then(response => requestsObject.userLoop(response, searchInput))
     },
-    /* Generates search bar and users after search is executed. */
-    friendListeners: () => {
-        // document.querySelector("#btnFriends").addEventListener("click", event => {
-        //     requestsObject.clearContainers()
-        // })
+    // add listeners
+    requestsListeners: () => {
         document.querySelector("#mainContainer").addEventListener("click", () => {
-            requestsObject.addFriend();
+            requestsObject.sendRequest();
         })
         document.querySelector("#friendSearch").addEventListener("keypress", keyPressEvent => {
             /* WHEN  USER PRESSES ENTER, FIND MATCHING user */
             if (keyPressEvent.charCode === 13) {
-                requestsObject.template(keyPressEvent);
+                requestsObject.searchUsers(keyPressEvent);
             }
         })
     },
-    addFriend: () => {
-        if (event.target.id.startsWith("friendAdd-")) {
+    // friend request logic
+    sendRequest: () => {
+        if (event.target.id.startsWith("sendRequest-")) {
             const targetID = event.target.id.split("-")[1]
-            const confirmAdd = confirm("Do you want to send a friend request?")
-            if (confirmAdd) {
+            const confirmRequest = confirm("Do you want to send a friend request?")
+            if (confirmRequest) {
                 console.log("you sent a friend request to", targetID)
-                // API.getByID("users", targetID)
-                //     .then(response => 
-                //         console.log(response));
+                // save friend request to JSON
                 API.saveAnything(requestsObject.jsonObject(targetID), "requests")
             }
         }
@@ -39,8 +36,6 @@ const requestsObject = {
         document.querySelector("#mainContainer").innerHTML = ""
         /* Populates the '#addButtonContainer' with the search bar and button */
         document.querySelector("#addButtonContainer").innerHTML = ""
-            // ' <input type="text" type="input" placeholder="Search For Friends" id="friendSearch"></input><input type="submit" value="Dont Press This Button! Hit Enter Instead!"></input> '
-        document.querySelector("#friendSearch").textContent = "Search For Friends"
     },
     /* Formatting HTML component for the resulting user info */
     friendComponent: (friend) => {
@@ -49,11 +44,11 @@ const requestsObject = {
             <h3>First Name: ${friend.firstName}</h3>
             <h3>Last Name: ${friend.lastName}</h3>
             <h4>Friend's Password: ${friend.password}</h4>
-            <button id="friendAdd-${friend.id}">send a friend request</button>
+            <button id="sendRequest-${friend.id}">send a friend request</button>
         </div>`
     },
     /* Filtering through Users based on what characters are included in the search. */
-    friendLoop: (friendArray, search) => {
+    userLoop: (friendArray, search) => {
         const arrayOffriends = [...friendArray]
         const foundUsers = arrayOffriends.filter(user =>
             user.firstName.includes(search) || user.lastName.includes(search)
@@ -64,7 +59,7 @@ const requestsObject = {
             document.querySelector("#mainContainer").innerHTML += requestsObject.friendComponent(friend)
         });
     },
-    
+    // creates friend request object for json
     jsonObject: (placeholder) => {
         return {
            userId: sessionStorage.activeUser,

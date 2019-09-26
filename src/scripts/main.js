@@ -20,7 +20,7 @@ eventsObject.updateEvent();
 
 taskObject.taskListeners();
 friendsObject.friendsListeners();
-requestsObject.friendListeners();
+requestsObject.requestsListeners();
 // friendsListObject.listeners();
 
 /*
@@ -159,12 +159,16 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
                 closeLoginAddModal()
                 document.querySelector("#welcomeMessage").innerHTML = `<div><h1>Welcome ${loginUser}!</h1></div>`
                 document.querySelector("#btnSignOut").style.display="block";
-                document.querySelector("#btnSignIn").style.display="none";
-                document.querySelector("#btnSignUp").style.display="none";
+                // document.querySelector("#btnSignIn").style.display="none";
+                // document.querySelector("#btnSignUp").style.display="none";
+                //    hide landing
+                document.querySelector("#landingPage").style.display="none";
+                document.querySelector("#mainContainer").innerHTML = ""
+                document.querySelector("#addButtonContainer").innerHTML = ""
                 sessionStorage.setItem("activeUser", response[0].id)
                 console.log("It matches?!")
                 
-               
+            
             }
         })
     });
@@ -174,8 +178,10 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
         alert("Logged out!")
         console.log("Session Storage", sessionStorage);
         document.querySelector("#btnSignOut").style.display="none";
-        document.querySelector("#btnSignIn").style.display="block";
-        document.querySelector("#btnSignUp").style.display="block";
+        // document.querySelector("#btnSignIn").style.display="block";
+        // document.querySelector("#btnSignUp").style.display="block";
         document.querySelector("#welcomeMessage").innerHTML = ""
+        //    display landing
+        document.querySelector("#landingPage").style.display="block";
        
     })
