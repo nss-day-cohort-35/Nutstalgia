@@ -85,6 +85,7 @@ const taskObject = {
             <h3>date: ${task.dueDate}</h3>
             <button id="taskEdit-${task.id}">Edit</button>
             <button id="taskDelete-${task.id}">Delete</button>
+            <hr>
         </div>`
     },
     taskLoop: (taskArray) => {
