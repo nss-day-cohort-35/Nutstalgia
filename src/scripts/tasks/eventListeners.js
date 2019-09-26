@@ -14,6 +14,7 @@ const taskObject = {
     displayModal: () => {
         document.querySelector("#tasksModal").style.display = "block";
         document.querySelector("#btnCloseTasks").addEventListener("click", event => {
+            document.querySelector(".taskModalHeader").innerHTML = "New Task"
             document.querySelector("#tasksModal").style.display = "none";
             document.querySelector("#taskTitle").value = ""
             document.querySelector("#taskDetails").value = ""
@@ -82,10 +83,10 @@ const taskObject = {
     },
     taskComponent: (task) => {
         return `<div class="task-component">
-            <h2>title:  ${task.taskName}</h2>
-            <h3>description: ${task.taskDescription}</h3>
-            <h3>date created: ${task.dateCreated}</h3>
-            <h3>due date: ${task.dueDate}</h3>
+            <h2>${task.taskName}</h2>
+            <p>description: ${task.taskDescription}</p>
+            <p>date created: ${task.dateCreated}</p>
+            <p>due date: ${task.dueDate}</p>
             <button class="icon-button"id="taskEdit-${task.id}"><img class="button-icon"src="styles/img/edit.png" alt="EDIT"></button>
             <button class="icon-button"id="taskDelete-${task.id}"><img class="button-icon"src="styles/img/trash.png" alt="DELETE"></button>
         </div>`

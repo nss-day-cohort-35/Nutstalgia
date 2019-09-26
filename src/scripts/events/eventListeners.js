@@ -92,13 +92,12 @@ const loadEventEntries = () => {
 
 const createEventsHTML = eventObj => {
     return `
-    <div>
+    <div class="event-component">
     <h2>Name: ${eventObj.eventName}</h2>
     <p>Date: ${eventObj.eventDate}</p>
     <p>Location: ${eventObj.eventLocation}</p>
-    <button type="button" class="btn" id="deleteEvent--${eventObj.id}">Delete</button>
-    <button type="button" class="btn" id="editEvent--${eventObj.id}">Edit</button>
-    <hr>
+    <button type="button" class="btn icon-button" id="deleteEvent--${eventObj.id}"><img class="button-icon"src="styles/img/trash.png" alt="DELETE"></button>
+    <button type="button" class="btn icon-button" id="editEvent--${eventObj.id}"><img class="button-icon"src="styles/img/edit.png" alt="EDIT"></button>
     </div>
     `
 };

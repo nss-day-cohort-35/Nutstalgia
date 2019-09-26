@@ -151,7 +151,7 @@ const friendsObject = {
     },
     // HTML for single friend to be displayed in main container
     friendComponent: (object) => {
-        return `<div>
+        return `<div class="friend-component">
             <h3>${object.user.firstName} ${object.user.lastName} (${object.user.userName}) is your friend</h3>
             <button id="removeFriend--${object.compound}">End Friendship</button>
         </div>`

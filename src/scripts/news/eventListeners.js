@@ -100,18 +100,18 @@ const getNewsArticles = () => {
 //Entry that will Post to the DOM
 const createNewsHTML = (news) => {
     return `
-      <div class="newsPosts">
+      <div class="newsPosts news-component">
        <h2 id="title">News: ${news.newsTitle}</h2>
        <p id="synposis">${news.synopsis}</p>
        <h3 id="url">${news.url}</h3>
        <aside id="createDate">Date Created: ${news.createDate}</aside>
-       <button type="button" id="btnDeleteNews--${news.id}">
-         Delete News
-       </button>
-       <button type="button" id="btnEditNews--${news.id}">
-         Edit News
-       </button>
        <hr>
+       <button type="button" class="icon-button" id="btnDeleteNews--${news.id}">
+         <img class="button-icon"src="styles/img/trash.png" alt="DELETE">
+       </button>
+       <button type="button" class="icon-button" id="btnEditNews--${news.id}">
+        <img class="button-icon"src="styles/img/edit.png" alt="EDIT">
+       </button>
       </div>`
 }
 

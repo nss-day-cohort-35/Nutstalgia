@@ -5,6 +5,7 @@ import taskObject from "./tasks/eventListeners.js";
 import friendsObject from "./friends/eventListeners.js";
 // import friendsListObject from "./friendsList/eventListeners.js";
 import requestsObject from "./requests/eventListeners.js";
+import messagesObject from "./messages/eventListeners.js";
 
 newsObject.newsButtonClick();
 newsObject.saveNewsClick();
@@ -21,6 +22,7 @@ eventsObject.updateEvent();
 taskObject.taskListeners();
 friendsObject.friendsListeners();
 requestsObject.requestsListeners();
+messagesObject.listeners();
 // friendsListObject.listeners();
 
 /*
@@ -177,6 +179,5 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
         // document.querySelector("#btnSignUp").style.display="block";
         document.querySelector("#welcomeMessage").innerHTML = ""
         //    display landing
-        document.querySelector("#landingPage").style.display="block";
-       
+        document.querySelector("#landingPage").style.display="flex"; 
     })
