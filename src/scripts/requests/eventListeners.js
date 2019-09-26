@@ -28,7 +28,7 @@ const requestsObject = {
             if (confirmAdd) {
                 console.log("you sent a friend request to", targetID)
                 // API.getByID("users", targetID)
-                //     .then(response => 
+                //     .then(response =>
                 //         console.log(response));
                 API.saveAnything(requestsObject.jsonObject(targetID), "requests")
             }
@@ -64,7 +64,7 @@ const requestsObject = {
             document.querySelector("#mainContainer").innerHTML += requestsObject.friendComponent(friend)
         });
     },
-    
+
     jsonObject: (placeholder) => {
         return {
            userId: sessionStorage.activeUser,

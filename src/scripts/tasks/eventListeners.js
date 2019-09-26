@@ -26,7 +26,7 @@ const taskObject = {
         let mainContainer = document.querySelector("#mainContainer")
         mainContainer.innerHTML = ""
         mainContainer.innerHTML += taskObject.taskModalComponent();
-        document.querySelector("#addButtonContainer").innerHTML = "Heyyyy daily Tasks <button type='button' id='addTask'>Add Task</button>"
+        document.querySelector("#addButtonContainer").innerHTML = "<button type='button' id='addTask'>Add Task</button>"
         document.querySelector("#addTask").addEventListener("click", event => {
             taskObject.displayModal();
             taskObject.hiddenId = ""
@@ -47,7 +47,7 @@ const taskObject = {
             API.getByID("tasks", event.target.id.split("-")[1])
                 .then(response => {
                     taskObject.hiddenId = `${response.id}`
-                    document.querySelector("#btnTasksSave").innerHTML = "SAVE TASK";
+                    document.querySelector("#btnTasksSave").innerHTML = "Save Task";
                     document.querySelector("#taskTitle").value = response.taskName
                     document.querySelector("#taskDetails").value = response.taskDescription
                     document.querySelector("#taskDate").value = response.dueDate
@@ -62,7 +62,7 @@ const taskObject = {
                 <div class="modal-content">
                     <div class="modal-header">
                         <span class="closeModal" id="btnCloseTasks">&times;</span>
-                        <h2>Task Item</h2>
+                        <h2 class="taskModalHeader">Task Item</h2>
                     </div>
                     <div class="modal-body">
                         <div class="flex-container">
@@ -70,7 +70,9 @@ const taskObject = {
                             <input class="flex-input" type="text" placeholder="Write a task..." id="taskDetails">
                             <input class="flex-input" type="date" id="taskDate">
                         </div>
+                        <div class="modal-footer">
                         <button class="submit" id="btnTasksSave">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>

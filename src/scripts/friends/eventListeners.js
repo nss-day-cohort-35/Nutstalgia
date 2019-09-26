@@ -86,7 +86,7 @@ const friendsObject = {
         let mainContainer = document.querySelector("#mainContainer")
         mainContainer.innerHTML = ""
         mainContainer.innerHTML += friendsObject.requestsModalComponent();
-        document.querySelector("#addButtonContainer").innerHTML = '<input id="seeRequests" type="submit" value="Friend Requests"></input>'
+        document.querySelector("#addButtonContainer").innerHTML = "<input id='seeRequests' type='submit' value='Friend Requests'></input>"
         document.querySelector("#seeRequests").addEventListener("click", event => {
             friendsObject.displayModal();
             document.querySelector("#requestsContainer").innerHTML = ""
@@ -105,7 +105,7 @@ const friendsObject = {
                 <div class="modal-content">
                     <div class="modal-header">
                         <span class="closeModal "id="btnCloseRequests">&times;</span>
-                        <h2>Friend Requests</h2>
+                        <h2 class="requestModalHeader">Friend Requests</h2>
                     </div>
                     <div class="modal-body">
                         <div id="requestsContainer"class="flex-container">
@@ -113,14 +113,14 @@ const friendsObject = {
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             `
     },
     requestComponent: (object) => {
         return `<div>
             <h3>${object.user.firstName} ${object.user.lastName} (${object.user.userName}) wants to be friends!</h3>
-            <button id="requestAccept-${object.id}-${object.user.id}">Accept</button>
-            <button id="requestReject-${object.id}">Reject</button>
+            <button class="submit" id="requestAccept-${object.id}-${object.user.id}">Accept</button>
+            <button class="submit" id="requestReject-${object.id}">Reject</button>
         </div>`
     },
     friendComponent: (object) => {

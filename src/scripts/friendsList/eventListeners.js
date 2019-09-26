@@ -36,7 +36,7 @@ const friendsListObject = {
     //         if (confirmAdd) {
     //             console.log("you added this friend", targetID)
     //             // API.getByID("users", targetID)
-    //             //     .then(response => 
+    //             //     .then(response =>
     //             //         console.log(response));
     //             API.saveAnything(friendObject.jsonObject(targetID), "friendships")
     //         }
@@ -72,7 +72,7 @@ const friendsListObject = {
     //         document.querySelector("#mainContainer").innerHTML += friendObject.friendComponent(friend)
     //     });
     // },
-    
+
     // jsonObject: (placeholder) => {
     //     return {
     //        initiatorID: sessionStorage.activeUser,

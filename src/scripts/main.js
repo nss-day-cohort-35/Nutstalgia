@@ -155,7 +155,7 @@ document.querySelector("#btnLoginSubmit").addEventListener("click", event => {
                 alert("Password is incorrect.")
             } else if (response[0].password === loginPW) {
                 closeLoginAddModal()
-                document.querySelector("#welcomeMessage").innerHTML = `<div><h1>Welcome ${loginUser}!</h1></div>`
+                document.querySelector("#welcomeMessage").innerHTML = `<div><h1 class="loginWelcome">Welcome ${loginUser}!</h1></div>`
                 document.querySelector("#btnSignOut").style.display="block";
                 document.querySelector("#btnSignIn").style.display="none";
                 document.querySelector("#btnSignUp").style.display="none";
