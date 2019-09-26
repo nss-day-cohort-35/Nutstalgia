@@ -1,7 +1,7 @@
 /* CSS Variables */
 
 :root {
-    --button-font-color: rgb(255, 255, 255);
+    --button-font-color: #ffffff;
     --button-bg: #383838;
     --moss-green: #AFD5AA;
     --flash-white: #F0F2EF;
@@ -82,8 +82,11 @@
     height: 50px;
     margin-top: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
-  
+
   .closeModal {
     color: #ccc;
     float: right;
@@ -102,7 +105,7 @@
     text-decoration: none;
     cursor: pointer;
   }
-  
+
  /*  #btnCloseRegistrationForm:hover, #btnCloseNews:hover, #btnCloseLoginForm:hover, #btnCloseEvents:hover,#btnEditCloseEvents:hover,
   #btnCloseRegistrationForm:focus, #btnCloseNews:focus, #btnCloseLoginForm:focus, #btnCloseEvents:focus,#btnEditCloseEvents:focus, 
   #btnCloseTasks:hover, #btnCloseTasks:focus, #btnCloseRequests:focus, #btnCloseRequests:hover
@@ -131,8 +134,9 @@
   .submit{
     background-color: var(--button-bg);
     color: var( --button-font-color);
-    padding: 5px 10px;
+    padding: 5px 20px;
     font-size: 20px;
+    height: 50px;
   }
 
   .submit:hover,
@@ -154,7 +158,7 @@
     background-color: green;
     border: 2px solid #4caf50;
   }
-  
+
   #btn-save-changes {
     background-color: var(--button-bg);
     color: antiquewhite;
@@ -167,11 +171,6 @@
     border: 2px solid #4caf50;
 }
 
-h1 {
-    display: inline-block;
-    text-align: center;
-    width: 80%;
-} 
 
 /* header {
     background-color: var(--pastel-brown);
@@ -181,7 +180,7 @@ h1 {
  */
 /* nav {
     text-align: center;
-    display: inline; 
+    display: inline;
     margin: 3em;
     padding: 2em;
 } */
@@ -190,14 +189,16 @@ nav button {
     margin: 3em;
     padding: 0.5em;
     background-color: bisque;
-} 
+}
 
 img {
-    margin:25px;
-    float: center;
+    margin: 10px, 35px;
+    margin-left: 20px;
+    float: inline-end;
     border-radius: 25% 10%;
-    height: 120px;
-    width: 120px;
+    height: 75px;
+    width: 75px;
+    filter: drop-shadow(5px 0px 1.5px #3737376e);
 }
 
 /* new css */
@@ -207,14 +208,11 @@ img {
 }
 #mainContainer {
   margin-left: 275px;
-  
 }
 
 #addButtonContainer {
   margin-left: 275px;
 }
-
-
 
 header {
   height: 100%;
@@ -226,24 +224,66 @@ header {
   background-color:var(--pastel-brown);
   overflow-x: hidden;
   padding-top: 20px;
-} 
+  filter: drop-shadow(3px 0px .5px #50505029);
+}
 
- li{ 
+.appTitle {
+  display: inline-block;
+  width: 60%;
+  padding-left: .25em;
+  font-family: 'Heebo', sans-serif;
+  font-weight: lighter;
+  color: white;
+}
+
+.loginWelcome {
+  padding-left: 5px;
+  font-weight: normal;
+  font-family: 'Heebo', sans-serif;
+  font-size: 30px;
+  color: white;
+}
+
+.login-header, .newsModalHeader, .eventsModalHeader, .taskModalHeader, .requestModalHeader, .register-header {
+  font-weight: medium;
+  font-family: 'Heebo', sans-serif;
+  font-size: 30px;
+  color: white;
+}
+
+.login-userLogin {
+  font-weight: normal;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
+.friendSearch {
+  padding: 10px 10px;
+  margin: 8px;
+  max-width: 15em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+ li{
   list-style-type: none;
   padding: 10px;
   margin: 10px;
   text-align:center;
   font-size: 20px;
-  border: 1px solid #626262;
-  background:var(--button-bg);  
+  /* border: 1px solid #626262; */
+  background:var(--button-bg);
   color:white;
- font-family: 'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 
 }
 a:link {
   color: white;
   text-decoration: none;
- 
+
 }
 a:visited{
   color:white;
