@@ -93,11 +93,11 @@ const loadEventEntries = () => {
 const createEventsHTML = eventObj => {
     return `
     <div>
-    <h2>Name: ${eventObj.eventName}</h2>
-    <p>Date: ${eventObj.eventDate}</p>
-    <p>Location: ${eventObj.eventLocation}</p>
-    <button type="button" class="btn" id="deleteEvent--${eventObj.id}">Delete</button>
-    <button type="button" class="btn" id="editEvent--${eventObj.id}">Edit</button>
+    <h2 class="containerText">Name: ${eventObj.eventName}</h2>
+    <p class="containerText">Date: ${eventObj.eventDate}</p>
+    <p class="containerText">Location: ${eventObj.eventLocation}</p>
+    <button type="button" class="submit" id="deleteEvent--${eventObj.id}">Delete</button>
+    <button type="button" class="submit" id="editEvent--${eventObj.id}">Edit</button>
     <hr>
     </div>
     `
@@ -105,7 +105,7 @@ const createEventsHTML = eventObj => {
 const eventsObject = {
     eventsButtonClick: () => {
         document.querySelector("#btnEvents").addEventListener("click", () => {
-            document.querySelector("#addButtonContainer").innerHTML = "<div><button type='button' id='btnAddEvents'>Add Event</button></div>"
+            document.querySelector("#addButtonContainer").innerHTML = "<div><button type='button' class='submit' id='btnAddEvents'>Add Event</button></div>"
             loadEventEntries()
             document
                 .querySelector("#btnAddEvents")

@@ -105,10 +105,10 @@ const createNewsHTML = (news) => {
        <p id="synposis">${news.synopsis}</p>
        <h3 id="url">${news.url}</h3>
        <aside id="createDate">Date Created: ${news.createDate}</aside>
-       <button type="button" id="btnDeleteNews--${news.id}">
+       <button type="button" class="submit" id="btnDeleteNews--${news.id}">
          Delete News
        </button>
-       <button type="button" id="btnEditNews--${news.id}">
+       <button type="button" class="submit" id="btnEditNews--${news.id}">
          Edit News
        </button>
        <hr>
@@ -119,7 +119,7 @@ const newsObject = {
     newsButtonClick: () => {
         document.querySelector("#btnNews").addEventListener("click", () => {
             document.querySelector("#addButtonContainer").innerHTML =
-                "<div><button id='btnAddNews'>Add News</button></div>"
+                "<div><button class='submit' id='btnAddNews'>Add News</button></div>"
             getNewsArticles();
             document.querySelector("#btnAddNews").addEventListener("click", () => {
                 openNewsAddModal()
